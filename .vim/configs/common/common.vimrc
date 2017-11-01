@@ -39,7 +39,6 @@ set autoread
 set synmaxcol=300            " Don't try to highlight long lines"
 set scrolloff=5              " Number of rows to show in window above and below cursor
 syntax enable
-silent! colorscheme xoria256 " jellybeans
 set colorcolumn=120          " Set Color Column
 " Disable color column for some ft {{{ "
 autocmd FileType conque_term setlocal colorcolumn=
