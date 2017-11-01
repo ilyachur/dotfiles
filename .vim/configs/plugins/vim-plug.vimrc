@@ -13,6 +13,9 @@ endif
 " Syntax highlighting {{{ "
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }   " C++ highlighting
 " }}} Syntax highlighting "
+" {{{ Tests
+Plug 'alepez/vim-gtest'             " Google tests
+" }}}
 " }}} C++ "
 " C# {{{ "
 " Code Completion {{{ "
@@ -100,8 +103,8 @@ Plug 'mileszs/ack.vim'                " Run ack in vim
 " Project {{{ "
 Plug 'tpope/vim-dispatch'             " Project compiling
 if !g:isWindows && !g:isAndroid
-Plug 'LucHermitte/lh-vim-lib'         " Dependency of local_vimrc
-Plug 'LucHermitte/local_vimrc'        " Local vimrc files for projects
+    Plug 'LucHermitte/lh-vim-lib'         " Dependency of local_vimrc
+    Plug 'LucHermitte/local_vimrc'        " Local vimrc files for projects
     Plug 'editorconfig/editorconfig-vim'  " Editor configuration for a project
 endif
 " }}} Project "
@@ -162,11 +165,6 @@ if g:personalConfig == 1 || g:extendedConfig == 1
 endif
 Plug 'itchyny/calendar.vim'           " Calendar in VIM
 Plug 'vimwiki/vimwiki'                " Organize notes
-if !g:isWindows && !g:isAndroid
-    Plug 'tbabej/taskwiki'                " Taskwarior for vimwiki
-    Plug 'blindFS/vim-taskwarrior'        " TaskWarrior interface for vim
-endif
-"Plug 'Shougo/vimproc.vim', {'do' : 'make'} | Plug 'shougo/vimshell.vim'       " Vim shell
 " }}} Other "
 
 call plug#end()
