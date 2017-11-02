@@ -27,6 +27,8 @@ let s:vim_configuration_files = [
 \ 'gtest.vimrc',
 \ 'janitor.vimrc',
 \ 'rooter.vimrc',
+\ 'doxygen.vimrc',
+\ 'nerdcommenter.vimrc',
 \]
 
 for file in s:vim_configuration_files

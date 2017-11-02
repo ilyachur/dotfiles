@@ -66,9 +66,9 @@ Plug 'elzr/vim-json', { 'for': 'json' }                   " Color highlighting f
 " Code formatting {{{ "
 Plug 'rhysd/vim-clang-format'                             " Format code with specific coding style
 " }}} Code formatting "
-" {{{ Projects
+" {{{ Other
 Plug 'airblade/vim-rooter'                                " detect root folder
-" }}}
+Plug 'scrooloose/nerdcommenter'                           " Enable commentaries
 " }}}
 " }}} Programming "
 " Snippets {{{ "
@@ -173,6 +173,8 @@ endif
 Plug 'itchyny/calendar.vim'           " Calendar in VIM
 Plug 'vimwiki/vimwiki'                " Organize notes
 Plug 'kuoe0/vim-janitor'              " Clean up blank lines and spaces
+Plug 'chiphogg/vim-prototxt'          " Enable prototxt support
+Plug 'vim-scripts/DoxygenToolkit.vim' " Enable doxygen support
 " }}} Other "
 
 call plug#end()
