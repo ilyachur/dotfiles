@@ -29,6 +29,7 @@ let s:vim_configuration_files = [
 \ 'rooter.vimrc',
 \ 'doxygen.vimrc',
 \ 'nerdcommenter.vimrc',
+\ 'anyfold.vimrc',
 \]
 
 for file in s:vim_configuration_files

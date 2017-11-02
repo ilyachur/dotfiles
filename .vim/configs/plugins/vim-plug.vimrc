@@ -69,6 +69,7 @@ Plug 'rhysd/vim-clang-format'                             " Format code with spe
 " {{{ Other
 Plug 'airblade/vim-rooter'                                " detect root folder
 Plug 'scrooloose/nerdcommenter'                           " Enable commentaries
+Plug 'pseewald/vim-anyfold'                               " Enable folding"
 " }}}
 " }}} Programming "
 " Snippets {{{ "
