@@ -17,7 +17,7 @@ Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }   " C++ highlighting
 Plug 'alepez/vim-gtest'             " Google tests
 " }}}
 " {{{ Build systems
-Plug 'vhdirk/vim-cmake'
+Plug 'ilyachur/vim-cmake'
 " }}}
 " }}} C++ "
 " C# {{{ "
@@ -66,6 +66,10 @@ Plug 'elzr/vim-json', { 'for': 'json' }                   " Color highlighting f
 " Code formatting {{{ "
 Plug 'rhysd/vim-clang-format'                             " Format code with specific coding style
 " }}} Code formatting "
+" {{{ Projects
+Plug 'airblade/vim-rooter'                                " detect root folder
+" }}}
+" }}}
 " }}} Programming "
 " Snippets {{{ "
 " For working it is necessary to have python3 installed
@@ -168,6 +172,7 @@ if g:personalConfig == 1 || g:extendedConfig == 1
 endif
 Plug 'itchyny/calendar.vim'           " Calendar in VIM
 Plug 'vimwiki/vimwiki'                " Organize notes
+Plug 'kuoe0/vim-janitor'              " Clean up blank lines and spaces
 " }}} Other "
 
 call plug#end()

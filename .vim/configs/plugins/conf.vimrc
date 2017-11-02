@@ -25,6 +25,8 @@ let s:vim_configuration_files = [
 \ 'python-mode.vimrc',
 \ 'color.vimrc',
 \ 'gtest.vimrc',
+\ 'janitor.vimrc',
+\ 'rooter.vimrc',
 \]
 
 for file in s:vim_configuration_files
