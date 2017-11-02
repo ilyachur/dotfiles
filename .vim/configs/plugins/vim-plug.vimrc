@@ -6,8 +6,8 @@ call plug#begin('~/.vim/plugged')
 if !g:isAndroid
     if v:version > 704 || (v:version == 704 && has('patch1578'))     " This is a limitation of YCM
         Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer' }
-        Plug 'rdnetto/YCM-Generator', { 'branch': 'stable', 'on': [] }
     endif
+    Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 endif
 " }}} Code Completion "
 " Syntax highlighting {{{ "
@@ -15,6 +15,9 @@ Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }   " C++ highlighting
 " }}} Syntax highlighting "
 " {{{ Tests
 Plug 'alepez/vim-gtest'             " Google tests
+" }}}
+" {{{ Build systems
+Plug 'vhdirk/vim-cmake'
 " }}}
 " }}} C++ "
 " C# {{{ "
