@@ -30,6 +30,7 @@ let s:vim_configuration_files = [
 \ 'doxygen.vimrc',
 \ 'nerdcommenter.vimrc',
 \ 'anyfold.vimrc',
+\ 'hexeditor.vimrc',
 \]
 
 for file in s:vim_configuration_files

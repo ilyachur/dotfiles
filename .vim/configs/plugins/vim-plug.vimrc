@@ -175,6 +175,7 @@ Plug 'itchyny/calendar.vim'           " Calendar in VIM
 Plug 'vimwiki/vimwiki'                " Organize notes
 Plug 'kuoe0/vim-janitor'              " Clean up blank lines and spaces
 Plug 'chiphogg/vim-prototxt'          " Enable prototxt support
+Plug 'fidian/hexmode'                 " Enable HEX editor
 Plug 'vim-scripts/DoxygenToolkit.vim' " Enable doxygen support
 " }}} Other "
 
