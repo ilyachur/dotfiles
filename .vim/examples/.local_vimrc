@@ -1,0 +1,14 @@
+" Build options {{{ "
+let s:root = expand('<sfile>:h').'/'
+let &makeprg="make -C build -j8"
+"let &makeprg="cmake --build build -j8"
+
+" Cmake
+"let g:cmake_install_prefix
+let g:cmake_build_type = "Debug"
+let g:cmake_cxx_compiler = "custom_compiler"
+let g:cmake_c_compiler = "custom_compiler"
+let g:cmake_usr_args = "-DCUSTOM_ARGS=ON"
+
+" YCM config
+let g:ycm_extra_conf_globlist = ['./*']
