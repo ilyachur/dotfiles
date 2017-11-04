@@ -165,7 +165,7 @@ Plug 'yggdroot/indentline'            " Displaying thin vertical lines at each i
 Plug 'ntpeters/vim-better-whitespace' " Highlight whitespaces
 Plug 'chrisbra/Colorizer'             " A plugin to color colornames and codes
 Plug 'powerman/vim-plugin-AnsiEsc'    " Enable highlighting AnsiEsc in vim
-Plug 'rakr/vim-one'           " Color scheme
+Plug 'morhetz/gruvbox'                " Color scheme
 " }}} View "
 " Other {{{ "
 if g:personalConfig == 1 || g:extendedConfig == 1

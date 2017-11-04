@@ -1,0 +1,309 @@
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_TYPE=en_US.UTF-8
+
+export SVN_EDITOR=/usr/bin/vim
+
+export TERM=xterm-256color
+
+# Common functions {{{ #
+vimgdb() {
+    args=""
+    for arg in $@; do
+        args=$args""$arg" "
+    done
+    cmd="vim -c \"ConqueGdb -d $(pwd) --args $args\" -c \"only\" ."
+    eval $cmd
+}
+
+isAndroidOS() {
+    if [[ `uname` != 'Darwin' ]]; then
+        if [[ `uname -o` == 'Android' ]]; then
+            true
+        else
+            false
+        fi
+    else
+        false
+    fi
+}
+
+isMacOS() {
+    if [[ `uname` != 'Darwin' ]]; then
+        false
+    else
+        true
+    fi
+}
+# }}} Common functions #
+
+# Aliases {{{ #
+if ! isMacOS; then
+    alias ls='ls --color=always'
+else
+    alias ls='ls -G'
+fi
+if isAndroidOS; then
+    alias grep='grep'
+else
+    alias grep='grep --color'
+fi
+alias gitv='vim "$(git rev-parse --show-toplevel)"/.git/index -c "Gitv" -c "tabonly"'
+alias google-chrome='google-chrome --proxy-auto-detect'
+alias whatsapp='google-chrome --app=https://web.whatsapp.com/' #'/opt/google/chrome/google-chrome --app=https://web.whatsapp.com/'
+#alias vim='vim --startuptime vim.log'
+# }}} Aliases #
+
+# Setup environment {{{ #
+LOCAL_BIN=${HOME}/.bin/
+mkdir -p $LOCAL_BIN
+export PATH=$LOCAL_BIN:$PATH
+
+export RG_BIN=$LOCAL_BIN/rg
+if [ ! -f $RG_BIN ]; then
+    # Install rg
+    echo "Install rg"
+    export rg_version='0.5.2'
+    if [[ `uname` != 'Darwin' ]]; then
+        export rg_archive_name='ripgrep-0.5.2-x86_64-unknown-linux-musl'
+    else
+        export rg_archive_name='ripgrep-0.5.2-x86_64-apple-darwin'
+    fi
+    wget -O /tmp/$rg_archive_name.tar.gz https://github.com/BurntSushi/ripgrep/releases/download/$rg_version/$rg_archive_name.tar.gz
+    tar xf /tmp/$rg_archive_name.tar.gz -C /tmp
+    cp -f /tmp/$rg_archive_name/rg $RG_BIN
+fi
+# }}} Setup environment #
+
+# FZF configurations {{{ #
+
+# FZF search program. Get config from here: https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2
+# --files: List files that would be searched but do not search
+# --no-ignore: Do not respect .gitignore, etc...
+# --hidden: Search hidden files and folders
+# --follow: Follow symlinks
+# --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_OPTS='--height 30% --border'
+
+##########################################################################
+### FZF CONFIGS
+##########################################################################
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+fe() {
+  local files
+  IFS=$'\n' files=($(fzf-tmux --preview '[[ $(file --mime {}) =~ binary ]] && \
+                 echo {} is a binary file || \
+                 (highlight -O ansi -l {} || \
+                  coderay {} || \
+                  rougify {} || \
+                  cat {}) 2> /dev/null | head -500' --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+
+# fcd - including hidden directories
+fcd() {
+  local dir
+  local file
+  file=$(locate $(pwd) | fzf -e -q "$*")
+  if [ ! -d "$file" ]; then
+    file=$(dirname "$file")
+  fi
+  cd "$file"
+}
+
+# fcdh - cd from home
+fcdh() {
+  local dir
+  local file
+  file=$(locate ~ | fzf -e -q "$*")
+  if [ ! -d "$file" ]; then
+    file=$(dirname "$file")
+  fi
+  cd "$file"
+}
+
+# fcdr - cd to directory from root
+fcdr() {
+  local dir
+  local file
+  file=$(locate / | fzf -e -q "$*")
+  if [ ! -d "$file" ]; then
+    file=$(dirname "$file")
+  fi
+  cd "$file"
+}
+
+# fk - kill process
+fk() {
+  local pid
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi
+}
+
+# Check if you in git repository
+is_in_git_repo() {
+  git rev-parse HEAD > /dev/null 2>&1
+}
+
+# Show current git status with diff
+gdiff() {
+  is_in_git_repo || return
+  git -c color.status=always status --short |
+  fzf -m --ansi --nth 2..,.. \
+    --preview '(git diff --color=always -- {-1} | sed 1,4d; cat {-1}) | head -500' |
+  cut -c4- | sed 's/.* -> //'
+}
+
+# gcol - checkout git branch (locals)
+gcol() {
+  is_in_git_repo || return
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | grep -v '/HEAD\s' | fzf +m --ansi --multi --tac --preview-window right:50% \
+    --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -'$LINES |
+  sed 's/^..//' | cut -d' ' -f1 |
+  sed 's#^remotes/##') &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+# gcor - checkout git branch (including remote branches)
+gcor() {
+  is_in_git_repo || return
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m --ansi --multi --tac --preview-window right:50% \
+    --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -'$LINES |
+  sed 's/^..//' | cut -d' ' -f1 |
+  sed 's#^remotes/##') &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+# gcort - checkout remote git branch with track option (including remote branches)
+gcort() {
+  is_in_git_repo || return
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m --ansi --multi --tac --preview-window right:50% \
+    --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -'$LINES |
+  sed 's/^..//' | cut -d' ' -f1 |
+  sed 's#^remotes/##') &&
+  git checkout --track $(echo "$branch" | sed "s/.* //")
+}
+
+# gcot - checkout git branch/tag
+gcot() {
+  is_in_git_repo || return
+  local tags branches target
+  tags=$(git tag --sort -version:refname) || return
+  branches=$(
+    git branch --all | grep -v HEAD             |
+    sed "s/.* //"    | sed "s#remotes/[^/]*/##" |
+    sort -u          | awk '{print "\x1b[34;1mbranch\x1b[m\t" $1}') || return
+  target=$(
+    (echo "$tags"; echo "$branches") |
+    fzf-tmux -- --no-hscroll --ansi +m --multi --preview-window right:70% \
+    --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" {} | head -'$LINES -d "\t" -n 2) || return
+  git checkout $(echo "$target" | awk '{print $2}')
+}
+
+# gcoc - checkout git commit
+gcoc() {
+  is_in_git_repo || return
+  local commits commit
+  commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
+  commit=$(echo "$commits" | fzf --tac +s +m -e --multi --preview-window right:50% \
+    --preview 'git show --color=always $(sed "s/ .*//" <<< {}) | head -'$LINES) &&
+  git checkout $(echo "$commit" | sed "s/ .*//")
+}
+
+# gdlb - delete local branch
+gdlb() {
+  is_in_git_repo || return
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf +m --ansi --multi --tac --preview-window right:50% \
+    --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -'$LINES |
+  sed 's/^..//' | cut -d' ' -f1 |
+  sed 's#^remotes/##') &&
+  git branch -D $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
+
+# gdrb - delete remote branch
+gdrb() {
+  is_in_git_repo || return
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m --ansi --multi --tac --preview-window right:50% \
+    --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -'$LINES |
+  sed 's/^..//' | cut -d' ' -f1 |
+  sed 's#^remotes/##') &&
+  git push origin --delete $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
+
+# gshow - git commit browser
+gshow() {
+  is_in_git_repo || return
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+      --bind "ctrl-m:execute:
+                (grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+                {}
+FZF-EOF" \
+    --preview 'grep -o "[a-f0-9]\{7,\}" <<< {} | xargs git show --color=always | head -'$LINES
+}
+
+# tm - connect to tmux session
+tm() {
+  local session
+  session=$(tmux list-sessions -F "#{session_name}" | \
+    fzf --query="$1" --select-1 --exit-0) &&
+    tmux attach-session -t "$session" || echo "No tmux sessions"
+}
+
+# tk - kill tmux session
+tk() {
+  local session
+  session=$(tmux list-sessions -F "#{session_name}" | \
+    fzf --query="$1" --exit-0) &&
+    tmux kill-session -t "$session" || echo "No tmux sessions"
+}
+
+# gitvl - Show local branch in gitv
+gitvl() {
+  is_in_git_repo || return
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | grep -v '/HEAD\s' | fzf +m --ansi --multi --tac --preview-window right:50% \
+    --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -'$LINES |
+  sed 's/^..//' | cut -d' ' -f1 |
+  sed 's#^remotes/##') &&
+  vim "$(git rev-parse --show-toplevel)"/.git/index -c "Gitv "$(echo "$branch" | awk '{print $1}' | sed "s/.* //") -c "tabonly"
+}
+
+# gitvr - Show remote branch in gitv
+gitvr() {
+  is_in_git_repo || return
+  local branches branch
+  branches=$(git branch --all | grep -v HEAD) &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m --ansi --multi --tac --preview-window right:50% \
+    --preview 'git log --oneline --graph --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -'$LINES |
+  sed 's/^..//' | cut -d' ' -f1 |
+  sed 's#^remotes/##') &&
+  vim "$(git rev-parse --show-toplevel)"/.git/index -c "Gitv "$(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##") -c "tabonly"
+}
+# }}} FZF configurations #
+

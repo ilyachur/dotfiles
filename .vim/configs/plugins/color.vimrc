@@ -1,4 +1,7 @@
-let g:airline_theme='one'
-silent colorscheme one
-" set background=dark " for the dark version
-set background=light " for the light version"
+set background=dark " for the dark version
+
+let g:gruvbox_contrast_dark='soft'
+let g:gruvbox_color_column='red'
+let g:gruvbox_improved_strings=1
+let g:gruvbox_improved_warnings=1
+colorscheme gruvbox
