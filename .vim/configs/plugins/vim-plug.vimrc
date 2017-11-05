@@ -17,7 +17,7 @@ Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }   " C++ highlighting
 Plug 'alepez/vim-gtest'             " Google tests
 " }}}
 " {{{ Build systems
-Plug 'ilyachur/vim-cmake'
+Plug 'ilyachur/cmake4vim'
 " }}}
 " }}} C++ "
 " C# {{{ "
