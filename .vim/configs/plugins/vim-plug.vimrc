@@ -168,9 +168,6 @@ Plug 'powerman/vim-plugin-AnsiEsc'    " Enable highlighting AnsiEsc in vim
 Plug 'morhetz/gruvbox'                " Color scheme
 " }}} View "
 " Other {{{ "
-if g:personalConfig == 1 || g:extendedConfig == 1
-    Plug 'wakatime/vim-wakatime'          " Time tracking
-endif
 Plug 'itchyny/calendar.vim'           " Calendar in VIM
 Plug 'vimwiki/vimwiki'                " Organize notes
 Plug 'kuoe0/vim-janitor'              " Clean up blank lines and spaces
