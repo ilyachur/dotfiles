@@ -177,6 +177,7 @@ Plug 'kuoe0/vim-janitor'              " Clean up blank lines and spaces
 Plug 'chiphogg/vim-prototxt'          " Enable prototxt support
 Plug 'fidian/hexmode'                 " Enable HEX editor
 Plug 'vim-scripts/DoxygenToolkit.vim' " Enable doxygen support
+Plug 'skywind3000/quickmenu.vim'      " Quickmenu for launch configurations
 " }}} Other "
 
 call plug#end()

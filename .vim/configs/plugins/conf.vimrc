@@ -31,6 +31,7 @@ let s:vim_configuration_files = [
 \ 'nerdcommenter.vimrc',
 \ 'anyfold.vimrc',
 \ 'hexeditor.vimrc',
+\ 'quickmenu.vimrc',
 \]
 
 for file in s:vim_configuration_files
