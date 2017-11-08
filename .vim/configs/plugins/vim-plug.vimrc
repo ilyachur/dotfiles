@@ -103,6 +103,7 @@ Plug 'airblade/vim-gitgutter'            " Extencion for git
 Plug 'gregsexton/gitv', {'on': ['Gitv']} " Gitk for vim
 Plug 'tpope/vim-git'                     " git syntax highlight
 Plug 'rhysd/committia.vim'               " extended commit message
+Plug 'christoomey/vim-conflicted'        " conflict resolving for git
 " }}} Git "
 " Search {{{ "
 Plug 'osyo-manga/vim-over'            " Replace highlighter

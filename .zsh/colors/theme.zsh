@@ -45,27 +45,8 @@ ZSH_THEME_GIT_PROMPT_AHEAD="%{$FG[077]%}%{↑%G%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{…%G%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{✔%G%}"
 #  }}} Git #
-#  VIM mode {{{ #
-vim_ins_mode="%{$fg[yellow]%}[INS]%{$reset_color%}"
-vim_cmd_mode="%{$fg[cyan]%}[CMD]%{$reset_color%}"
-vim_mode=$vim_ins_mode
-
-function zle-line-init zle-keymap-select {
-    vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
-    zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
-
-function zle-line-finish {
-    vim_mode=$vim_ins_mode
-    zle reset-prompt
-}
-zle -N zle-line-finish
-#  }}} VIM mode #
 #  }}} COLORS & CUSTOMIZATION #zaza
 
 PROMPT='%(?..%F{red}%U${(l:COLUMNS-1:: :)?} %u)' # Error status
 PROMPT+='%{$PROMPT_COMMON_COLOR%}%n@%m%{$reset_color%}:%{$PROMPT_COMMON_COLOR%}%c%{$reset_color%}' # name@hostname:path
 PROMPT+='$(git_super_status) %{$PROMPT_PROMPT%}ᐅ%{$reset_color%} ' # git status
-RPROMPT='${vim_mode} %D{%d %b %Y} %T' # See man page strftime(3) for more details.
