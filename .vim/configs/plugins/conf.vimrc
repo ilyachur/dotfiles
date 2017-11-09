@@ -32,6 +32,8 @@ let s:vim_configuration_files = [
 \ 'anyfold.vimrc',
 \ 'hexeditor.vimrc',
 \ 'quickmenu.vimrc',
+\ 'ale.vimrc',
+\ 'a.vimrc',
 \]
 
 for file in s:vim_configuration_files

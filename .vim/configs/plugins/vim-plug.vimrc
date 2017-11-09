@@ -19,6 +19,9 @@ Plug 'alepez/vim-gtest'             " Google tests
 " {{{ Build systems
 Plug 'ilyachur/cmake4vim'
 " }}}
+" Navigation {{{ "
+Plug 'vim-scripts/a.vim'                    " Switch to header
+" }}} Navigation "
 " }}} C++ "
 " C# {{{ "
 " Code Completion {{{ "
@@ -136,7 +139,7 @@ if v:version > 704 || (v:version == 704 && has('patch248'))     " systemlist fun
     Plug 'chrisbra/vim-diff-enhanced' " Diff viewer
 endif
 Plug 'mhinz/vim-startify'             " Nice start screen
-Plug 'vim-syntastic/syntastic'        " Syntax checking plugin
+Plug 'w0rp/ale'                       " Syntax checking plugin
 Plug 'will133/vim-dirdiff'            " Dir diff viewer
 Plug 'jiangmiao/auto-pairs'           " Add auto-pairs
 Plug 'tpope/vim-unimpaired'           " Fast navigation
