@@ -36,7 +36,10 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}%{✔%G%}"
 #  }}} Git #
 #  }}} COLORS & CUSTOMIZATION #zaza
 
+#  }}} COLORS & CUSTOMIZATION #
+#  PROMPT {{{ #
 PROMPT='%(?..%F{red}%U${(l:COLUMNS-1:: :)?} %u)' # Error status
 PROMPT+='%{$PROMPT_COMMON_COLOR%}%n@%m%{$reset_color%}:%{$PROMPT_COMMON_COLOR%}%c%{$reset_color%} ' # name@hostname:path
 PROMPT+='$(git_info) ' # git status
 PROMPT+='%{$PROMPT_PROMPT%}ᐅ%{$reset_color%} ' # git status
+#  }}} PROMPT #
