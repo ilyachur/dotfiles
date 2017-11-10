@@ -1,8 +1,8 @@
 " Leader key mapping {{{ "
 " Map leader key to custom
-" let mapleader=","
+let mapleader=","
 " \ works instead of ,
-" noremap \ ,
+noremap \ ,
 " }}} Leader key mapping "
 " Movement {{{ "
 inoremap <C-h> <LEFT>
