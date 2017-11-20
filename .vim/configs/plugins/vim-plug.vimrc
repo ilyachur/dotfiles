@@ -11,7 +11,7 @@ if !g:isAndroid
 endif
 " }}} Code Completion "
 " Syntax highlighting {{{ "
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }   " C++ highlighting
+" Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }   " C++ highlighting
 " }}} Syntax highlighting "
 " {{{ Tests
 Plug 'alepez/vim-gtest'             " Google tests
@@ -165,6 +165,7 @@ if !g:isAndroid
 endif
 " }}} Common "
 " View {{{ "
+Plug 'vim-scripts/LargeFile'          " Enable big files support for vim
 Plug 'yggdroot/indentline'            " Displaying thin vertical lines at each indentation level
 Plug 'ntpeters/vim-better-whitespace' " Highlight whitespaces
 Plug 'chrisbra/Colorizer'             " A plugin to color colornames and codes

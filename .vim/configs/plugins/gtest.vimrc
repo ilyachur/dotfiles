@@ -10,3 +10,4 @@ augroup GTest
 	autocmd FileType cpp nnoremap <silent> <leader>tj :GTestJump<CR>
 	autocmd FileType cpp nnoremap          <leader>ti :GTestNewTest<CR>i
 augroup END
+:let g:gtest#highlight_failing_tests = 1
