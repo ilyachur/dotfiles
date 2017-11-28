@@ -12,7 +12,6 @@ let s:vim_configuration_files = [
 \ 'gitv.vimrc',
 \ 'indentline.vimrc',
 \ 'easygrep.vimrc',
-\ 'vim-xkbswitch.vimrc',
 \ 'vimwiki.vimrc',
 \ 'local_vimrc.vimrc',
 \ 'fzf.vimrc',

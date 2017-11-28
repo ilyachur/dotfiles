@@ -11,7 +11,7 @@ if !g:isAndroid
 endif
 " }}} Code Completion "
 " Syntax highlighting {{{ "
-" Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }   " C++ highlighting
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }   " C++ highlighting
 " }}} Syntax highlighting "
 " {{{ Tests
 Plug 'alepez/vim-gtest'             " Google tests
@@ -149,20 +149,6 @@ Plug 'easymotion/vim-easymotion'      " Easy motion in files
 Plug 'EinfachToll/DidYouMean'         " Make a suggestion which file did you want to open
 Plug 'farmergreg/vim-lastplace'       " Intelligently reopen files at your last edit position
 Plug 'qpkorr/vim-renamer'             " Rename list of files
-if !g:isAndroid
-    Plug 'lyokha/vim-xkbswitch'           " Automatically switch keyboard layout to English in normal mode
-    " Dependency of vim-xkbswitch {{{ "
-    if g:isLinux
-        Plug 'ierton/xkb-switch', { 'do': 'mkdir build && cd build && cmake .. -DCMAKE_INSTALL_PREFIX:PATH=../install && make && make install' }
-    endif
-    if g:isMac
-        Plug 'vovkasm/input-source-switcher', { 'do': 'mkdir build && cd build && cmake .. -DCMAKE_INSTALL_PREFIX:PATH=../install && make && make install' }
-    endif
-    if g:isWindows
-        Plug 'DeXP/xkb-switch-win'
-    endif
-    " }}} Dependency of vim-xkbswitch "
-endif
 " }}} Common "
 " View {{{ "
 Plug 'vim-scripts/LargeFile'          " Enable big files support for vim
