@@ -1,4 +1,5 @@
 .vim/plugged
 .vim/undodir
 .vim/.netrwhist
-
+.tmux/plugins
+!.tmux/plugins/tpm
