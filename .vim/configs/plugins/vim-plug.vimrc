@@ -102,6 +102,7 @@ endif
 " }}} Tmux "
 " Git {{{ "
 Plug 'tpope/vim-fugitive'                " Git plugin
+Plug 'junegunn/gv.vim'                   " Git commit browser
 Plug 'airblade/vim-gitgutter'            " Extencion for git
 Plug 'gregsexton/gitv', {'on': ['Gitv']} " Gitk for vim
 Plug 'tpope/vim-git'                     " git syntax highlight
