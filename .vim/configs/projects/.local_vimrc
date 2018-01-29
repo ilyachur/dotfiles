@@ -1,0 +1,32 @@
+" Build options {{{ "
+let s:root = expand('<sfile>:h').'/'
+"let &makeprg="cmake --build build -j8"
+
+" Cmake
+"let g:cmake_install_prefix
+let g:cmake_build_type = "Debug"
+let g:cmake_cxx_compiler = "/usr/local/Cellar/llvm@3.9/3.9.1_1/bin/clang++"
+let g:cmake_c_compiler = "/usr/local/Cellar/llvm@3.9/3.9.1_1/bin/clang"
+" Create link on <build_folder>/compile_commands.json to <root_folder>/compile_commands.json
+let g:cmake_usr_args = "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DUSER_ARGS=ON"
+let g:make_arguments = "-j8"
+
+" find alternatives
+let g:alternateSearchPath = 'sfr:./include,sfr:./src'
+
+" find custim code checks
+let g:ale_cpp_cpplint_executable = './local/cpplint.py'
+let g:ale_cpp_cpplint_options = '--linelength=160 --counting=detailed --filter="-readability/fn_size,-runtime/explicit"'
+
+" clear all the items
+call g:quickmenu#reset()
+
+call g:quickmenu#header('Project name')
+
+call g:quickmenu#append('# Run', '')
+
+call g:quickmenu#append('Sample', '!./bin/sample args ...', 'Run sample')
+
+call g:quickmenu#append('# Debug', '')
+
+call g:quickmenu#append('Sample', 'ConqueGdb -d '.s:root.'bin/Debug —args ./bin/Debug/sample args ...', 'Debug sample')

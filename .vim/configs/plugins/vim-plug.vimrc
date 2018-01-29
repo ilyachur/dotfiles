@@ -5,9 +5,9 @@
 " Code Completion {{{ "
 if !g:isAndroid
     if v:version > 704 || (v:version == 704 && has('patch1578'))     " This is a limitation of YCM
-"        Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer' }
+       Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer' }
     endif
-"    Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+   Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 endif
 " }}} Code Completion "
 " Syntax highlighting {{{ "
@@ -20,7 +20,7 @@ Plug 'alepez/vim-gtest'             " Google tests
 Plug 'ilyachur/cmake4vim'
 " }}}
 " Navigation {{{ "
-" Plug 'vim-scripts/a.vim'                    " Switch to header
+Plug 'vim-scripts/a.vim'                    " Switch to header
 " }}} Navigation "
 " }}} C++ "
 " " C# {{{ "
@@ -100,7 +100,7 @@ Plug 'osyo-manga/vim-over'            " Replace highlighter
 Plug 'mileszs/ack.vim'                " Run ack in vim
 " }}} Search "
 " Project {{{ "
-" Plug 'tpope/vim-dispatch'             " Project compiling
+Plug 'tpope/vim-dispatch'             " Project compiling
 if !g:isWindows && !g:isAndroid
     Plug 'LucHermitte/lh-vim-lib'         " Dependency of local_vimrc
     Plug 'LucHermitte/local_vimrc'        " Local vimrc files for projects
@@ -115,7 +115,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTree' } | Plug 'Xuyuanp/nerdtree-git-p
 " Text manipulation {{{ "
 " Plug 'wellle/targets.vim'             " Add various text objects to VIM
 Plug 'terryma/vim-multiple-cursors'   " Plugin for multiple cursors
-" Plug 'tmhedberg/matchit'              " Extend behavior of %
+Plug 'tmhedberg/matchit'              " Extend behavior of %
 " Plug 'tpope/vim-repeat'               " Extend behavior of .
 " Plug 'tpope/vim-surround'             " Work with surroundings in pairs.
 " Plug 'junegunn/vim-easy-align'        " Vim alignment plugin
@@ -126,7 +126,7 @@ if v:version > 704 || (v:version == 704 && has('patch248'))     " systemlist fun
     Plug 'chrisbra/vim-diff-enhanced' " Diff viewer
 endif
 Plug 'mhinz/vim-startify'             " Nice start screen
-" Plug 'w0rp/ale'                       " Syntax checking plugin
+Plug 'w0rp/ale'                       " Syntax checking plugin
 Plug 'will133/vim-dirdiff'            " Dir diff viewer
 " Plug 'jiangmiao/auto-pairs'           " Add auto-pairs
 " Plug 'tpope/vim-unimpaired'           " Fast navigation
@@ -139,7 +139,7 @@ Plug 'farmergreg/vim-lastplace'       " Intelligently reopen files at your last 
 " }}} Common "
 " View {{{ "
 Plug 'vim-scripts/LargeFile'          " Enable big files support for vim
-" Plug 'yggdroot/indentline'            " Displaying thin vertical lines at each indentation level
+Plug 'yggdroot/indentline'            " Displaying thin vertical lines at each indentation level
 " Plug 'ntpeters/vim-better-whitespace' " Highlight whitespaces
 " Plug 'chrisbra/Colorizer'             " A plugin to color colornames and codes
 " Plug 'powerman/vim-plugin-AnsiEsc'    " Enable highlighting AnsiEsc in vim
@@ -152,7 +152,7 @@ Plug 'morhetz/gruvbox'                " Color scheme
 Plug 'chiphogg/vim-prototxt'          " Enable prototxt support
 " Plug 'fidian/hexmode'                 " Enable HEX editor
 " Plug 'vim-scripts/DoxygenToolkit.vim' " Enable doxygen support
-" Plug 'skywind3000/quickmenu.vim'      " Quickmenu for launch configurations
+Plug 'skywind3000/quickmenu.vim'      " Quickmenu for launch configurations
 " }}} Other "
 
 call plug#end()
