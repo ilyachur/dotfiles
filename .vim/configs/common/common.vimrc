@@ -133,4 +133,7 @@ if !g:isWindows
     silent !mkdir ~/.vim/undodir > /dev/null 2>&1
     set undodir=~/.vim/undodir     " Directory for saving undo files
 endif
+
+" Rename for tmux
+autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%"))
 " }}} Other "
