@@ -93,7 +93,7 @@ Plug 'airblade/vim-gitgutter'            " Extencion for git
 " Plug 'gregsexton/gitv', {'on': ['Gitv']} " Gitk for vim
 " Plug 'tpope/vim-git'                     " git syntax highlight
 Plug 'rhysd/committia.vim'               " extended commit message
-" Plug 'christoomey/vim-conflicted'        " conflict resolving for git
+Plug 'idanarye/vim-merginal'             " a nice inteface for dealing with Git branches
 " " }}} Git "
 " Search {{{ "
 Plug 'osyo-manga/vim-over'            " Replace highlighter
@@ -153,6 +153,7 @@ Plug 'chiphogg/vim-prototxt'          " Enable prototxt support
 " Plug 'fidian/hexmode'                 " Enable HEX editor
 " Plug 'vim-scripts/DoxygenToolkit.vim' " Enable doxygen support
 Plug 'skywind3000/quickmenu.vim'      " Quickmenu for launch configurations
+Plug 'manasthakur/vim-sessionist'       " Vim sessions
 " }}} Other "
 
 call plug#end()
