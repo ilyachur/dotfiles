@@ -63,7 +63,7 @@ endif
 " }}} Tmux "
 " Git {{{ "
 Plug 'tpope/vim-fugitive'                " Git plugin
-Plug 'junegunn/gv.vim'                   " Git commit browser
+Plug 'gregsexton/gitv', {'on': ['Gitv']} " Gitk for vim
 Plug 'airblade/vim-gitgutter'            " Extencion for git
 Plug 'rhysd/committia.vim'               " extended commit message
 Plug 'idanarye/vim-merginal'             " a nice inteface for dealing with Git branches
@@ -71,6 +71,7 @@ Plug 'idanarye/vim-merginal'             " a nice inteface for dealing with Git 
 " Search {{{ "
 Plug 'osyo-manga/vim-over'            " Replace highlighter
 Plug 'mileszs/ack.vim'                " Run ack in vim
+Plug 'romainl/vim-qf', { 'for': 'qf' } " Tame the quickfix window
 " }}} Search "
 " Project {{{ "
 Plug 'tpope/vim-dispatch'             " Project compiling
@@ -88,6 +89,7 @@ Plug 'tpope/vim-vinegar'              " vinegar.vim enhances netrw
 Plug 'wellle/targets.vim'             " Add various text objects to VIM
 Plug 'terryma/vim-multiple-cursors'   " Plugin for multiple cursors
 Plug 'tmhedberg/matchit'              " Extend behavior of %
+Plug 'machakann/vim-multiselect'      " A library plugin to handle multiple visual selections
 " }}} Text manipulation "
 " Common {{{ "
 if v:version > 704 || (v:version == 704 && has('patch248'))     " systemlist function was added in patch 248
@@ -100,6 +102,7 @@ Plug 'majutsushi/tagbar'              " Tagbar
 Plug 'zefei/vim-wintabs'              " Separate tabs for windows
 Plug 'zefei/vim-wintabs-powerline'
 Plug 'farmergreg/vim-lastplace'       " Intelligently reopen files at your last edit position
+Plug 'vim-scripts/netrw.vim'          " Remote file editing
 " }}} Common "
 " View {{{ "
 Plug 'vim-scripts/LargeFile'          " Enable big files support for vim
@@ -111,7 +114,8 @@ Plug 'itchyny/calendar.vim'           " Calendar in VIM
 Plug 'chiphogg/vim-prototxt'          " Enable prototxt support
 Plug 'vim-scripts/DoxygenToolkit.vim' " Enable doxygen support
 Plug 'skywind3000/quickmenu.vim'      " Quickmenu for launch configurations
-Plug 'manasthakur/vim-sessionist'       " Vim sessions
+Plug 'manasthakur/vim-sessionist'     " Vim sessions
+Plug 'bogado/file-line'               " For open file:line
 " }}} Other "
 
 call plug#end()
