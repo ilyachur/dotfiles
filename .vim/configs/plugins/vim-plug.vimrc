@@ -41,6 +41,7 @@ Plug 'elzr/vim-json', { 'for': 'json' }                   " Color highlighting f
 " }}} Json "
 " {{{ Other
 Plug 'scrooloose/nerdcommenter'                           " Enable commentaries
+Plug 'bbchung/clighter8'                                  " Refactorin
 " }}}
 " }}} Programming "
 " Snippets {{{ "
@@ -73,6 +74,7 @@ Plug 'idanarye/vim-merginal'             " a nice inteface for dealing with Git 
 " Search {{{ "
 Plug 'osyo-manga/vim-over'            " Replace highlighter
 Plug 'mileszs/ack.vim'                " Run ack in vim
+Plug 'dkprice/vim-easygrep'             " Run grep
 Plug 'romainl/vim-qf', { 'for': 'qf' } " Tame the quickfix window
 " }}} Search "
 " Project {{{ "
