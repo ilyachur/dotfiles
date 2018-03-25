@@ -11,7 +11,7 @@ let s:vim_configuration_files = [
 \ 'calendar.vimrc',
 \ 'gitv.vimrc',
 \ 'indentline.vimrc',
-\ 'easygrep.vimrc',
+\ 'esearch.vimrc',
 \ 'local_vimrc.vimrc',
 \ 'fzf.vimrc',
 \ 'startify.vimrc',

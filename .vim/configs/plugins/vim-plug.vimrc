@@ -72,10 +72,10 @@ Plug 'rhysd/committia.vim'               " extended commit message
 Plug 'idanarye/vim-merginal'             " a nice inteface for dealing with Git branches
 " }}} Git "
 " Search {{{ "
-Plug 'osyo-manga/vim-over'            " Replace highlighter
-Plug 'mileszs/ack.vim'                " Run ack in vim
-Plug 'dkprice/vim-easygrep'             " Run grep
-Plug 'romainl/vim-qf', { 'for': 'qf' } " Tame the quickfix window
+Plug 'osyo-manga/vim-over'              " Replace highlighter
+Plug 'mileszs/ack.vim'                  " Run ack in vim
+Plug 'eugen0329/vim-esearch'            " Fast search and replace
+Plug 'romainl/vim-qf', { 'for': 'qf' }  " Tame the quickfix window
 " }}} Search "
 " Project {{{ "
 Plug 'tpope/vim-dispatch'             " Project compiling
