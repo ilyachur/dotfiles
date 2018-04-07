@@ -7,7 +7,7 @@ if !g:isAndroid
     if v:version > 704 || (v:version == 704 && has('patch1578'))     " This is a limitation of YCM
        Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer' }
     endif
-   Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+    Plug 'tenfyzhong/CompleteParameter.vim'
 endif
 " }}} Code Completion "
 " Syntax highlighting {{{ "
