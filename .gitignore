@@ -5,4 +5,4 @@
 .tmux/plugins
 !.tmux/plugins/tpm
 .tmux/resurrect/
-
+.emacs.d/elpa
