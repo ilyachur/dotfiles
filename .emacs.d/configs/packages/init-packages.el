@@ -14,16 +14,16 @@
                              evil                ;; Vim mode
                              evil-leader
                              evil-collection
-	      evil-nerd-commenter
-	      linum-relative
-	      magit               ;; work with git
+                             evil-nerd-commenter
+                             linum-relative
+                             magit               ;; work with git
                              cmake-ide           ;; Cmake build support
-	      cmake-mode
-	      editorconfig        ;; Editorconfig support
-	      neotree             ;; like NERDTree file explorer
-	      gruvbox-theme       ;; Color theme
-;;	      helm helm-core helm-ctest helm-ls-git
-	      flycheck
+                             cmake-mode
+                             editorconfig        ;; Editorconfig support
+                             neotree             ;; like NERDTree file explorer
+                             gruvbox-theme       ;; Color theme
+                             ;;	      helm helm-core helm-ctest helm-ls-git
+                             flycheck
                              ztree
               ))
 

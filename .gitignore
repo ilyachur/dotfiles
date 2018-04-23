@@ -6,3 +6,5 @@
 !.tmux/plugins/tpm
 .tmux/resurrect/
 .emacs.d/elpa
+.emacs.d/places
+.emacs.d/history
