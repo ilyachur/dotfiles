@@ -12,18 +12,24 @@
 ;;; add necessary packages
 (defconst packages-list '(
                              evil                ;; Vim mode
+                             evil-mc
                              evil-leader
                              evil-collection
                              evil-nerd-commenter
                              linum-relative
-                             magit               ;; work with git
+                             magit               ;; work with git hav
                              cmake-ide           ;; Cmake build support
                              cmake-mode
                              editorconfig        ;; Editorconfig support
                              neotree             ;; like NERDTree file explorer
                              gruvbox-theme       ;; Color theme
-                             ;;	      helm helm-core helm-ctest helm-ls-git
                              flycheck
+                             tabbar
+                             tabbar-ruler
+                             powerline
+                             fzf                 ;; fzf frontend
+                             rg
+                             wgrep
                              ztree
               ))
 
@@ -40,6 +46,8 @@
 
 ;;(require 'init-helm)
 (require 'init-evil)
+(require 'init-fzf)
 (require 'init-editorconfig)
+(require 'init-view)
 
 (provide 'init-packages)
