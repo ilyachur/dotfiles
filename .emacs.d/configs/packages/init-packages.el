@@ -11,12 +11,8 @@
 
 ;;; add necessary packages
 (defconst packages-list '(
-                             evil                ;; Vim mode
-                             evil-mc
-                             evil-leader
-                             evil-collection
-                             evil-nerd-commenter
-                             linum-relative
+                             helm
+                             helm-make
                              magit               ;; work with git hav
                              cmake-ide           ;; Cmake build support
                              cmake-mode
@@ -29,8 +25,15 @@
                              powerline
                              fzf                 ;; fzf frontend
                              rg
+                             rtags
                              wgrep
                              ztree
+                             evil                ;; Vim mode
+                             evil-mc
+                             evil-leader
+                             evil-collection
+                             evil-nerd-commenter
+                             linum-relative
               ))
 
 (defun install-packages ()
@@ -44,7 +47,8 @@
 
 (install-packages)
 
-;;(require 'init-helm)
+(require 'init-helm)
+(require 'init-cmake)
 (require 'init-evil)
 (require 'init-fzf)
 (require 'init-editorconfig)

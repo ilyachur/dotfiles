@@ -21,6 +21,7 @@
 (setq scroll-step 1)
 (setq scroll-margin 5)
 (setq scroll-conservatively 10000)
+(setq compilation-scroll-output t)
 
 ;; Clipboard settings
 (setq x-select-enable-clipboard t)

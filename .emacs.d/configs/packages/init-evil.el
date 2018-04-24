@@ -1,8 +1,8 @@
 (setq evil-want-integration nil)
 (require 'evil)
+(when (require 'evil-collection nil t)
+  (evil-collection-init))
 (evil-mode)
-(require 'evil-collection)
-(evil-collection-init)
 
 (require 'evil-leader)
 (global-evil-leader-mode)
