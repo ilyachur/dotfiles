@@ -7,4 +7,5 @@
 .tmux/resurrect/
 .emacs.d/elpa
 .emacs.d/places
+.emacs.d/bookmarks
 .emacs.d/history

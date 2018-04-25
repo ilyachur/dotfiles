@@ -34,6 +34,9 @@
                              evil-collection
                              evil-nerd-commenter
                              linum-relative
+
+                             ;; Go to
+                             dumb-jump
               ))
 
 (defun install-packages ()
@@ -49,6 +52,7 @@
 
 (require 'init-helm)
 (require 'init-cmake)
+(require 'init-rtags)
 (require 'init-evil)
 (require 'init-fzf)
 (require 'init-editorconfig)

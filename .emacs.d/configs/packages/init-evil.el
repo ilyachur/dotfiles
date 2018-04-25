@@ -8,6 +8,11 @@
 (global-evil-leader-mode)
 (evil-leader/set-leader ",")
 
+(defun kill-current-buf ()
+  "Starts a fzf session at the root of the current git."
+  (interactive)
+  (kill-buffer nil))
+
 (evil-leader/set-key
     "ci" 'evilnc-comment-or-uncomment-lines
     "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
@@ -20,6 +25,7 @@
     "\\" 'evilnc-comment-operator ; if you prefer backslash key
 
     "f" 'fzf-git
+    "q" 'kill-current-buf
 )
 
 ;; lines like vim style
