@@ -1,8 +1,10 @@
-(use-package gruvbox-theme)
+(use-package gruvbox-theme
+    :config
+    (load-theme 'gruvbox-dark-soft t))
 ;; (require 'tabbar-ruler)
-;; 
+;;
 ;; (require 'tabbar)
-;; 
+;;
 ;; (tabbar-mode 1)
 ;; (setq tabbar-ruler-global-tabbar t)     ; If you want tabbar
 ;; (setq tabbar-ruler-global-ruler t)      ; if you want a global ruler
