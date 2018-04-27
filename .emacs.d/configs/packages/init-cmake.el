@@ -1,13 +1,13 @@
 (require 'rtags)
 
-(add-hook 'c-mode-hook 'rtags-start-process-unless-running)
-(add-hook 'c++-mode-hook 'rtags-start-process-unless-running)
-(add-hook 'objc-mode-hook 'rtags-start-process-unless-running)
+(use-package cmake-mode
+    :mode (("CMakeLists\\.txt\\'" . cmake-mode)
+              ("\\.cmake\\'" . cmake-mode))
+    :init (setq cmake-tab-width 4))
 
-(lambda nil
-           (with-helm-default-directory
-               (cmake-ide--get-build-dir)
-               (call-interactively 'helm-make)))
-(cmake-ide-setup)
+(use-package cmake-ide
+    :after rtags
+    :config
+    (cmake-ide-setup))
 
 (provide 'init-cmake)
