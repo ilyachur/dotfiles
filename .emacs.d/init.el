@@ -30,6 +30,7 @@
 (require 'init-caffe)
 (require 'init-cmake)
 (require 'init-common)
+(require 'init-diff)
 (require 'init-programming)
 (require 'init-editorconfig)
 (require 'init-evil)
@@ -48,7 +49,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-	(magit-blame magit use-package rtags linum-relative helm gruvbox-theme fzf evil-nerd-commenter evil-mc evil-leader evil-collection editorconfig cmake-mode cmake-ide))))
+	(ecb magit-blame magit use-package rtags linum-relative helm gruvbox-theme fzf evil-nerd-commenter evil-mc evil-leader evil-collection editorconfig cmake-mode cmake-ide))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

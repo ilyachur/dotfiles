@@ -10,6 +10,7 @@
     :ensure t
     :init
     (setq evil-want-integration nil)
+    (setq evil-want-C-u-scroll t)
     :config
     (evil-mode 1))
 

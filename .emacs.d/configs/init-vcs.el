@@ -3,6 +3,14 @@
 (use-package magit
     :ensure t)
 
+(use-package vdiff-magit
+    :ensure t
+    :after (magit vdiff)
+    :bind (:map magit-mode-map
+              ("e" . vdiff-magit-dwim)
+              ("E" . vdiff-magit-popup)))
+
+
 ;; (use-package magit-blame
 ;;     :after magit)
 (use-package git-gutter
