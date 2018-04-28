@@ -54,4 +54,7 @@
 (use-package evil-mc
     :after evil)
 
+(use-package evil-magit
+    :after (evil magit))
+
 (provide 'init-evil)

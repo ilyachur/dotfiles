@@ -26,14 +26,15 @@
 
 (add-to-list 'load-path "~/.emacs.d/configs")
 
+(require 'init-helm)
 (require 'init-caffe)
 (require 'init-cmake)
 (require 'init-common)
+(require 'init-programming)
 (require 'init-editorconfig)
 (require 'init-evil)
 (require 'init-file-explorer)
 (require 'init-fzf)
-(require 'init-helm)
 (require 'init-mouse)
 (require 'init-packages)
 (require 'init-rtags)
