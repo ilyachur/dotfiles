@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (defun kill-current-buf ()
   "Starts a fzf session at the root of the current git."
   (interactive)

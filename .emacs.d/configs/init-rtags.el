@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (use-package rtags
     :config
     (setq rtags-autostart-diagnostics t)

@@ -1,3 +1,28 @@
+;; Disable backup/autosave files
+(setq make-backup-files        nil)
+(setq auto-save-default        nil)
+(setq auto-save-list-file-name nil)
+
+;;; make all "yes or no" prompts show "y or n" instead
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; System-type definition
+(defun system-is-linux()
+    (string-equal system-type "gnu/linux"))
+(defun system-is-windows()
+    (string-equal system-type "windows-nt"))
+
+;; Start Emacs as a server
+(when (system-is-linux)
+    (require 'server)
+    (unless (server-running-p)
+        (server-start)))
+
+;; Disable menu bar
+(menu-bar-mode -1)
+(tooltip-mode      -1)
+(tool-bar-mode     -1) ;; disable tool-bar
+
 ;; Show-paren-mode settings
 (show-paren-mode t)
 (setq show-paren-style 'expression)
@@ -36,8 +61,8 @@
 ;; remember cursor position
 (if (version< emacs-version "25.0")
     (progn
-      (require 'saveplace)
-      (setq-default save-place t))
-  (save-place-mode 1))
+        (require 'saveplace)
+        (setq-default save-place t))
+    (save-place-mode 1))
 
 (provide 'init-common)

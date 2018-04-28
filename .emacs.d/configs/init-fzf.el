@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (use-package fzf
     :config
     (setq fzf/window-height 10)

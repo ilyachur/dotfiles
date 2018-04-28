@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (setq caffe-mode-highlights
     '(("#+.*" . font-lock-comment-face)
          ("'.*'" . font-lock-string-face)
