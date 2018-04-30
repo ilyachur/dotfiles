@@ -26,7 +26,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/configs")
 
-(require 'init-helm)
+;; (require 'init-helm)
 (require 'init-caffe)
 (require 'init-cmake)
 (require 'init-common)
@@ -37,8 +37,10 @@
 (require 'init-file-explorer)
 (require 'init-fzf)
 (require 'init-mouse)
+(require 'init-org)
 (require 'init-packages)
 (require 'init-rtags)
+(require 'init-search)
 (require 'init-vcs)
 (require 'init-view)
 
@@ -49,7 +51,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-	(ecb magit-blame magit use-package rtags linum-relative helm gruvbox-theme fzf evil-nerd-commenter evil-mc evil-leader evil-collection editorconfig cmake-mode cmake-ide))))
+    (ecb magit-blame magit use-package rtags linum-relative helm gruvbox-theme fzf evil-nerd-commenter evil-mc evil-leader evil-collection editorconfig cmake-mode cmake-ide))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

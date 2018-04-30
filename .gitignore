@@ -9,3 +9,5 @@
 .emacs.d/places
 .emacs.d/bookmarks
 .emacs.d/history
+.emacs.d/org-clock-save.el
+.emacs.d/smex-items

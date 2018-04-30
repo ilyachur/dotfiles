@@ -6,13 +6,17 @@
   (kill-buffer nil))
 
 (use-package evil
-    :after helm
+    ;; :after helm
     :ensure t
     :init
     (setq evil-want-integration nil)
     (setq evil-want-C-u-scroll t)
     :config
-    (evil-mode 1))
+    (evil-mode 1)
+    (define-key evil-normal-state-map (kbd "C-k") 'evil-window-decrease-height)
+    (define-key evil-normal-state-map (kbd "C-j") 'evil-window-increase-height)
+    (define-key evil-normal-state-map (kbd "C-h") 'evil-window-decrease-width)
+    (define-key evil-normal-state-map (kbd "C-l") 'evil-window-increase-width))
 
 (use-package evil-collection
     :after evil
@@ -27,6 +31,7 @@
     (global-evil-leader-mode)
     (evil-leader/set-leader ",")
     (evil-leader/set-key
+        "b" 'ido-switch-buffer
         "ci" 'evilnc-comment-or-uncomment-lines
         "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
         "ll" 'evilnc-quick-comment-or-uncomment-to-the-line

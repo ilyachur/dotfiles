@@ -38,6 +38,7 @@
 (savehist-mode 1)
 
 ;; Indent settings
+(setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq-default c-basic-offset 4)
 (setq-default standart-indent 4)
