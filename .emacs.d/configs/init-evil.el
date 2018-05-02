@@ -42,7 +42,8 @@
         "."  'evilnc-copy-and-comment-operator
         "\\" 'evilnc-comment-operator ; if you prefer backslash key
 
-        "f" 'fzf-git
+        "ft" 'rg
+        "ff" 'projectile-find-file
         "q" 'kill-current-buf
     ))
 
@@ -58,7 +59,9 @@
     :after evil)
 
 (use-package evil-mc
-    :after evil)
+    :after evil
+    :config
+    (global-evil-mc-mode  1))
 
 (use-package evil-magit
     :after (evil magit))

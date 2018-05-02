@@ -30,7 +30,6 @@
     :ensure t)
 
 ;; (require 'init-helm)
-(require 'init-caffe)
 (require 'init-cmake)
 (require 'init-common)
 (require 'init-diff)
@@ -39,10 +38,8 @@
 (require 'init-evil)
 (require 'init-file-explorer)
 (require 'init-file-types)
-(require 'init-fzf)
 (require 'init-mouse)
 (require 'init-org)
-(require 'init-packages)
 (require 'init-rtags)
 (require 'init-search)
 (require 'init-vcs)
