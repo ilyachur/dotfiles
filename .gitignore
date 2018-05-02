@@ -11,3 +11,5 @@
 .emacs.d/history
 .emacs.d/org-clock-save.el
 .emacs.d/smex-items
+.emacs.d/projectile-bookmarks.eld
+.emacs.d/recentf

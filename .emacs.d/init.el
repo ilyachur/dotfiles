@@ -26,6 +26,9 @@
 
 (add-to-list 'load-path "~/.emacs.d/configs")
 
+(use-package use-package-ensure-system-package
+    :ensure t)
+
 ;; (require 'init-helm)
 (require 'init-caffe)
 (require 'init-cmake)
@@ -35,6 +38,7 @@
 (require 'init-editorconfig)
 (require 'init-evil)
 (require 'init-file-explorer)
+(require 'init-file-types)
 (require 'init-fzf)
 (require 'init-mouse)
 (require 'init-org)
@@ -49,9 +53,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-agenda-files nil)
  '(package-selected-packages
    (quote
-    (ecb magit-blame magit use-package rtags linum-relative helm gruvbox-theme fzf evil-nerd-commenter evil-mc evil-leader evil-collection editorconfig cmake-mode cmake-ide))))
+    (ecb magit-blame magit use-package rtags linum-relative helm gruvbox-theme fzf evil-nerd-commenter evil-mc evil-leader evil-collection editorconfig cmake-mode cmake-ide)))
+ '(swiper-action-recenter t t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

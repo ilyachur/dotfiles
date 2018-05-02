@@ -63,4 +63,11 @@
 (use-package evil-magit
     :after (evil magit))
 
+(use-package evil-ediff
+    :after evil)
+
+;; (use-package evil-markdown
+;;     :after (evil markdown-mode)
+;;     :ensure t)
+
 (provide 'init-evil)
