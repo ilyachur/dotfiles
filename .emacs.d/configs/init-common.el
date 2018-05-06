@@ -51,6 +51,9 @@
 
 ;; Clipboard settings
 (setq x-select-enable-clipboard t)
+(setq select-enable-primary t)
+(setq select-enable-clipboard t)
+(setq save-interprogram-paste-before-kill t)
 
 (setq next-line-add-newlines nil)
 (setq require-final-newline nil)

@@ -29,7 +29,7 @@
 (use-package use-package-ensure-system-package
     :ensure t)
 
-;; (require 'init-helm)
+(require 'init-helm)
 (require 'init-cmake)
 (require 'init-common)
 (require 'init-diff)

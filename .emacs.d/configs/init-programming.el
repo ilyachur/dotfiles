@@ -66,6 +66,14 @@
     :after flycheck
     :config (flycheck-ycmd-setup))
 
+(use-package origami
+    :ensure t
+    :config
+    (global-origami-mode 1))
+
 (use-package disaster)
+
+(use-package realgud
+    :ensure t)
 
 (provide 'init-programming)

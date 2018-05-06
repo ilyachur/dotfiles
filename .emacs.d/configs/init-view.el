@@ -1,3 +1,5 @@
+(require 'use-package)
+
 (use-package gruvbox-theme
     :config
     (load-theme 'gruvbox-dark-soft t))

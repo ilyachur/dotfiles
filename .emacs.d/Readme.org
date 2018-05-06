@@ -1,0 +1,11 @@
+* Emacs config
+
+** Introduction
+
+In a first run you should to build ycmd server.
+
+** Plans
+*** TODO debugger
+*** TODO vdiff highlights
+*** TODO ztree + vdiff
+*** TODO configs to org mode
