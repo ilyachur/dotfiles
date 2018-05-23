@@ -13,7 +13,7 @@ let s:vim_configuration_files = [
 \ 'indentline.vimrc',
 \ 'esearch.vimrc',
 \ 'local_vimrc.vimrc',
-\ 'fzf.vimrc',
+\ 'ctrlp.vimrc',
 \ 'startify.vimrc',
 \ 'vim-cpp-enhanced-highlight.vimrc',
 \ 'ack.vimrc',

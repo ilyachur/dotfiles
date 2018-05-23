@@ -54,16 +54,6 @@ Plug 'bbchung/clighter8'                                  " Refactorin
 " On Windows you have to have the same architecture (32 or 64 bits) versions of vim and python
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'   " Snippets.
 " }}} Snippets "
-" Fuzzy Finder {{{ "
-" Plugin outside ~/.vim/plugged with post-update hook
-" On windows download binaries from the github
-if !g:isWindows
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-else
-    Plug 'junegunn/fzf'
-endif
-Plug 'junegunn/fzf.vim'
-" }}} Fuzzy Finder "
 " Tmux {{{ "
 if !g:isWindows
     Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -81,6 +71,9 @@ Plug 'osyo-manga/vim-over'              " Replace highlighter
 Plug 'mileszs/ack.vim'                  " Run ack in vim
 Plug 'eugen0329/vim-esearch'            " Fast search and replace
 Plug 'romainl/vim-qf', { 'for': 'qf' }  " Tame the quickfix window
+Plug 'ctrlpvim/ctrlp.vim'               " FZF for vim
+Plug 'sgur/ctrlp-extensions.vim'
+Plug 'tacahiroy/ctrlp-ssh'
 " }}} Search "
 " Project {{{ "
 Plug 'tpope/vim-dispatch'             " Project compiling
@@ -109,7 +102,7 @@ Plug 'w0rp/ale'                       " Syntax checking plugin
 Plug 'will133/vim-dirdiff'            " Dir diff viewer
 Plug 'majutsushi/tagbar'              " Tagbar
 Plug 'zefei/vim-wintabs'              " Separate tabs for windows
-Plug 'zefei/vim-wintabs-powerline'
+" Plug 'zefei/vim-wintabs-powerline'
 Plug 'farmergreg/vim-lastplace'       " Intelligently reopen files at your last edit position
 Plug 'vim-scripts/netrw.vim'          " Remote file editing
 " }}} Common "

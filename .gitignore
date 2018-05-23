@@ -2,6 +2,7 @@
 .vim/plugged
 .vim/undodir
 .vim/.netrwhist
+.vim/spell
 .tmux/plugins
 !.tmux/plugins/tpm
 .tmux/resurrect/
