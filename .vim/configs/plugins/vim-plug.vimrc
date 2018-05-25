@@ -12,6 +12,7 @@ endif
 " }}} Code Completion "
 " Syntax highlighting {{{ "
 " Plug 'octol/vim-cpp-enhanced-highlight'
+" Plug 'bbchung/clighter8'                                  " Refactoring
 " }}} Syntax highlighting "
 " {{{ Tests
 Plug 'alepez/vim-gtest'             " Google tests
@@ -20,7 +21,9 @@ Plug 'alepez/vim-gtest'             " Google tests
 Plug 'ilyachur/cmake4vim'
 " }}}
 " Navigation {{{ "
-Plug 'vim-scripts/a.vim'                    " Switch to header
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'skywind3000/gutentags_plus'
+Plug 'vim-scripts/a.vim'                                " Switch to header
 " }}} Navigation "
 " }}} C++ "
 " Python {{{ "
@@ -45,8 +48,7 @@ Plug 'iamcco/markdown-preview.vim'         " Markdown preview plugin
 Plug 'mzlogin/vim-markdown-toc'            " Generate TOC in markdown
 " }}}
 " {{{ Other
-Plug 'scrooloose/nerdcommenter'                           " Enable commentaries
-Plug 'bbchung/clighter8'                                  " Refactorin
+Plug 'scrooloose/nerdcommenter'                         " Enable commentaries
 " }}}
 " }}} Programming "
 " Snippets {{{ "

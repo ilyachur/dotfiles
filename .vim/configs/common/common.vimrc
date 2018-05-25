@@ -135,7 +135,4 @@ if !g:isWindows
 endif
 
 set lazyredraw          " Don’t update screen during macro and script execution.
-
-" Rename for tmux
-autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%"))
 " }}} Other "
