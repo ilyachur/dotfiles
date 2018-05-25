@@ -30,16 +30,16 @@ set cindent
 set smartindent
 " }}} Tab size
 " View settings {{{ "
-set rnu                      " Relative numbers
-set nu                       " Show numbers
-set cursorline               " Highlight current line
+set rnu                         " Relative numbers
+set nu                          " Show numbers
+set cursorline                  " Highlight current line
 set showcmd
 set linebreak
-set autoread
-set synmaxcol=300            " Don't try to highlight long lines"
-set scrolloff=5              " Number of rows to show in window above and below cursor
+set autoread                    " Automatically re-read files if unmodified inside Vim.
+set synmaxcol=300               " Don't try to highlight long lines"
+set scrolloff=5                 " Number of rows to show in window above and below cursor
 syntax enable
-set colorcolumn=120          " Set Color Column
+set colorcolumn=120             " Set Color Column
 " Disable color column for some ft {{{ "
 autocmd FileType conque_term setlocal colorcolumn=
 autocmd FileType gitv setlocal colorcolumn=
@@ -133,6 +133,8 @@ if !g:isWindows
     silent !mkdir ~/.vim/undodir > /dev/null 2>&1
     set undodir=~/.vim/undodir     " Directory for saving undo files
 endif
+
+set lazyredraw          " Don’t update screen during macro and script execution.
 
 " Rename for tmux
 autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%"))
