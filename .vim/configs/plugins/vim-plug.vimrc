@@ -90,10 +90,11 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTree' } | Plug 'Xuyuanp/nerdtree-git-p
 Plug 'tpope/vim-vinegar'              " vinegar.vim enhances netrw
 " }}} File Tree "
 " Text manipulation {{{ "
-Plug 'wellle/targets.vim'             " Add various text objects to VIM
-Plug 'terryma/vim-multiple-cursors'   " Plugin for multiple cursors
-Plug 'tmhedberg/matchit'              " Extend behavior of %
-Plug 'machakann/vim-multiselect'      " A library plugin to handle multiple visual selections
+Plug 'wellle/targets.vim'               " Add various text objects to VIM
+Plug 'terryma/vim-multiple-cursors'     " Plugin for multiple cursors
+Plug 'tmhedberg/matchit'                " Extend behavior of %
+Plug 'machakann/vim-multiselect'        " A library plugin to handle multiple visual selections
+Plug 'mbbill/undotree'                  " The ultimate undo history visualizer for VIM
 " }}} Text manipulation "
 " Common {{{ "
 if v:version > 704 || (v:version == 704 && has('patch248'))     " systemlist function was added in patch 248
@@ -120,6 +121,12 @@ Plug 'vim-scripts/DoxygenToolkit.vim' " Enable doxygen support
 Plug 'skywind3000/quickmenu.vim'      " Quickmenu for launch configurations
 Plug 'manasthakur/vim-sessionist'     " Vim sessions
 Plug 'bogado/file-line'               " For open file:line
+
+" Install plugin for translate if translate shell exists
+" https://www.soimort.org/translate-shell/
+if executable('trans')
+    Plug 'echuraev/translate-shell.vim'
+endif
 " }}} Other "
 
 call plug#end()
