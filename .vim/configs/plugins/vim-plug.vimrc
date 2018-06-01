@@ -95,6 +95,7 @@ Plug 'terryma/vim-multiple-cursors'     " Plugin for multiple cursors
 Plug 'tmhedberg/matchit'                " Extend behavior of %
 Plug 'machakann/vim-multiselect'        " A library plugin to handle multiple visual selections
 Plug 'mbbill/undotree'                  " The ultimate undo history visualizer for VIM
+Plug 'jiangmiao/auto-pairs'             " Vim plugin, insert or delete brackets, parens, quotes in pair
 " }}} Text manipulation "
 " Common {{{ "
 if v:version > 704 || (v:version == 704 && has('patch248'))     " systemlist function was added in patch 248
