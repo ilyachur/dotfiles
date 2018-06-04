@@ -1,5 +1,6 @@
 if has('win32')
     set runtimepath+=~/.vim
+	set encoding=utf-8
 endif
 
 set nocompatible
