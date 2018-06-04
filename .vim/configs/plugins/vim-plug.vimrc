@@ -49,6 +49,11 @@ Plug 'mzlogin/vim-markdown-toc'            " Generate TOC in markdown
 " }}}
 " {{{ Other
 Plug 'scrooloose/nerdcommenter'                         " Enable commentaries
+
+if executable('cscope') && executable('ctags') && executable('codequery')
+    Plug 'Shougo/unite.vim'                                 " It is necessary for vim-codequery
+    Plug 'devjoe/vim-codequery'                             " Vim plugin is built on top of the great tool CodeQuery
+endif
 " }}}
 " }}} Programming "
 " Snippets {{{ "
@@ -86,7 +91,8 @@ if !g:isWindows && !g:isAndroid
 endif
 " }}} Project "
 " File Tree {{{ "
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTree' } | Plug 'Xuyuanp/nerdtree-git-plugin' " | Plug 'jistr/vim-nerdtree-tabs', { 'on': 'NERDTreeTabsToggle' }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTree' }
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-vinegar'              " vinegar.vim enhances netrw
 " }}} File Tree "
 " Text manipulation {{{ "
@@ -123,10 +129,8 @@ Plug 'skywind3000/quickmenu.vim'      " Quickmenu for launch configurations
 Plug 'manasthakur/vim-sessionist'     " Vim sessions
 Plug 'bogado/file-line'               " For open file:line
 
-" Install plugin for translate if translate shell exists
-" https://www.soimort.org/translate-shell/
-if executable('trans')
-    Plug 'echuraev/translate-shell.vim'
+if !g:isWindows
+    Plug 'echuraev/translate-shell.vim', { 'do': 'wget -O ~/.vim/trans git.io/trans && chmod +x ~/.vim/trans'  }
 endif
 " }}} Other "
 

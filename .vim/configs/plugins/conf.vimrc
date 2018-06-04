@@ -26,6 +26,7 @@ let s:vim_configuration_files = [
 \ 'quickmenu.vimrc',
 \ 'ale.vimrc',
 \ 'a.vimrc',
+\ 'translate.vimrc',
 \]
 
 for file in s:vim_configuration_files
