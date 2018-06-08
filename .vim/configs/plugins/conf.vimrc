@@ -17,7 +17,7 @@ let s:vim_configuration_files = [
 \ 'startify.vimrc',
 \ 'vim-cpp-enhanced-highlight.vimrc',
 \ 'ack.vimrc',
-\ 'conquegdb.vimrc',
+\ 'debuger.vimrc',
 \ 'python-mode.vimrc',
 \ 'color.vimrc',
 \ 'gtest.vimrc',

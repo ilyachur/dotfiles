@@ -34,7 +34,6 @@ Plug 'python-mode/python-mode', { 'for': 'python' }
 " }}} Python "
 " Debugging {{{ "
 if !g:isWindows && !g:isAndroid
-    Plug 'echuraev/Conque-GDB', { 'on': 'ConqueGdb' }         " Conque GDB
     Plug 'Shougo/vimproc.vim', {'do' : 'make'}
     Plug 'idanarye/vim-vebugger', { 'branch': 'develop' }
 endif

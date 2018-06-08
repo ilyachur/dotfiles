@@ -49,11 +49,6 @@ nmap <leader>P k:r ~/.vim/.glob_buf<CR>
 " Compile key mapping {{{ "
 nnoremap <F5> :Dispatch<CR>
 " }}} Compile key mapping "
-" Project menu {{{ "
-" For more information see: ~/.vim/configs/projects/projects_menu.vimrc
-set wcm=<Tab>
-nmap <leader>n :emenu Projects.<Tab>
-" }}} Project menu "
 " Reload vim configuration {{{ "
 nnoremap <leader>rs :source ~/.vimrc<CR>
 " }}} Reload vim configuration "
