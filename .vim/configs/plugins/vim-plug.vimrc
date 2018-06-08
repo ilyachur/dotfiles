@@ -21,8 +21,6 @@ Plug 'alepez/vim-gtest'             " Google tests
 Plug 'ilyachur/cmake4vim'
 " }}}
 " Navigation {{{ "
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'skywind3000/gutentags_plus'
 Plug 'vim-scripts/a.vim'                                " Switch to header
 " }}} Navigation "
 " }}} C++ "
@@ -52,6 +50,10 @@ Plug 'scrooloose/nerdcommenter'                         " Enable commentaries
 if executable('cscope') && executable('ctags') && executable('codequery')
     Plug 'Shougo/unite.vim'                                 " It is necessary for vim-codequery
     Plug 'devjoe/vim-codequery'                             " Vim plugin is built on top of the great tool CodeQuery
+endif
+
+if executable('rdm')
+    Plug 'lyuts/vim-rtags'                            " Rtags support
 endif
 " }}}
 " }}} Programming "
