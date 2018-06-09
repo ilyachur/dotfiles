@@ -40,9 +40,7 @@ endif
 Plug 'elzr/vim-json', { 'for': 'json' }                   " Color highlighting for json
 " }}} Json "
 " {{{ Markdown
-Plug 'plasticboy/vim-markdown'             " Common plugin for markdown
 Plug 'iamcco/markdown-preview.vim'         " Markdown preview plugin
-Plug 'mzlogin/vim-markdown-toc'            " Generate TOC in markdown
 " }}}
 " {{{ Other
 Plug 'scrooloose/nerdcommenter'                         " Enable commentaries

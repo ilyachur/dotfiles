@@ -13,7 +13,7 @@ vimgdb() {
     for arg in $@; do
         args=$args""$arg" "
     done
-    cmd="vim -c \"ConqueGdb -d $(pwd) --args $args\" -c \"only\" ."
+    cmd="vim -c \"VBGstartGDB $args\" -c \"only\" ."
     eval $cmd
 }
 
