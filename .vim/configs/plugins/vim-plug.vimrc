@@ -12,7 +12,6 @@ endif
 " }}} Code Completion "
 " Syntax highlighting {{{ "
 " Plug 'octol/vim-cpp-enhanced-highlight'
-" Plug 'bbchung/clighter8'                                  " Refactoring
 " }}} Syntax highlighting "
 " {{{ Tests
 Plug 'alepez/vim-gtest'             " Google tests

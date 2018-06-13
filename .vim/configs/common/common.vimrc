@@ -32,7 +32,8 @@ set smartindent
 " View settings {{{ "
 set rnu                         " Relative numbers
 set nu                          " Show numbers
-set cursorline                  " Highlight current line
+" Will make screen redrawing slower.
+" set cursorline                  " Highlight current line
 set showcmd
 set linebreak
 set autoread                    " Automatically re-read files if unmodified inside Vim.
