@@ -44,11 +44,6 @@ Plug 'iamcco/markdown-preview.vim'         " Markdown preview plugin
 " {{{ Other
 Plug 'scrooloose/nerdcommenter'                         " Enable commentaries
 
-if executable('cscope') && executable('ctags') && executable('codequery')
-    Plug 'Shougo/unite.vim'                                 " It is necessary for vim-codequery
-    Plug 'devjoe/vim-codequery'                             " Vim plugin is built on top of the great tool CodeQuery
-endif
-
 if executable('rdm')
     Plug 'lyuts/vim-rtags'                            " Rtags support
 endif

@@ -135,5 +135,6 @@ if !g:isWindows
     set undodir=~/.vim/undodir     " Directory for saving undo files
 endif
 
+set re=1                " force the old regex engine on any version newer (it helped to resolve performance with syntax highlighting)
 set lazyredraw          " Don’t update screen during macro and script execution.
 " }}} Other "
