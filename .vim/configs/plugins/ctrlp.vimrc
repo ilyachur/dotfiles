@@ -16,7 +16,9 @@ if executable('rg')
     let g:ctrlp_use_caching = 0
 endif
 
-nnoremap <silent> <leader>f :CtrlPRoot<CR>
+let g:ctrlp_match_window = 'results:100'
+
+nnoremap <silent> <leader>f :CtrlPCurWD<CR>
 nnoremap <silent> <leader>fs :CtrlPSSH<CR>
 nnoremap <silent> <leader>b :CtrlPBuffer<CR>
 nnoremap <silent> <leader>h :CtrlPMRU<CR>
