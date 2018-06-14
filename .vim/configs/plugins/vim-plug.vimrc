@@ -11,7 +11,7 @@ if !g:isAndroid
 endif
 " }}} Code Completion "
 " Syntax highlighting {{{ "
-" Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'octol/vim-cpp-enhanced-highlight'
 " }}} Syntax highlighting "
 " {{{ Tests
 Plug 'alepez/vim-gtest'             " Google tests
