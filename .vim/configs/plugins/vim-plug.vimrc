@@ -24,9 +24,6 @@ Plug 'vim-scripts/a.vim'                                " Switch to header
 " }}} Navigation "
 " }}} C++ "
 " Python {{{ "
-" Code Completion {{{ "
-" It provides by YCM. See C++ code completion.
-" }}} Code Completion "
 Plug 'python-mode/python-mode', { 'for': 'python' }
 " }}} Python "
 " Debugging {{{ "
@@ -44,8 +41,12 @@ Plug 'iamcco/markdown-preview.vim'         " Markdown preview plugin
 " {{{ Other
 Plug 'scrooloose/nerdcommenter'                         " Enable commentaries
 
+if executable('ctags') || executable('cscope') || executable('gtags')
+    Plug 'ludovicchabant/vim-gutentags'                 " Ctags support
+endif
+
 if executable('rdm')
-    Plug 'lyuts/vim-rtags'                            " Rtags support
+    Plug 'lyuts/vim-rtags'                              " Rtags support
 endif
 " }}}
 " }}} Programming "
