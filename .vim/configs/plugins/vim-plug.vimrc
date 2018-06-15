@@ -21,6 +21,8 @@ Plug 'ilyachur/cmake4vim'
 " }}}
 " Navigation {{{ "
 Plug 'vim-scripts/a.vim'                                " Switch to header
+Plug 'LucHermitte/lh-vim-lib'                           " Dependency of local_vimrc and vim fold for cpp
+Plug 'LucHermitte/VimFold4C'                            " Folding for cpp
 " }}} Navigation "
 " }}} C++ "
 " Python {{{ "
@@ -79,7 +81,6 @@ Plug 'tacahiroy/ctrlp-ssh'
 " Project {{{ "
 Plug 'tpope/vim-dispatch'             " Project compiling
 if !g:isWindows && !g:isAndroid
-    Plug 'LucHermitte/lh-vim-lib'         " Dependency of local_vimrc
     Plug 'LucHermitte/local_vimrc'        " Local vimrc files for projects
     Plug 'editorconfig/editorconfig-vim'  " Editor configuration for a project
 endif
