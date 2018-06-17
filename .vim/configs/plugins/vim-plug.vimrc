@@ -112,17 +112,17 @@ Plug 'farmergreg/vim-lastplace'       " Intelligently reopen files at your last 
 Plug 'vim-scripts/netrw.vim'          " Remote file editing
 " }}} Common "
 " View {{{ "
-Plug 'vim-scripts/LargeFile'          " Enable big files support for vim
-Plug 'yggdroot/indentline'            " Displaying thin vertical lines at each indentation level
-Plug 'morhetz/gruvbox'                " Color scheme
+Plug 'vim-scripts/LargeFile'            " Enable big files support for vim
+Plug 'yggdroot/indentline'              " Displaying thin vertical lines at each indentation level
+Plug 'morhetz/gruvbox'                  " Color scheme
 " }}} View "
 " Other {{{ "
-Plug 'itchyny/calendar.vim'           " Calendar in VIM
-Plug 'chiphogg/vim-prototxt'          " Enable prototxt support
-Plug 'vim-scripts/DoxygenToolkit.vim' " Enable doxygen support
-Plug 'skywind3000/quickmenu.vim'      " Quickmenu for launch configurations
-Plug 'manasthakur/vim-sessionist'     " Vim sessions
-Plug 'bogado/file-line'               " For open file:line
+Plug 'itchyny/calendar.vim'             " Calendar in VIM
+Plug 'chiphogg/vim-prototxt'            " Enable prototxt support
+Plug 'vim-scripts/DoxygenToolkit.vim'   " Enable doxygen support
+Plug 'skywind3000/quickmenu.vim'        " Quickmenu for launch configurations
+Plug 'manasthakur/vim-sessionist'       " Vim sessions
+Plug 'bogado/file-line'                 " For open file:line
 
 if !g:isWindows
     Plug 'echuraev/translate-shell.vim', { 'do': 'wget -O ~/.vim/trans git.io/trans && chmod +x ~/.vim/trans'  }
