@@ -22,7 +22,7 @@ Plug 'ilyachur/cmake4vim'
 " Navigation {{{ "
 Plug 'vim-scripts/a.vim'                                " Switch to header
 Plug 'LucHermitte/lh-vim-lib'                           " Dependency of local_vimrc and vim fold for cpp
-Plug 'LucHermitte/VimFold4C'                            " Folding for cpp
+" Plug 'LucHermitte/VimFold4C'                            " Folding for cpp
 " }}} Navigation "
 " }}} C++ "
 " Python {{{ "
