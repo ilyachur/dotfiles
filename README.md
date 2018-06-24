@@ -23,6 +23,7 @@ I use reprep for search, it is really nice! For more information see [here](http
 ### RTags
 
 I use [Rtags](https://github.com/Andersbakken/rtags) instead of ctags it has a good integration with vim and emacs and it is really cool!
+It depends on libclang-dev and llvm.
 
 ### FZF
 

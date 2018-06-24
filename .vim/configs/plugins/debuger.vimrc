@@ -1,5 +1,8 @@
 " let g:vebugger_leader='<Leader>d'
 
+let g:vebugger_view_source_cmd='edit'
+let g:vebugger_use_tags=1
+
 " set custom vebugger key bindings
 nnoremap <silent> <leader>ds :VBGstepIn<CR>
 nnoremap <silent> <leader>dn :VBGstepOver<CR>

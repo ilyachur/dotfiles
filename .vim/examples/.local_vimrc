@@ -9,26 +9,29 @@ let g:cmake_cxx_compiler = "custom_compiler"
 let g:cmake_c_compiler = "custom_compiler"
 let g:cmake_usr_args = "-DCUSTOM_ARGS=ON"
 let g:make_arguments = "-j8"
+let g:cmake_reload_after_save = 1
+" Create link on <build_folder>/compile_commands.json to <root_folder>/compile_commands.json
 
 " find alternatives
-let g:alternateSearchPath = 'sfr:path,sfr:anothe_path'
+let g:alternateSearchPath = 'sfr:./include,sfr:./src/'
 
 " find custim code checks
 let g:ale_cpp_cpplint_executable = './scripts/cpplint.py'
 let g:ale_cpp_cpplint_options = '--linelength=160 --counting=detailed --filter="-readability/fn_size,-runtime/explicit"'
 
-" YCM config
-let g:ycm_extra_conf_globlist = ['./*']
-
 " clear all the items
 call g:quickmenu#reset()
 
-call g:quickmenu#header(“TEST Project”)
+call g:quickmenu#header('Test app')
 
 call g:quickmenu#append('# Run', '')
 
-call g:quickmenu#append(‘Example’, ‘!./bin/app_with_args -a ss -c bb’, ‘Run example’)
+call g:quickmenu#append('Stack overrun', '!./bin/'.g:cmake_build_type.'/stack_overrun "Hello world!"', 'Run stack overrun')
 
 call g:quickmenu#append('# Debug', '')
 
-call g:quickmenu#append(‘Example’, ‘ConqueGdb -d '.s:root.’bin/ —args ./bin/app_with_args -a ss -c bb’, ‘Debug example’)
+call g:quickmenu#append('GDB Stack overrun', 'VBGstartGDB ./bin/'.g:cmake_build_type.'/stack_overrun "Hello world!"', 'Debug application with gdb')
+" Fix for lldb args
+call g:quickmenu#append('LLDB Stack overrun', 'call vebugger#lldb#start("./bin/'.g:cmake_build_type.'/stack_overrun", {"args": ["Hello world!"]})', 'Debug application with gdb')
+
+
