@@ -65,7 +65,7 @@ endif
 " Git {{{ "
 Plug 'tpope/vim-fugitive'                " Git plugin
 Plug 'gregsexton/gitv', {'on': ['Gitv']} " Gitk for vim
-Plug 'airblade/vim-gitgutter'            " Extencion for git
+Plug 'mhinz/vim-signify'                 " Extencion for git
 Plug 'rhysd/committia.vim'               " extended commit message
 Plug 'idanarye/vim-merginal'             " a nice inteface for dealing with Git branches
 " }}} Git "
@@ -123,6 +123,8 @@ Plug 'vim-scripts/DoxygenToolkit.vim'   " Enable doxygen support
 Plug 'skywind3000/quickmenu.vim'        " Quickmenu for launch configurations
 Plug 'manasthakur/vim-sessionist'       " Vim sessions
 Plug 'bogado/file-line'                 " For open file:line
+Plug 'jceb/vim-orgmode'                 " Org mode
+Plug 'dhruvasagar/vim-table-mode'       " Table mod
 
 if !g:isWindows
     Plug 'echuraev/translate-shell.vim', { 'do': 'wget -O ~/.vim/trans git.io/trans && chmod +x ~/.vim/trans'  }
