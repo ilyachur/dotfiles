@@ -121,7 +121,7 @@ Plug 'itchyny/calendar.vim'             " Calendar in VIM
 Plug 'chiphogg/vim-prototxt'            " Enable prototxt support
 Plug 'vim-scripts/DoxygenToolkit.vim'   " Enable doxygen support
 Plug 'skywind3000/quickmenu.vim'        " Quickmenu for launch configurations
-Plug 'manasthakur/vim-sessionist'       " Vim sessions
+Plug 'okcompute/vim-ctrlp-session'      " Vim sessions
 Plug 'bogado/file-line'                 " For open file:line
 Plug 'jceb/vim-orgmode'                 " Org mode
 Plug 'dhruvasagar/vim-table-mode'       " Table mod

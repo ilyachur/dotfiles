@@ -24,3 +24,4 @@ nnoremap <silent> <leader>b :CtrlPBuffer<CR>
 nnoremap <silent> <leader>h :CtrlPMRU<CR>
 nnoremap <silent> <leader>: :CtrlPCmdline<CR>
 nnoremap <silent> <leader>t :CtrlPCMakeTarget<CR>
+nnoremap <silent> <leader>s :CtrlPSession<CR>
