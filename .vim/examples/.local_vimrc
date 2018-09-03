@@ -10,7 +10,8 @@ let g:cmake_c_compiler = "custom_compiler"
 let g:cmake_usr_args = "-DCUSTOM_ARGS=ON"
 let g:make_arguments = "-j8"
 let g:cmake_reload_after_save = 1
-" Create link on <build_folder>/compile_commands.json to <root_folder>/compile_commands.json
+let g:cmake_compile_commands = 1
+let g:cmake_compile_commands_link= s:root
 
 " find alternatives
 let g:alternateSearchPath = 'sfr:./include,sfr:./src/'
