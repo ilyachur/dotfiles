@@ -71,7 +71,6 @@ Plug 'idanarye/vim-merginal'             " a nice inteface for dealing with Git 
 " }}} Git "
 " Search {{{ "
 Plug 'osyo-manga/vim-over'              " Replace highlighter
-Plug 'mileszs/ack.vim'                  " Run ack in vim
 Plug 'eugen0329/vim-esearch'            " Fast search and replace
 Plug 'romainl/vim-qf', { 'for': 'qf' }  " Tame the quickfix window
 Plug 'ctrlpvim/ctrlp.vim'               " FZF for vim

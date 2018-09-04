@@ -15,5 +15,5 @@ if executable('rg')
 endif
 
 let g:esearch.use = ['visual', 'hlsearch', 'last']
-let g:esearch.out = 'win' " 'qflist'
+let g:esearch.out = 'qflist' " 'win'
 let g:esearch.batch_size = 1000
