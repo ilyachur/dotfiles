@@ -28,6 +28,7 @@ set expandtab
 set shiftwidth=4
 set cindent
 set smartindent
+set cino=N-s,g0,:0,l1
 " }}} Tab size
 " View settings {{{ "
 set rnu                         " Relative numbers
