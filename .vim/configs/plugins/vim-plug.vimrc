@@ -26,7 +26,7 @@ Plug 'LucHermitte/lh-vim-lib'                           " Dependency of local_vi
 " }}} Navigation "
 " }}} C++ "
 " Python {{{ "
-Plug 'python-mode/python-mode', { 'for': 'python' }
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 " }}} Python "
 " Debugging {{{ "
 if !g:isWindows && !g:isAndroid
@@ -63,11 +63,11 @@ if !g:isWindows
 endif
 " }}} Tmux "
 " Git {{{ "
-Plug 'tpope/vim-fugitive'                " Git plugin
-Plug 'gregsexton/gitv', {'on': ['Gitv']} " Gitk for vim
-Plug 'mhinz/vim-signify'                 " Extencion for git
-Plug 'rhysd/committia.vim'               " extended commit message
-Plug 'idanarye/vim-merginal'             " a nice inteface for dealing with Git branches
+Plug 'tpope/vim-fugitive'                               " Git plugin
+Plug 'gregsexton/gitv', {'on': ['Gitv']}                " Gitk for vim
+Plug 'mhinz/vim-signify'                                " Extencion for git
+Plug 'rhysd/committia.vim'                              " extended commit message
+Plug 'idanarye/vim-merginal', { 'branch': 'develop' }   " a nice inteface for dealing with Git branches
 " }}} Git "
 " Search {{{ "
 Plug 'osyo-manga/vim-over'              " Replace highlighter
