@@ -101,14 +101,14 @@ Plug 'cohama/lexima.vim'                " Vim plugin, insert or delete brackets,
 if v:version > 704 || (v:version == 704 && has('patch248'))     " systemlist function was added in patch 248
     Plug 'chrisbra/vim-diff-enhanced' " Diff viewer
 endif
-Plug 'mhinz/vim-startify'             " Nice start screen
-Plug 'w0rp/ale'                       " Syntax checking plugin
-Plug 'will133/vim-dirdiff'            " Dir diff viewer
-Plug 'majutsushi/tagbar'              " Tagbar
-Plug 'zefei/vim-wintabs'              " Separate tabs for windows
-" Plug 'zefei/vim-wintabs-powerline'
-Plug 'farmergreg/vim-lastplace'       " Intelligently reopen files at your last edit position
-Plug 'vim-scripts/netrw.vim'          " Remote file editing
+Plug 'mhinz/vim-startify'               " Nice start screen
+Plug 'w0rp/ale'                         " Syntax checking plugin
+Plug 'will133/vim-dirdiff'              " Dir diff viewer
+Plug 'majutsushi/tagbar'                " Tagbar
+Plug 'zefei/vim-wintabs'                " Separate tabs for windows
+Plug 'farmergreg/vim-lastplace'         " Intelligently reopen files at your last edit position
+Plug 'vim-scripts/netrw.vim'            " Remote file editing
+Plug 'AndrewRadev/undoquit.vim'         " Save closed buffers/windows
 " }}} Common "
 " View {{{ "
 Plug 'vim-scripts/LargeFile'            " Enable big files support for vim
