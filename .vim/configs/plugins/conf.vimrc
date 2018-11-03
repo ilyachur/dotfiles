@@ -5,6 +5,7 @@ let s:vim_configuration_files = [
 \ 'ack.vimrc',
 \ 'ale.vimrc',
 \ 'calendar.vimrc',
+\ 'cmake.vimrc',
 \ 'color.vimrc',
 \ 'ctrlp.vimrc',
 \ 'debuger.vimrc',
