@@ -11,6 +11,7 @@ fi
 source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2          # Syntax highlighting for commands
+zplug "zsh-users/zsh-autosuggestions"
 zplug "lib/completion", from:oh-my-zsh                      # Load completion library for those sweet [tab] squares
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'       # Manage zplug as other plugins
 zplug "plugins/colored-man-pages", from:oh-my-zsh           # Add colors to man pages
@@ -24,7 +25,7 @@ HISTSIZE=9999
 SAVEHIST=9999
 setopt extended_history
 setopt inc_append_history
-#setopt share_history
+setopt share_history
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt hist_reduce_blanks
