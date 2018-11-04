@@ -113,8 +113,14 @@ set history=5000
 " Diff settings {{{ "
 au VimEnter * if &diff | execute 'windo set wrap' | endif " Wrap words if diff
 " }}} Diff settings "
+" Enable Russian language support {{{
+set keymap=russian-jcukenwin            " Ctrl+^ to switch layouts
+set iminsert=0
+set imsearch=0
+highlight lCursor guifg=NONE guibg=Cyan
+" }}} Enable Russian language support
 " Spell checking {{{ "
-set spell spelllang=ru,en         " Enable spell checking
+set spell spelllang=ru_yo,en_us         " Enable spell checking
 " Disable spell checking for special ft {{{ "
 autocmd FileType conque_term setlocal nospell
 autocmd FileType gitv setlocal nospell
