@@ -1,0 +1,40 @@
+" History length
+set history=100
+
+" Show hidden files
+set dotfiles
+
+" Enable incremental search
+set incsearch
+
+" Show status bar
+set laststatus
+
+" Information for status bar
+set statusline="%-35f%10E%20d%15A | Free space: %8a"
+
+" Columns format
+set viewcolumns=-60%{name},20%{size},{mtime}
+
+" Standard functional keys
+map <f3> :!gvim -R %f &<cr>
+map <f4> :!gvim %f &<cr>
+map <f5> Y<tab>p<tab>
+map <f6> Y<tab>P<tab>
+map <s-f6> cw
+map <f7> :mkdir<space>
+map <f8> dd
+map <s-f8> DD
+map <delete> dd
+map <f9> :shell<cr>
+
+colorscheme molokai
+
+filetype *.zip,*.jar,*.war,*.ear
+         \ {Mount with fuse-zip}
+         \ FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR,
+         \ {View contents}
+         \ zip -sf %c | less,
+         \ {Extract here}
+         \ tar -xf %c,
+filetype *.ssh FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR %FOREGROUND
