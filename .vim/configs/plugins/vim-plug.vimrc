@@ -79,10 +79,8 @@ Plug 'tacahiroy/ctrlp-ssh'
 " }}} Search "
 " Project {{{ "
 Plug 'tpope/vim-dispatch'             " Project compiling
-if !g:isWindows && !g:isAndroid
-    Plug 'LucHermitte/local_vimrc'        " Local vimrc files for projects
-    Plug 'editorconfig/editorconfig-vim'  " Editor configuration for a project
-endif
+Plug 'embear/vim-localvimrc'            " Local vimrc files for projects
+Plug 'editorconfig/editorconfig-vim'    " Editor configuration for a project
 " }}} Project "
 " File Tree {{{ "
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTree' }
