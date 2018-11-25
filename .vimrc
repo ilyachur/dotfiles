@@ -1,3 +1,9 @@
+" Force Python version on Python3
+" https://robertbasic.com/blog/force-python-version-in-vim/
+if has('python3')
+elseif has('python')
+endif
+
 if has('win32')
     set runtimepath+=~/.vim
 	set encoding=utf-8
