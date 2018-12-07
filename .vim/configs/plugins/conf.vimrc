@@ -10,7 +10,6 @@ let s:vim_configuration_files = [
 \ 'ctrlp.vimrc',
 \ 'debuger.vimrc',
 \ 'diff.vimrc',
-\ 'doxygen.vimrc',
 \ 'gitv.vimrc',
 \ 'gtest.vimrc',
 \ 'indentline.vimrc',
