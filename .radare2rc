@@ -1,0 +1,11 @@
+e asm.indent = true         # Indent
+e asm.lines.ret = true      # Show separator after ret
+e asm.var.access = true     # Show access to local variable
+# Shows pseudocode in disassembly. Eg mov eax, str.ok = > eax = str.ok
+e cfg.editor = vim
+
+# Solarized theme
+eco darkda
+
+# Use UTF-8 to show cool arrows that do not look like crap :)
+e scr.utf8 = true
