@@ -71,7 +71,7 @@ Plug 'idanarye/vim-merginal', { 'branch': 'develop' }   " a nice inteface for de
 " }}} Git "
 " Search {{{ "
 Plug 'osyo-manga/vim-over'              " Replace highlighter
-Plug 'eugen0329/vim-esearch'            " Fast search and replace
+Plug 'wincent/ferret'                   " Fast search and replace
 Plug 'romainl/vim-qf', { 'for': 'qf' }  " Tame the quickfix window
 Plug 'ctrlpvim/ctrlp.vim'               " FZF for vim
 Plug 'sgur/ctrlp-extensions.vim'
