@@ -112,7 +112,7 @@ Plug 'AndrewRadev/undoquit.vim'         " Save closed buffers/windows
 Plug 'vim-scripts/LargeFile'            " Enable big files support for vim
 Plug 'yggdroot/indentline'              " Displaying thin vertical lines at each indentation level
 Plug 'morhetz/gruvbox'                  " Color scheme
-Plug 'mattboehm/vim-unstack'            " Parse stack traces
+" Plug 'mattboehm/vim-unstack'            " Parse stack traces
 " }}} View "
 " Other {{{ "
 Plug 'itchyny/calendar.vim'             " Calendar in VIM
