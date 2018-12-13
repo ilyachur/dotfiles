@@ -18,12 +18,6 @@
     (define-key evil-normal-state-map (kbd "C-h") 'evil-window-decrease-width)
     (define-key evil-normal-state-map (kbd "C-l") 'evil-window-increase-width))
 
-(use-package evil-collection
-    :after evil
-    :ensure t
-    :config
-    (evil-collection-init))
-
 (use-package evil-leader
     :after evil
     :ensure t

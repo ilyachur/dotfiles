@@ -1,12 +1,15 @@
 (require 'use-package)
 
 (use-package magit
-    :ensure t)
+  :ensure t
+  :config
+  (setq magit-branch-arguments nil)
+  (setq magit-push-always-verify nil))
 
 (use-package vdiff-magit
-    :ensure t
-    :after (magit vdiff)
-    :bind (:map magit-mode-map
+  :ensure t
+  :after (magit vdiff)
+  :bind (:map magit-mode-map
               ("e" . vdiff-magit-dwim)
               ("E" . vdiff-magit-popup)))
 

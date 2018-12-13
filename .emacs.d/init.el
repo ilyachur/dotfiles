@@ -1,9 +1,3 @@
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
-
 ;;; start package.el with emacs
 (require 'package)
 
@@ -14,7 +8,6 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 
 (setq package-enable-at-startup nil)
-(package-initialize nil)
 
 ;; Bootstrap `use-package'
 (unless (package-installed-p 'use-package)
@@ -24,7 +17,7 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(add-to-list 'load-path "~/.emacs.d/configs")
+(add-to-list 'load-path (expand-file-name "configs" user-emacs-directory))
 
 (use-package use-package-ensure-system-package
     :ensure t)
@@ -44,7 +37,6 @@
 (require 'init-search)
 (require 'init-vcs)
 (require 'init-view)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -52,9 +44,7 @@
  ;; If there is more than one, they won't work right.
  '(org-agenda-files nil)
  '(package-selected-packages
-   (quote
-    (ecb magit-blame magit use-package rtags linum-relative helm gruvbox-theme fzf evil-nerd-commenter evil-mc evil-leader evil-collection editorconfig cmake-mode cmake-ide)))
- '(swiper-action-recenter t t))
+   '(rtags cmake-ide cmake-mode vdiff-magit use-package-ensure-system-package powerline-evil linum-relative highlight-indent-guides gruvbox-theme evil-nerd-commenter evil-mc evil-magit evil-leader evil-ediff evil-collection dashboard)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

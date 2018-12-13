@@ -19,9 +19,9 @@
         (server-start)))
 
 ;; Disable menu bar
-(menu-bar-mode -1)
-(tooltip-mode      -1)
-(tool-bar-mode     -1) ;; disable tool-bar
+(menu-bar-mode      -1)
+(tooltip-mode       -1)
+(tool-bar-mode      -1) ;; disable tool-bar
 
 ;; Show-paren-mode settings
 (show-paren-mode t)
