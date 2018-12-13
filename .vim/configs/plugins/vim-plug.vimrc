@@ -73,9 +73,12 @@ Plug 'idanarye/vim-merginal', { 'branch': 'develop' }   " a nice inteface for de
 Plug 'osyo-manga/vim-over'              " Replace highlighter
 Plug 'wincent/ferret'                   " Fast search and replace
 Plug 'romainl/vim-qf', { 'for': 'qf' }  " Tame the quickfix window
-Plug 'ctrlpvim/ctrlp.vim'               " FZF for vim
-Plug 'sgur/ctrlp-extensions.vim'
-Plug 'tacahiroy/ctrlp-ssh'
+if !g:isWindows
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+else
+    Plug 'junegunn/fzf'
+endif
+Plug 'junegunn/fzf.vim'                 " FZF for vim
 " }}} Search "
 " Project {{{ "
 Plug 'tpope/vim-dispatch'             " Project compiling
