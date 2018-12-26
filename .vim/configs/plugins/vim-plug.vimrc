@@ -47,7 +47,7 @@ if executable('ctags') || executable('cscope') || executable('gtags')
     Plug 'ludovicchabant/vim-gutentags'                 " Ctags support
 endif
 
-if executable('rdm')
+if executable('rdm') && !has("nvim")
     Plug 'lyuts/vim-rtags'                              " Rtags support
 endif
 " }}}
