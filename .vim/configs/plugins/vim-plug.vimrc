@@ -32,6 +32,9 @@ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 if !g:isWindows && !g:isAndroid
     Plug 'Shougo/vimproc.vim', {'do' : 'make'}
     Plug 'idanarye/vim-vebugger', { 'branch': 'develop' }
+    if has("nvim")
+        Plug 'dbgx/lldb.nvim'
+    endif
 endif
 " }}} Debugging "
 " Json {{{ "
