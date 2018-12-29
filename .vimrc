@@ -4,9 +4,11 @@ if has('python3')
 elseif has('python')
 endif
 
+scriptencoding utf-8
+set encoding=utf-8
+
 if has('win32')
     set runtimepath+=~/.vim
-	set encoding=utf-8
 endif
 
 set nocompatible
