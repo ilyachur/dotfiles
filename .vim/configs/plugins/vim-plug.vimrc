@@ -130,6 +130,7 @@ Plug 'bogado/file-line'                 " For open file:line
 Plug 'jceb/vim-orgmode'                 " Org mode
 Plug 'dhruvasagar/vim-table-mode'       " Table mod
 Plug 'kevinhui/vim-docker-tools'        " Docker tools
+Plug 'rmolin88/pomodoro.vim'            " Pomodoro TM
 
 if !g:isWindows
     Plug 'echuraev/translate-shell.vim', { 'do': 'wget -O ~/.vim/trans git.io/trans && chmod +x ~/.vim/trans'  }
