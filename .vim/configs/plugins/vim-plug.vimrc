@@ -2,14 +2,6 @@
 
 " Programming {{{ "
 " C++ {{{ "
-" Code Completion {{{ "
-if !g:isAndroid
-    if v:version > 704 || (v:version == 704 && has('patch1578'))     " This is a limitation of YCM
-       Plug 'Valloric/YouCompleteMe', { 'do': 'python install.py --clang-completer' }
-    endif
-    Plug 'tenfyzhong/CompleteParameter.vim'
-endif
-" }}} Code Completion "
 " Syntax highlighting {{{ "
 Plug 'octol/vim-cpp-enhanced-highlight'
 " }}} Syntax highlighting "
@@ -44,6 +36,7 @@ Plug 'elzr/vim-json', { 'for': 'json' }                   " Color highlighting f
 Plug 'iamcco/markdown-preview.vim'         " Markdown preview plugin
 " }}}
 " {{{ Other
+Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
 Plug 'scrooloose/nerdcommenter'                         " Enable commentaries
 
 if executable('ctags') || executable('cscope') || executable('gtags')

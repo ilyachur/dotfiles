@@ -6,6 +6,7 @@ let s:vim_configuration_files = [
 \ 'ale.vimrc',
 \ 'calendar.vimrc',
 \ 'cmake.vimrc',
+\ 'coc.vimrc',
 \ 'color.vimrc',
 \ 'debuger.vimrc',
 \ 'diff.vimrc',
@@ -28,7 +29,6 @@ let s:vim_configuration_files = [
 \ 'ultisnips.vimrc',
 \ 'vim-cpp-enhanced-highlight.vimrc',
 \ 'wintabs.vimrc',
-\ 'youcompleteme.vimrc',
 \]
 
 for file in s:vim_configuration_files
