@@ -13,8 +13,6 @@ Plug 'ilyachur/cmake4vim'
 " }}}
 " Navigation {{{ "
 Plug 'vim-scripts/a.vim'                                " Switch to header
-Plug 'LucHermitte/lh-vim-lib'                           " Dependency of local_vimrc and vim fold for cpp
-" Plug 'LucHermitte/VimFold4C'                            " Folding for cpp
 " }}} Navigation "
 " }}} C++ "
 " Python {{{ "
@@ -35,8 +33,15 @@ Plug 'elzr/vim-json', { 'for': 'json' }                   " Color highlighting f
 " {{{ Markdown
 Plug 'iamcco/markdown-preview.vim'         " Markdown preview plugin
 " }}}
-" {{{ Other
-Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
+" {{{ Code Completion "
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
+" }}} Code Completion "
+" {{{ Other "
 Plug 'scrooloose/nerdcommenter'                         " Enable commentaries
 
 if executable('ctags') || executable('cscope') || executable('gtags')
@@ -46,12 +51,13 @@ endif
 if executable('rdm') && !has("nvim")
     Plug 'lyuts/vim-rtags'                              " Rtags support
 endif
-" }}}
+" }}} Other "
 " }}} Programming "
 " Snippets {{{ "
 " For working it is necessary to have python3 installed
 " On Windows you have to have the same architecture (32 or 64 bits) versions of vim and python
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'   " Snippets.
+Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
 " }}} Snippets "
 " Tmux {{{ "
 if !g:isWindows

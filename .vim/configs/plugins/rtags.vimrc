@@ -2,7 +2,7 @@ let g:rtagsAutoLaunchRdm = 1
 let g:rtagsUseDefaultMappings = 0
 
 " Symbol info
-nnoremap <silent> <leader>gi :call rtags#SymbolInfo()<CR>
+nnoremap <silent> <leader>ri :call rtags#SymbolInfo()<CR>
 " Follow location
 nnoremap <silent> <leader>gj :call rtags#JumpTo(g:SAME_WINDOW)<CR>
 " Follow declaration location
