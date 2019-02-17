@@ -4,3 +4,6 @@ let g:ale_sign_warning = '⚠'
 let g:ale_set_highlights = 1
 let g:airline#extensions#ale#enabled = 1
 
+let g:ale_linters = {
+            \   'cpp': ['cpplint'],
+            \}

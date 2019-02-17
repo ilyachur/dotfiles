@@ -53,26 +53,19 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
     \ 'completor': function('asyncomplete#sources#file#completor')
     \ }))
 
-call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-    \ 'name': 'buffer',
-    \ 'whitelist': ['*'],
-    \ 'priority': 0,
-    \ 'blacklist': ['go'],
-    \ 'completor': function('asyncomplete#sources#buffer#completor'),
-    \ }))
-
-let g:asyncomplete_default_refresh_pattern='\(\k\+$\|\.$\|:$|-\>\)'
-set completeopt+=preview
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+let g:asyncomplete_default_refresh_pattern='\(\k\+$\|\.$\|>$\|:$\)'
 
 " let g:asyncomplete_smart_completion = 1   " LUA is required
 " let g:lsp_diagnostics_enabled = 0         " disable diagnostics support for ALE
+let g:asyncomplete_force_refresh_on_context_changed = 1
 let g:asyncomplete_remove_duplicates = 1
 let g:lsp_signs_enabled = 1                 " enable signs
 let g:lsp_diagnostics_echo_cursor = 1       " enable echo under cursor when in normal mode
+let g:lsp_async_completion = 1
 
 nmap <leader>fc :LspCodeAction<CR>
 nmap <silent> <leader>g :LspDeclaration<CR>
 nmap <silent> <leader>gd :LspDefinition<CR>
 nmap <silent> <leader>gi :LspImplementation<CR>
+nmap <silent> <leader>sd :LspHover<CR>
 nmap <leader>gR :LspRename<CR>
