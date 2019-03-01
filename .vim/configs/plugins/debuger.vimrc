@@ -23,17 +23,19 @@ if !has("nvim")
     vnoremap <silent> <leader>dx :VBGexecuteSelectedText<CR>
     vnoremap <silent> <leader>dw :VBGrawWriteSelectedText<CR>
 else
-    nnoremap <silent> <leader>ds :LL step<CR>
-    nnoremap <silent> <leader>dn :LL next<CR>
-    nnoremap <silent> <leader>do :LL finish<CR>
-    nnoremap <silent> <leader>dc :LL continue<CR>
-    nmap <leader>db <Plug>LLBreakSwitch
-    nnoremap <silent> <leader>dk :LL process interrupt<CR>
-    nnoremap <silent> <leader>de :LL print <C-R>=expand('<cword>')<CR>
-    nnoremap <silent> <leader>dd :LLmode debug<CR>
-    nnoremap <silent> <leader>dq :LLmode code<CR>
-    nnoremap <silent> <leader>di :LLstdin<CR>
+    let g:nvimgdb_disable_start_keymaps = 1
+    nnoremap <silent> <leader>dB :GdbBreakpointClearAll<CR>
+    nnoremap <silent> <leader>dk :GdbDebugStop<CR>
 
-    vnoremap <silent> <leader>de :<C-U>LL print <C-R>=lldb#util#get_selection()<CR><CR>
-    vmap <leader>di <Plug>LLStdInSelected
+    let g:nvimgdb_config_override = {
+                \ 'key_until':      '<leader>dt',
+                \ 'key_continue':   '<leader>dc',
+                \ 'key_next':       '<leader>dn',
+                \ 'key_step':       '<leader>ds',
+                \ 'key_finish':     '<leader>do',
+                \ 'key_breakpoint': '<leader>db',
+                \ 'key_frameup':    '<leader>du',
+                \ 'key_framedown':  '<leader>dd',
+                \ 'key_eval':       '<leader>de',
+                \ }
 endif
