@@ -83,7 +83,7 @@ endif
 Plug 'junegunn/fzf.vim'                 " FZF for vim
 " }}} Search "
 " Project {{{ "
-Plug 'tpope/vim-dispatch'             " Project compiling
+Plug 'tpope/vim-dispatch'               " Project compiling
 Plug 'embear/vim-localvimrc'            " Local vimrc files for projects
 Plug 'editorconfig/editorconfig-vim'    " Editor configuration for a project
 " }}} Project "
