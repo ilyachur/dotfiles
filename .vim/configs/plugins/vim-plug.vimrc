@@ -9,7 +9,9 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'alepez/vim-gtest'             " Google tests
 " }}}
 " {{{ Build systems
-Plug 'ilyachur/cmake4vim'
+if executable('cmake')
+    Plug 'ilyachur/cmake4vim'
+endif
 " }}}
 " Navigation {{{ "
 Plug 'vim-scripts/a.vim'                                " Switch to header
