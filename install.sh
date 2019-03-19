@@ -14,3 +14,5 @@ ln -s ${ROOT_DIR}/.vimrc ${HOME}/
 ln -s ${ROOT_DIR}/.vim ${HOME}/
 ln -s ${ROOT_DIR}/.zshrc ${HOME}/
 ln -s ${ROOT_DIR}/.zsh ${HOME}/
+
+exit 0
