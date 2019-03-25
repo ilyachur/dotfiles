@@ -4,12 +4,8 @@ function loadEnv() {
     [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 }
 
-if [ x$DISPLAY != x  ] ; then
-    loadEnv
+if type "zsh" > /dev/null; then
+    exec zsh
 else
-    if type "zsh" > /dev/null; then
-        exec zsh
-    else
-        loadEnv
-    fi
+    loadEnv
 fi
