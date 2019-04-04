@@ -64,8 +64,8 @@ let g:lsp_diagnostics_echo_cursor = 1       " enable echo under cursor when in n
 let g:lsp_async_completion = 1
 
 nmap <leader>fc :LspCodeAction<CR>
-nmap <silent> <leader>g :LspDeclaration<CR>
-nmap <silent> <leader>gd :LspDefinition<CR>
+nmap <silent> <leader>gd :LspDeclaration<CR>
+nmap <silent> <leader>g  :LspDefinition<CR>
 nmap <silent> <leader>gi :LspImplementation<CR>
 nmap <silent> <leader>sd :LspHover<CR>
 nmap <leader>gR :LspRename<CR>
