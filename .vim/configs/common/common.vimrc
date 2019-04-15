@@ -110,7 +110,7 @@ set noswapfile                          " Don't create swap files
 " Command line options {{{ "
 set path+=**                            " Provides tab-completion for all file-related tasks
 set wildmenu                            " cmd autocomplition
-set wildmode=longest:list,full          " autocomplition like in bash
+set wildmode=list:full,full             " autocomplition like in bash
 set history=5000
 " }}} Command line options "
 " Diff settings {{{ "
