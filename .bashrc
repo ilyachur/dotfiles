@@ -4,6 +4,9 @@ function loadEnv() {
     [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 }
 
+if [ -z "$PS1"  ]; then
+       return
+fi
 if type "zsh" > /dev/null; then
     exec zsh
 else

@@ -38,6 +38,8 @@ setopt +o nomatch # Allow * commands i.g.: rm -f *
 # User configuration
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+bindkey -v
+
 # Load theme
 [ -f $HOME/.zsh/colors/theme.zsh ] && source $HOME/.zsh/colors/theme.zsh
 
