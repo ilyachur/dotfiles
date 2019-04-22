@@ -93,6 +93,7 @@ Plug 'editorconfig/editorconfig-vim'    " Editor configuration for a project
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTree' }
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-vinegar'              " vinegar.vim enhances netrw
+Plug 'vifm/vifm.vim'                  " Integrate vifm to vim
 " }}} File Tree "
 " Text manipulation {{{ "
 Plug 'wellle/targets.vim'               " Add various text objects to VIM

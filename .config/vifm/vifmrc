@@ -1,8 +1,79 @@
+" Check OS {{{ "
+if has('win')
+    let $VIFM_IS_WIN = 1
+elseif has('unix')
+    if system('uname -s') == 'Darwin'
+        let $VIFM_IS_MAC = 1
+    elseif system('uname -o') == 'Android'
+        let $VIFM_IS_AND = 1
+    else
+        let $VIFM_IS_LIN = 1
+    endif
+endif
+" }}} Check OS "
+
+" This makes vifm perform file operations on its own instead of relying on
+" standard utilities like `cp`.  While using `cp` and alike is a more universal
+" solution, it's also much slower when processing large amounts of files and
+" doesn't support progress measuring.
+set syscalls
+
+" Trash Directory
+" The default is to move files that are deleted with dd or :d to
+" the trash directory.  If you change this you will not be able to move
+" files by deleting them and then using p to put the file in the new location.
+" I recommend not changing this until you are familiar with vifm.
+" This probably shouldn't be an option.
+set trash
+
+" Automatically resolve symbolic links on l or Enter.
+set followlinks
+
+" Natural sort of (version) numbers within text.
+set sortnumbers
+
+" Maximum number of changes that can be undone.
+set undolevels=100
+
+" If you installed the vim.txt help file set vimhelp.
+" If would rather use a plain text help file set novimhelp.
+set vimhelp
+
+" If you would like to run an executable file when you
+" press return on the file name set this.
+set norunexec
+
+" Selected color scheme
+colorscheme molokai
+
+" Show list of matches on tab completion in command-line mode
+set wildmenu
+
+" Display completions in a form of bar/popup with descriptions of the matches
+set wildstyle=popup
+
+" Display suggestions in normal, visual and view modes for keys, marks and
+" registers (at most 5 files).  In other view, when available.
+set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
+
 " History length
 set history=100
 
 " Show hidden files
 set dotfiles
+
+" Ignore case in search patterns unless it contains at least one uppercase
+" letter
+set ignorecase
+set smartcase
+
+" Don't highlight search results automatically
+set nohlsearch
+
+" Don't do too many requests to slow file systems
+if !has('win')
+    set slowfs=curlftpfs
+endif
 
 " Enable incremental search
 set incsearch
@@ -28,7 +99,43 @@ map <s-f8> DD
 map <delete> dd
 map <f9> :shell<cr>
 
-colorscheme molokai
+" Commands {{{ "
+" :com[mand][!] command_name action
+" The following macros can be used in a command
+" %a is replaced with the user arguments.
+" %c the current file under the cursor.
+" %C the current file under the cursor in the other directory.
+" %f the current selected file, or files.
+" %F the current selected file, or files in the other directory.
+" %b same as %f %F.
+" %d the current directory name.
+" %D the other window directory name.
+" %m run the command in a menu window
+
+command! df df -h %m 2> /dev/null
+command! diff vim -d %f %F
+command! zip zip -r %f.zip %f
+command! run !! ./%f
+command! make !!make %a
+command! mkcd :mkdir %a | cd %a
+command! vgrep vim "+grep %a"
+command! reload :write | restart
+command! sshsel ls -d ~/.config/vifm/ssh_hosts/*.ssh %M
+
+" Add simple support for ssh remote
+" :ssh user@remote:/path/to/remote/folder
+command ssh
+    \ : let $SSH_FILE = system('mktemp /tmp/XXXX.ssh')
+    \ | execute '!echo ''%a'' > $SSH_FILE; ls $SSH_FILE %%U'
+    \ | execute 'normal l'
+    \ | execute '!rm $SSH_FILE'
+" }}} Commands "
+
+" Filetypes {{{ "
+" SshMount
+filetype *.ssh
+       \ {Mount with sshfs}
+       \ FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR %FOREGROUND,
 
 filetype *.zip,*.jar,*.war,*.ear
          \ {Mount with fuse-zip}
@@ -37,4 +144,82 @@ filetype *.zip,*.jar,*.war,*.ear
          \ zip -sf %c | less,
          \ {Extract here}
          \ tar -xf %c,
-filetype *.ssh FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR %FOREGROUND
+" }}} Filetypes "
+
+" DevIcons {{{ "
+" Filetypes/directories
+set classify=' :dir:/, :exe:, :reg:, :link:,? :?:, ::../::'
+
+" Specific directories
+set classify+=' ::.git/,,*.git/::/'
+set classify+=' ::Desktop/::/'
+set classify+=' ::Documents/::/'
+set classify+=' ::Downloads/::/'
+set classify+=' ::Dropbox/::/'
+set classify+=' ::Music/::/'
+set classify+=' ::Pictures/::/'
+set classify+=' ::Public/::/'
+set classify+=' ::Templates/::/'
+set classify+=' ::Videos/::/'
+
+" Specific files
+set classify+=' ::.Xdefaults,,.Xresources,,.bashprofile,,.bash_profile,,.bashrc*,,.dmrc,,.d_store,,.fasd,,.gitconfig,,.gitignore,,.jack-settings,,.mime.types,,.nvidia-settings-rc,,.pam_environment,,.profile,,.recently-used,,.selected_editor,,.xinitpurc,,.zprofile,,.yarnc,,.snclirc,,.tmux.conf,,.urlview,,.config,,.ini,,.user-dirs.dirs,,.mimeapps.list,,.offlineimaprc,,.msmtprc,,.Xauthority,,config,,.zshrc::'
+set classify+=' ::dropbox::'
+set classify+=' ::favicon.*,,README,,readme::'
+set classify+=' ::.vim,,.vimrc,,.gvimrc,,.vifm::'
+set classify+=' ::gruntfile.coffee,,gruntfile.js,,gruntfile.ls::'
+set classify+=' ::gulpfile.coffee,,gulpfile.js,,gulpfile.ls::'
+set classify+=' ::ledger::'
+set classify+=' ::license,,copyright,,copying,,LICENSE,,COPYRIGHT,,COPYING::'
+set classify+=' ::node_modules::'
+set classify+=' ::react.jsx::'
+
+" File extensions
+set classify+='λ ::*.ml,,*.mli::'
+set classify+=' ::*.styl::'
+set classify+=' ::*.scss::'
+set classify+=' ::*.py,,*.pyc,,*.pyd,,*.pyo::'
+set classify+=' ::*.php::'
+set classify+=' ::*.markdown,,*.md::'
+set classify+=' ::*.json::'
+set classify+=' ::*.js::'
+set classify+=' ::*.bmp,,*.gif,,*.ico,,*.jpeg,,*.jpg,,*.png,,*.svg,,*.svgz,,*.tga,,*.tiff,,*.xmb,,*.xcf,,*.xpm,,*.xspf,,*.xwd,,*.cr2,,*.dng,,*.3fr,,*.ari,,*.arw,,*.bay,,*.crw,,*.cr3,,*.cap,,*.data,,*.dcs,,*.dcr,,*drf,,*.eip,,*.erf,,*.fff,,*.gpr,,*.iiq,,*.k25,,*.kdc,,*.mdc,,.*mef,,*.mos,,.*.mrw,,.*.obm,,*.orf,,*.pef,,*.ptx,,*.pxn,,*.r3d,,*.raf,,*.raw,,*.rwl,,*.rw2,,*.rwz,,*.sr2,,*.srf,,*.srf,,*.srw,,*.tif,,*.x3f::'
+set classify+=' ::*.ejs,,*.css,,*.htm,,*.html,,**.[sx]html,,*.slim,,*.xml::'
+set classify+=' ::*.less,,*.bat,,*.conf,,*.ini,,*.rc,,*.yml,,*.cfg::'
+set classify+=' ::*.rss::'
+set classify+=' ::*.coffee::'
+set classify+=' ::*.twig::'
+set classify+=' ::*.c++,,*.cc,,*.c,,*.[hc]pp,,*.cxx,,*.[hc]::'
+set classify+=' ::*.hs,,*.lhs::'
+set classify+=' ::*.lua::'
+set classify+=' ::*.jl::'
+set classify+=' ::*.go::'
+set classify+=' ::*.ts::'
+set classify+=' ::*.db,,*.dump,,*.sql::'
+set classify+=' ::*.sln,,*.suo::'
+set classify+=' ::*.exe::'
+set classify+=' ::*.diff,,*.sum,,*.md5,,*.sha512::'
+set classify+=' ::*.scala::'
+set classify+=' ::*.java,,*.jar::'
+set classify+=' ::*.xul::'
+set classify+=' ::*.clj,,*.cljc::'
+set classify+=' ::*.pl,,*.pm,,*.t::'
+set classify+=' ::*.cljs,,*.edn::'
+set classify+=' ::*.rb::'
+set classify+=' ::*.fish,,*.sh,,*.bash,,*.zsh::'
+set classify+=' ::*.rlib,,*.rs::'
+set classify+=' ::*.ai::'
+set classify+=' ::*.psb,,*.psd::'
+set classify+=' ::*.jsx::'
+set classify+=' ::*.vim,,*.vimrc::'
+set classify+='ﱘ ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
+set classify+=' ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
+set classify+=' ::*.epub,,*.fb2,,*.djvu::'
+set classify+=' ::*.pdf::'
+set classify+=' ::*.7z,,*.apk,,*.bz2,,*.cab,,*.cpio,,*.deb,,*.gem,,*.gz,,*.gzip,,*.lh,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.tar,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.zip,,*.dmg::'
+set classify+=' ::*.cbr,,*.cbz::'
+set classify+=' ::*.log::'
+set classify+=' ::*.doc,,*.docx,,*.adoc::'
+set classify+=' ::*.xlsx,,*.xls,,*.xlsmx,,*.csv::'
+set classify+=' ::*.pptx,,*.ppt::'
+" }}} DevIcons "

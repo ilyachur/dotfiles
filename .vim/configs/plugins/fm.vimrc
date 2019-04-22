@@ -1,7 +1,4 @@
-"-------------------------------------------------------------------------------------------------------
-" Module for plugins downloading
-"-------------------------------------------------------------------------------------------------------
-
+" {{{ NERDTree
 let g:NERDTreeMouseMode = 2                                 " Single-click to expand the directory, double-click to open the file
 let g:NERDTreeShowHidden = 1                                " Show hidden files
 let g:NERDTreeMinimalUI=1                                   " Disable display of '?' text and 'Bookmarks' label.
@@ -38,4 +35,9 @@ function! s:CloseIfOnlyNerdTreeLeft()
     endif
   endif
 endfunction
+" }}} NERDTree
 
+" VIFM {{{ "
+let g:vifm_exec_args = '-c ":only"'
+map <leader>fm :EditVifm<CR>
+" }}} VIFM "
