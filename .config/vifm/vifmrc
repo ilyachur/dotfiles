@@ -12,6 +12,7 @@ elseif has('unix')
 endif
 " }}} Check OS "
 
+" Common settings {{{ "
 " This makes vifm perform file operations on its own instead of relying on
 " standard utilities like `cp`.  While using `cp` and alike is a more universal
 " solution, it's also much slower when processing large amounts of files and
@@ -77,19 +78,30 @@ endif
 
 " Enable incremental search
 set incsearch
+" }}} Common settings "
 
+" View settings {{{ "
 " Show status bar
 set laststatus
+
+" Fill files list by columns (not lines). Added in vifm 0.9.1.
+set lsoptions=transposed
+
+" Format for displaying time in file list. For example:
+" TIME_STAMP_FORMAT=%m/%d-%H:%M
+" See man date or man strftime for details.
+set timefmt=%m/%d\ %H:%M
 
 " Information for status bar
 set statusline="%-35f%10E%20d%15A | Free space: %8a"
 
 " Columns format
 set viewcolumns=-60%{name},20%{size},{mtime}
+" }}} View settings "
 
-" Standard functional keys
-map <f3> :!gvim -R %f &<cr>
-map <f4> :!gvim %f &<cr>
+" Standard functional keys {{{ "
+map <f3> :!vim -R %f &<cr>
+map <f4> :edit<cr>
 map <f5> Y<tab>p<tab>
 map <f6> Y<tab>P<tab>
 map <s-f6> cw
@@ -98,6 +110,29 @@ map <f8> dd
 map <s-f8> DD
 map <delete> dd
 map <f9> :shell<cr>
+
+" Go to up directory
+nnoremap - gh
+
+" Select current file and go to next
+nnoremap t tj
+
+" Start shell in current directory
+nnoremap s :shell<cr>
+
+" Display sorting dialog
+nnoremap S :sort<cr>
+
+" Toggle visibility of preview window
+nnoremap w :view<cr>
+vnoremap w :view<cr>gv
+
+" }}} Standard functional keys "
+
+" Marks {{{ "
+" :mark mark /full/directory/path [filename]
+mark h ~/
+" }}} Marks "
 
 " Commands {{{ "
 " :com[mand][!] command_name action
@@ -115,6 +150,9 @@ map <f9> :shell<cr>
 command! df df -h %m 2> /dev/null
 command! diff vim -d %f %F
 command! zip zip -r %f.zip %f
+command! tar tar cf %c.tar %f
+command! targz tar czf %c.tar.gz %f
+command! tarbz tar cjf %c.tar.bz2 %f
 command! run !! ./%f
 command! make !!make %a
 command! mkcd :mkdir %a | cd %a
@@ -145,6 +183,20 @@ filetype *.zip,*.jar,*.war,*.ear
          \ {Extract here}
          \ tar -xf %c,
 " }}} Filetypes "
+
+" OS Specific settings {{{ "
+if $VIFM_IS_WIN
+    filetype * start, explorer
+endif
+if $VIFM_IS_MAC
+    "filetype * open
+    source ~/.config/vifm/os_specific/mac_settings.vifmrc
+endif
+if $VIFM_IS_LIN
+    "filetype * xdg-open
+    source ~/.config/vifm/os_specific/linux_settings.vifmrc
+endif
+" }}} OS Specific settings "
 
 " DevIcons {{{ "
 " Filetypes/directories
@@ -223,3 +275,17 @@ set classify+=' ::*.doc,,*.docx,,*.adoc::'
 set classify+=' ::*.xlsx,,*.xls,,*.xlsmx,,*.csv::'
 set classify+=' ::*.pptx,,*.ppt::'
 " }}} DevIcons "
+
+" Fileviewer {{{ "
+" Epub
+fileviewer *.epub epub2txt ./%c
+" }}} Fileviewer "
+
+" Auto saving settings {{{ "
+" What should be saved automatically between vifm runs
+" Like in previous versions of vifm
+" set vifminfo=options,filetypes,commands,bookmarks,dhistory,state,cs
+" Like in vi
+set vifminfo=dhistory,chistory,state,tui,shistory,
+    \phistory,fhistory,dirstack,registers,bookmarks,bmarks
+" }}} Auto saving settings "
