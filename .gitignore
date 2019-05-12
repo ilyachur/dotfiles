@@ -19,6 +19,5 @@
 tags
 .DS_Store
 
-.config/vifm/scripts/
 .config/vifm/vifm-help.txt
 .config/vifm/vifminfo
