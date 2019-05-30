@@ -36,12 +36,7 @@ Plug 'elzr/vim-json', { 'for': 'json' }                   " Color highlighting f
 Plug 'iamcco/markdown-preview.vim'         " Markdown preview plugin
 " }}}
 " {{{ Code Completion "
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete-file.vim'
-" Plug 'prabirshrestha/asyncomplete-buffer.vim'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }}
 " }}} Code Completion "
 " {{{ Other "
 Plug 'scrooloose/nerdcommenter'                         " Enable commentaries
@@ -59,7 +54,6 @@ endif
 " For working it is necessary to have python3 installed
 " On Windows you have to have the same architecture (32 or 64 bits) versions of vim and python
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'   " Snippets.
-Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
 " }}} Snippets "
 " Tmux {{{ "
 if !g:isWindows

@@ -1,71 +1,103 @@
-if executable('clangd')
-    augroup lsp_clangd
-        autocmd!
-        autocmd User lsp_setup call lsp#register_server({
-                    \ 'name': 'clangd',
-                    \ 'cmd': {server_info->['clangd']},
-                    \ 'priority': 10,
-                    \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-                    \ })
-        autocmd FileType c setlocal omnifunc=lsp#complete
-        autocmd FileType cpp setlocal omnifunc=lsp#complete
-        autocmd FileType objc setlocal omnifunc=lsp#complete
-        autocmd FileType objcpp setlocal omnifunc=lsp#complete
-    augroup end
-elseif executable('cquery')
-    au User lsp_setup call lsp#register_server({
-                \ 'name': 'cquery',
-                \ 'cmd': {server_info->['cquery']},
-                \ 'priority': 10,
-                \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-                \ })
-elseif executable('ccls')
-    au User lsp_setup call lsp#register_server({
-                \ 'name': 'ccls',
-                \ 'cmd': {server_info->['ccls']},
-                \ 'priority': 10,
-                \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-                \ 'initialization_options': { 'cacheDirectory': '/tmp/ccls/cache'  },
-                \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-                \ })
-endif
+let g:coc_global_extensions = [
+    \ 'coc-json',
+    \ 'coc-tag',
+    \ 'coc-yaml',
+    \ 'coc-lists',
+    \ 'coc-yank',
+    \ 'coc-vimtex',
+    \ 'coc-python',
+    \ 'coc-dictionary',
+    \ 'coc-ultisnips',
+    \]
 
-if executable('docker-langserver')
-    au User lsp_setup call lsp#register_server({
-                \ 'name': 'docker-langserver',
-                \ 'cmd': {server_info->[&shell, &shellcmdflag, 'docker-langserver --stdio']},
-                \ 'whitelist': ['dockerfile'],
-                \ })
-endif
+" Use <c-space> for trigger completion.
+" inoremap <silent><expr> <c-space> coc#refresh()
 
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-                \ 'name': 'pyls',
-                \ 'cmd': {server_info->['pyls']},
-                \ 'whitelist': ['python'],
-                \ })
-endif
+" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-    \ 'name': 'file',
-    \ 'whitelist': ['*'],
-    \ 'priority': 5,
-    \ 'completor': function('asyncomplete#sources#file#completor')
-    \ }))
+" Use `[c` and `]c` for navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
-let g:asyncomplete_default_refresh_pattern='\(\k\+$\|\.$\|>$\|:$\)'
+" Remap keys for gotos
+nmap <silent> <leader>g <Plug>(coc-definition)
+nmap <silent> <leader>gd <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
 
-" let g:asyncomplete_smart_completion = 1   " LUA is required
-" let g:lsp_diagnostics_enabled = 0         " disable diagnostics support for ALE
-let g:asyncomplete_force_refresh_on_context_changed = 1
-let g:asyncomplete_remove_duplicates = 1
-let g:lsp_signs_enabled = 1                 " enable signs
-let g:lsp_diagnostics_echo_cursor = 1       " enable echo under cursor when in normal mode
-let g:lsp_async_completion = 1
+" Use K for show documentation in preview window
+nnoremap <silent> <leader>D :call <SID>show_documentation()<CR>
 
-nmap <leader>fc :LspCodeAction<CR>
-nmap <silent> <leader>gd :LspDeclaration<CR>
-nmap <silent> <leader>g  :LspDefinition<CR>
-nmap <silent> <leader>gi :LspImplementation<CR>
-nmap <silent> <leader>sd :LspHover<CR>
-nmap <leader>gR :LspRename<CR>
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+vmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Use `:Format` for format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` for fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+
+" " Add diagnostic info for https://github.com/itchyny/lightline.vim
+" let g:lightline = {
+"       \ 'colorscheme': 'wombat',
+"       \ 'active': {
+"       \   'left': [ [ 'mode', 'paste' ],
+"       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+"       \ },
+"       \ 'component_function': {
+"       \   'cocstatus': 'coc#status'
+"       \ },
+"       \ }
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
