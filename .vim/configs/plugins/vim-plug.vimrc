@@ -36,7 +36,7 @@ Plug 'elzr/vim-json', { 'for': 'json' }                   " Color highlighting f
 Plug 'iamcco/markdown-preview.vim'         " Markdown preview plugin
 " }}}
 " {{{ Code Completion "
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install() }}
+Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 " }}} Code Completion "
 " {{{ Other "
 Plug 'scrooloose/nerdcommenter'                         " Enable commentaries

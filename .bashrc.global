@@ -85,6 +85,7 @@ alias whatsapp='google-chrome --app=https://web.whatsapp.com/' #'/opt/google/chr
 LOCAL_BIN=${HOME}/.bin/
 mkdir -p $LOCAL_BIN
 export PATH=$LOCAL_BIN:$PATH
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Install ripgrep {{{ #
 TOOL_BIN=$LOCAL_BIN/rg
