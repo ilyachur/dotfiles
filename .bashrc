@@ -7,7 +7,8 @@ function loadEnv() {
 if [ -z "$PS1"  ]; then
        return
 fi
-if type "zsh" > /dev/null; then
+
+if [ -x "$(command -v zsh)" ]; then
     exec zsh
 else
     loadEnv
