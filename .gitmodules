@@ -4,6 +4,3 @@
 [submodule ".config/vifm/colors"]
 	path = .config/vifm/colors
 	url = https://github.com/vifm/vifm-colors
-[submodule ".vim/pack/vimspector/opt/vimspector"]
-	path = .vim/pack/vimspector/opt/vimspector
-	url = https://github.com/puremourning/vimspector.git

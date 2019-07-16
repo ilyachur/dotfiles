@@ -1,5 +1,3 @@
-packadd! vimspector
-
 nnoremap <silent> <leader>ds   :call vimspector#Launch()<CR>
 nnoremap <silent> <F9>         :call vimspector#Continue()<CR>
 nnoremap <silent> <leader>dk   :call vimspector#Stop()<CR>
