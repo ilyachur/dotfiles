@@ -29,9 +29,6 @@ if !g:isWindows && !g:isAndroid
     endif
 endif
 " }}} Debugging "
-" Json {{{ "
-Plug 'elzr/vim-json', { 'for': 'json' }                   " Color highlighting for json
-" }}} Json "
 " {{{ Markdown
 Plug 'iamcco/markdown-preview.vim'         " Markdown preview plugin
 " }}}
@@ -84,8 +81,6 @@ Plug 'embear/vim-localvimrc'            " Local vimrc files for projects
 Plug 'editorconfig/editorconfig-vim'    " Editor configuration for a project
 " }}} Project "
 " File Tree {{{ "
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTree' }
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-vinegar'              " vinegar.vim enhances netrw
 Plug 'vifm/vifm.vim'                  " Integrate vifm to vim
 " }}} File Tree "
@@ -114,7 +109,6 @@ Plug 'AndrewRadev/undoquit.vim'         " Save closed buffers/windows
 Plug 'vim-scripts/LargeFile'            " Enable big files support for vim
 Plug 'yggdroot/indentline'              " Displaying thin vertical lines at each indentation level
 Plug 'morhetz/gruvbox'                  " Color scheme
-" Plug 'mattboehm/vim-unstack'            " Parse stack traces
 " }}} View "
 " Other {{{ "
 Plug 'itchyny/calendar.vim'             " Calendar in VIM
@@ -123,9 +117,6 @@ Plug 'vim-scripts/DoxygenToolkit.vim'   " Enable doxygen support
 Plug 'skywind3000/quickmenu.vim'        " Quickmenu for launch configurations
 Plug 'okcompute/vim-ctrlp-session'      " Vim sessions
 Plug 'bogado/file-line'                 " For open file:line
-Plug 'jceb/vim-orgmode'                 " Org mode
-Plug 'dhruvasagar/vim-table-mode'       " Table mod
-Plug 'kevinhui/vim-docker-tools'        " Docker tools
 Plug 'lervag/vimtex'                    " Latex support
 
 if !g:isWindows

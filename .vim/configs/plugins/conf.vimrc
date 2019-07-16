@@ -7,7 +7,6 @@ let s:vim_configuration_files = [
 \ 'calendar.vimrc',
 \ 'cmake.vimrc',
 \ 'color.vimrc',
-\ 'debuger.vimrc',
 \ 'diff.vimrc',
 \ 'fm.vimrc',
 \ 'fzf.vimrc',
@@ -28,6 +27,7 @@ let s:vim_configuration_files = [
 \ 'translate.vimrc',
 \ 'ultisnips.vimrc',
 \ 'vim-cpp-enhanced-highlight.vimrc',
+\ 'vimspector.vimrc',
 \ 'wintabs.vimrc',
 \]
 

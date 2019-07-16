@@ -1,0 +1,37 @@
+{
+  "configurations": {
+    "Benchmark APP": {
+      "adapter": "vscode-cpptools",
+      "configuration": {
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceRoot}/test_app",
+        "args": ["-m", "-d"],
+        "cwd": "${workspaceRoot}",
+        "environment": [
+            {"name": "LD_LIBRARY_PATH", "value": "${workspaceRoot}/temp/"}
+        ],
+        "externalConsole": true,
+        "stopAtEntry": true,
+        "MImode": "lldb"
+      }
+    },
+    "Unit tests": {
+        "adapter": "vscode-cpptools",
+        "configuration": {
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/unitTests",
+            "args": ["--gtest_filter", "*"],
+            "cwd": "${workspaceRoot}",
+            "environment": [
+                {"name": "LD_LIBRARY_PATH", "value": "${workspaceRoot}/temp/tbb/lib"}
+            ],
+            "externalConsole": true,
+            "stopAtEntry": true,
+            "MImode": "gdb"
+        }
+    }
+
+  }
+}

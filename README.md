@@ -4,6 +4,19 @@ This repository contains all my configuration files for Linux, Windows and Mac O
 
 ## Configurations
 
+```sh
+$ git clone https://github.com/ilyachur/dotfiles.git
+$ cd dotfiles
+$ git submodule update --init --recursive
+$ ./install.sh
+```
+
+### Vimspector Gadgets Installation
+
+ ```sh
+ $ ~/.vim/pack/vimspector/opt/vimspector/install_gadget.py --all --disable-tcl
+ ```
+
 ### Zsh
 
 Mac OS X Installation:

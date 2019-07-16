@@ -1,4 +1,5 @@
 .vim/.sessions
+.vim/sessions
 .vim/plugged
 .vim/undodir
 .vim/.netrwhist
