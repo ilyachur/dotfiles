@@ -1,6 +1,6 @@
 nnoremap <silent> <leader>ds   :call vimspector#Launch()<CR>
 nnoremap <silent> <F9>         :call vimspector#Continue()<CR>
-nnoremap <silent> <leader>dk   :call vimspector#Stop()<CR>
+nnoremap <silent> <leader>dk   :call vimspector#Reset()<CR>
 nnoremap <silent> <leader>dr   :call vimspector#Restart()<CR>
 nnoremap <silent> <leader>dp   :call vimspector#Pause()<CR>
 nnoremap <silent> <leader>db   :call vimspector#ToggleBreakpoint()<CR>
