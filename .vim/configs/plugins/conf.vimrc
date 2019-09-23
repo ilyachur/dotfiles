@@ -1,7 +1,6 @@
 let s:CONF_DIRECTORY = expand('<sfile>:p:h')
 let s:vim_configuration_files = [
 \ 'vim-plug.vimrc',
-\ 'a.vimrc',
 \ 'ack.vimrc',
 \ 'ale.vimrc',
 \ 'calendar.vimrc',
@@ -20,10 +19,10 @@ let s:vim_configuration_files = [
 \ 'nerdcommenter.vimrc',
 \ 'python-mode.vimrc',
 \ 'quickmenu.vimrc',
-\ 'rtags.vimrc',
 \ 'search.vimrc',
 \ 'startify.vimrc',
 \ 'syntastic.vimrc',
+\ 'tags.vimrc',
 \ 'translate.vimrc',
 \ 'ultisnips.vimrc',
 \ 'vim-cpp-enhanced-highlight.vimrc',

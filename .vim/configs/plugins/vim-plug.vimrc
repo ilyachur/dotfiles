@@ -14,7 +14,8 @@ if executable('cmake')
 endif
 " }}}
 " Navigation {{{ "
-Plug 'vim-scripts/a.vim'                                " Switch to header
+Plug 'LucHermitte/lh-vim-lib'
+Plug 'LucHermitte/alternate-lite'
 " }}} Navigation "
 " }}} C++ "
 " Python {{{ "
