@@ -5,9 +5,6 @@
 " Syntax highlighting {{{ "
 Plug 'octol/vim-cpp-enhanced-highlight'
 " }}} Syntax highlighting "
-" {{{ Tests
-Plug 'alepez/vim-gtest'             " Google tests
-" }}}
 " {{{ Build systems
 if executable('cmake')
     Plug 'ilyachur/cmake4vim'
@@ -24,11 +21,6 @@ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 " Debugging {{{ "
 if !g:isWindows && !g:isAndroid
     Plug 'puremourning/vimspector', { 'do': './install_gadget.py --all --disable-tcl' }
-    Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
-    Plug 'idanarye/vim-vebugger', { 'branch': 'develop' }
-    if has("nvim")
-        Plug 'sakhnik/nvim-gdb', { 'do': ':UpdateRemotePlugins' }
-    endif
 endif
 " }}} Debugging "
 " {{{ Markdown
@@ -54,11 +46,6 @@ endif
 " On Windows you have to have the same architecture (32 or 64 bits) versions of vim and python
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'   " Snippets.
 " }}} Snippets "
-" Tmux {{{ "
-if !g:isWindows
-    Plug 'tmux-plugins/vim-tmux-focus-events'
-endif
-" }}} Tmux "
 " Git {{{ "
 Plug 'tpope/vim-fugitive'                               " Git plugin
 Plug 'gregsexton/gitv', {'on': ['Gitv']}                " Gitk for vim
@@ -90,7 +77,6 @@ Plug 'vifm/vifm.vim'                  " Integrate vifm to vim
 Plug 'wellle/targets.vim'               " Add various text objects to VIM
 Plug 'terryma/vim-multiple-cursors'     " Plugin for multiple cursors
 Plug 'tmhedberg/matchit'                " Extend behavior of %
-Plug 'machakann/vim-multiselect'        " A library plugin to handle multiple visual selections
 Plug 'mbbill/undotree'                  " The ultimate undo history visualizer for VIM
 Plug 'cohama/lexima.vim'                " Vim plugin, insert or delete brackets, parens, quotes in pair
 " }}} Text manipulation "
@@ -116,7 +102,6 @@ Plug 'morhetz/gruvbox'                  " Color scheme
 Plug 'itchyny/calendar.vim'             " Calendar in VIM
 Plug 'chiphogg/vim-prototxt'            " Enable prototxt support
 Plug 'vim-scripts/DoxygenToolkit.vim'   " Enable doxygen support
-Plug 'skywind3000/quickmenu.vim'        " Quickmenu for launch configurations
 Plug 'okcompute/vim-ctrlp-session'      " Vim sessions
 Plug 'bogado/file-line'                 " For open file:line
 Plug 'lervag/vimtex'                    " Latex support

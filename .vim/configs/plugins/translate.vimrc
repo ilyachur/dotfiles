@@ -5,6 +5,7 @@ let g:trans_directions_list = [
     \['en', 'ru'],
     \['ru', 'en'],
     \['en', 'de'],
+    \['ru', 'de'],
     \['de', 'ru', 'en'],
     \['en', 'ru', 'de'],
     \['', 'ru'],
