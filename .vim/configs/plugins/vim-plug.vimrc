@@ -15,9 +15,6 @@ Plug 'LucHermitte/lh-vim-lib'
 Plug 'LucHermitte/alternate-lite'
 " }}} Navigation "
 " }}} C++ "
-" Python {{{ "
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-" }}} Python "
 " Debugging {{{ "
 if !g:isWindows && !g:isAndroid
     Plug 'puremourning/vimspector', { 'do': './install_gadget.py --all --disable-tcl' }
