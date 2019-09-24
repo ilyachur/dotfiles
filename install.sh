@@ -5,7 +5,6 @@ ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 ln -s ${ROOT_DIR}/.bash_profile ${HOME}/
 ln -s ${ROOT_DIR}/.bashrc ${HOME}/
 ln -s ${ROOT_DIR}/.bashrc.global ${HOME}/
-ln -s ${ROOT_DIR}/.emacs.d ${HOME}/
 ln -s ${ROOT_DIR}/.gdbinit ${HOME}/
 ln -s ${ROOT_DIR}/.tmux ${HOME}/
 ln -s ${ROOT_DIR}/.tmux.conf ${HOME}/
