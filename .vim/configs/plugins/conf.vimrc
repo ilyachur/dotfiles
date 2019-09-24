@@ -15,7 +15,6 @@ let s:vim_configuration_files = [
 \ 'lsp.vimrc',
 \ 'markdown.vimrc',
 \ 'nerdcommenter.vimrc',
-\ 'python-mode.vimrc',
 \ 'search.vimrc',
 \ 'startify.vimrc',
 \ 'syntastic.vimrc',

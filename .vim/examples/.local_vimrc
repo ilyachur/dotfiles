@@ -1,6 +1,5 @@
 " Build options {{{ "
 let s:root = expand('<sfile>:h').'/'
-"let &makeprg="cmake --build build -j8"
 
 " Cmake
 "let g:cmake_install_prefix
@@ -13,26 +12,6 @@ let g:cmake_reload_after_save = 1
 let g:cmake_compile_commands = 1
 let g:cmake_compile_commands_link= s:root
 
-" find alternatives
-let g:alternateSearchPath = 'sfr:./include,sfr:./src/'
-
 " find custim code checks
 let g:ale_cpp_cpplint_executable = './scripts/cpplint.py'
 let g:ale_cpp_cpplint_options = '--linelength=160 --counting=detailed --filter="-readability/fn_size,-runtime/explicit"'
-
-" clear all the items
-call g:quickmenu#reset()
-
-call g:quickmenu#header('Test app')
-
-call g:quickmenu#append('# Run', '')
-
-call g:quickmenu#append('Stack overrun', '!./bin/'.g:cmake_build_type.'/stack_overrun "Hello world!"', 'Run stack overrun')
-
-call g:quickmenu#append('# Debug', '')
-
-call g:quickmenu#append('GDB Stack overrun', 'VBGstartGDB ./bin/'.g:cmake_build_type.'/stack_overrun "Hello world!"', 'Debug application with gdb')
-" Fix for lldb args
-call g:quickmenu#append('LLDB Stack overrun', 'call vebugger#lldb#start("./bin/'.g:cmake_build_type.'/stack_overrun", {"args": ["Hello world!"]})', 'Debug application with gdb')
-
-

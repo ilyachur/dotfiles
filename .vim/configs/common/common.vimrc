@@ -40,7 +40,7 @@ set autoread                    " Automatically re-read files if unmodified insi
 set synmaxcol=300               " Don't try to highlight long lines"
 set scrolloff=5                 " Number of rows to show in window above and below cursor
 syntax enable
-set colorcolumn=120             " Set Color Column
+set colorcolumn=160             " Set Color Column
 set splitbelow splitright       " Splits open at the botom and right
 " Disable color column for some ft {{{ "
 autocmd FileType conque_term setlocal colorcolumn=
