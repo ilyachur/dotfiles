@@ -11,12 +11,6 @@ $ git submodule update --init --recursive
 $ ./install.sh
 ```
 
-### Vimspector Gadgets Installation
-
- ```sh
- $ ~/.vim/pack/vimspector/opt/vimspector/install_gadget.py --all --disable-tcl
- ```
-
 ### Zsh
 
 Mac OS X Installation:
@@ -32,11 +26,6 @@ $ sudo apt-get install zsh
 ### Ripgrep
 
 I use riprep for search, it is really nice! For more information see [here](https://github.com/BurntSushi/ripgrep).
-
-### RTags
-
-I use [Rtags](https://github.com/Andersbakken/rtags) instead of ctags it has a good integration with vim and emacs and it is really cool!
-It depends on libclang-dev and llvm.
 
 ### FZF
 
