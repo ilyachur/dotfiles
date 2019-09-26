@@ -1,3 +1,9 @@
+" Leader key mapping {{{ "
+" Map leader key to custom
+let mapleader=","
+" \ works instead of ,
+noremap \ ,
+" }}} Leader key mapping "
 " Filetype detection {{{ "
 filetype plugin indent on
 filetype plugin on
@@ -11,16 +17,6 @@ endif
 set ignorecase                  " ignore register for search
 set incsearch                   " momental search
 set hls                         " highlight searsh
-" makes * and # work on visual mode too.
-function! s:VSetSearch(cmdtype)
-  let temp = @s
-  norm! gv"sy
-  let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
-  let @s = temp
-endfunction
-
-xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
-xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
 " }}} Search
 " Tab size {{{
 set tabstop=4
@@ -146,9 +142,4 @@ endif
 
 set re=1                " force the old regex engine on any version newer (it helped to resolve performance with syntax highlighting)
 set lazyredraw          " Don’t update screen during macro and script execution.
-
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
 " }}} Other "

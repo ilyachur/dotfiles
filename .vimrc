@@ -50,6 +50,7 @@ let g:VIM_ROOT_DIRECTORY = expand('<sfile>:p:h')
 let g:vim_configuration_files = [
 \ '.vim/configs/common/conf.vimrc',
 \ '.vim/configs/plugins/conf.vimrc',
+\ '.vim/configs/key-bindings.vimrc',
 \]
 
 for file in g:vim_configuration_files

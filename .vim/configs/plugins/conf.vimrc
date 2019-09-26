@@ -3,7 +3,6 @@ let s:vim_configuration_files = [
 \ 'vim-plug.vimrc',
 \ 'ale.vimrc',
 \ 'calendar.vimrc',
-\ 'cmake.vimrc',
 \ 'color.vimrc',
 \ 'diff.vimrc',
 \ 'fm.vimrc',
@@ -22,7 +21,6 @@ let s:vim_configuration_files = [
 \ 'translate.vimrc',
 \ 'ultisnips.vimrc',
 \ 'vim-cpp-enhanced-highlight.vimrc',
-\ 'vimspector.vimrc',
 \ 'wintabs.vimrc',
 \]
 

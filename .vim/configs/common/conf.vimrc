@@ -3,7 +3,6 @@ let s:vim_configuration_files = [
 \ 'common-functions.vimrc',
 \ 'common.vimrc',
 \ 'file-association.vimrc',
-\ 'key-bindings.vimrc',
 \ 'statusline.vimrc',
 \]
 
