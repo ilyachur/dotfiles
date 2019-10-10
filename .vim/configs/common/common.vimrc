@@ -24,7 +24,8 @@ set expandtab
 set shiftwidth=4
 set cindent
 set smartindent
-set cino=N-s,g0,:0,l1
+" cinoptions  for help: :help cinoptions-values
+set cino=N-s,E-s,g0,:0,l1,t0,(0,j1
 " }}} Tab size
 " View settings {{{ "
 set rnu                         " Relative numbers
