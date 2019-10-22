@@ -93,7 +93,13 @@ Plug 'AndrewRadev/undoquit.vim'                         " Save closed buffers/wi
 " View {{{ "
 Plug 'vim-scripts/LargeFile'                            " Enable big files support for vim
 Plug 'yggdroot/indentline'                              " Displaying thin vertical lines at each indentation level
-Plug 'morhetz/gruvbox'                                  " Color scheme
+" Color schemes {{{ "
+Plug 'bluz71/vim-moonfly-colors'
+Plug 'lifepillar/vim-solarized8'
+Plug 'nanotech/jellybeans.vim'
+Plug 'morhetz/gruvbox'
+Plug 'rakr/vim-one'
+" }}} Color schemes "
 " }}} View "
 " Other {{{ "
 Plug 'itchyny/calendar.vim'                             " Calendar in VIM
@@ -106,6 +112,8 @@ Plug 'lervag/vimtex'                                    " Latex support
 if !g:isWindows
     Plug 'echuraev/translate-shell.vim', { 'do': 'wget -O ~/.vim/trans git.io/trans && chmod +x ~/.vim/trans'  }
 endif
+
+Plug 'ianding1/leetcode.vim'                            " Plugin for leetcode
 " }}} Other "
 
 call plug#end()
