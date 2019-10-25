@@ -94,11 +94,8 @@ Plug 'AndrewRadev/undoquit.vim'                         " Save closed buffers/wi
 Plug 'vim-scripts/LargeFile'                            " Enable big files support for vim
 Plug 'yggdroot/indentline'                              " Displaying thin vertical lines at each indentation level
 " Color schemes {{{ "
-Plug 'bluz71/vim-moonfly-colors'
 Plug 'lifepillar/vim-solarized8'
-Plug 'nanotech/jellybeans.vim'
 Plug 'morhetz/gruvbox'
-Plug 'rakr/vim-one'
 " }}} Color schemes "
 " }}} View "
 " Other {{{ "
