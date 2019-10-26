@@ -333,3 +333,4 @@ gitvr() {
 }
 # }}} FZF configurations #
 
+export GPG_TTY=$(tty)
