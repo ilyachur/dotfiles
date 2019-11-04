@@ -36,6 +36,9 @@ endif
 if executable('rdm') && !has("nvim")
     Plug 'lyuts/vim-rtags'                              " Rtags support
 endif
+if executable('clang-format')
+    Plug 'rhysd/vim-clang-format'                       " clang-format
+endif
 " }}} Other "
 " }}} Programming "
 " Snippets {{{ "

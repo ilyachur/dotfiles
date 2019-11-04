@@ -3,6 +3,7 @@ let s:vim_configuration_files = [
 \ 'vim-plug.vimrc',
 \ 'ale.vimrc',
 \ 'calendar.vimrc',
+\ 'clang-format.vimrc',
 \ 'color.vimrc',
 \ 'diff.vimrc',
 \ 'fm.vimrc',
