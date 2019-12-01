@@ -46,7 +46,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'     " Snippets.
 " }}} Snippets "
 " Git {{{ "
 Plug 'tpope/vim-fugitive'                               " Git plugin
-Plug 'gregsexton/gitv', {'on': ['Gitv']}                " Gitk for vim
+Plug 'junegunn/gv.vim'                                  " Gitk for vim
 Plug 'mhinz/vim-signify'                                " Extencion for git
 Plug 'rhysd/committia.vim'                              " extended commit message
 Plug 'idanarye/vim-merginal', { 'branch': 'develop' }   " a nice inteface for dealing with Git branches
