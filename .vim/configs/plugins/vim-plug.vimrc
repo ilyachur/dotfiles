@@ -112,6 +112,9 @@ if !g:isWindows
 endif
 
 Plug 'ianding1/leetcode.vim'                            " Plugin for leetcode
+if executable('unfog')
+    Plug 'unfog-io/unfog-vim'                           " Time manager
+endif
 " }}} Other "
 
 call plug#end()
