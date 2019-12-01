@@ -4,12 +4,6 @@
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 " }}} History key mapping "
-" Disable arrows {{{ "
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
-" }}} Disable arrows "
 " Hot keys to change window size {{{ "
 nmap <C-h> <c-w><
 nmap <C-l> <c-w>>
