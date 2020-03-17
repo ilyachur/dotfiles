@@ -1,13 +1,13 @@
 let g:coc_global_extensions = [
-    \ 'coc-json',
-    \ 'coc-tag',
-    \ 'coc-yaml',
-    \ 'coc-lists',
-    \ 'coc-yank',
-    \ 'coc-vimtex',
-    \ 'coc-python',
     \ 'coc-dictionary',
-    \ 'coc-ultisnips',
+    \ 'coc-json',
+    \ 'coc-lists',
+    \ 'coc-python',
+    \ 'coc-snippets',
+    \ 'coc-tag',
+    \ 'coc-vimtex',
+    \ 'coc-yaml',
+    \ 'coc-yank',
     \]
 
 " Highlight symbol under cursor on CursorHold

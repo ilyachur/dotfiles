@@ -94,13 +94,6 @@ nnoremap <silent> <F7>         :call vimspector#StepInto()<CR>
 nnoremap <silent> <F6>         :call vimspector#StepOut()<CR>
 " }}} Debugger "
 " LSP {{{ "
-" Use <c-space> for trigger completion.
-" inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 " Use `[c` and `]c` for navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
@@ -137,16 +130,6 @@ nmap <leader>cas  <Plug>(coc-codeaction-selected)
 nmap <leader>ca  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
-
-" Using CocList
-" Show all diagnostics
-nnoremap <silent> <leader>cd :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <leader>ce :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <leader>cl :<C-u>CocList commands<cr>
-" Resume latest coc list
-nnoremap <silent> <leader>cr :<C-u>CocListResume<CR>
 " }}} LSP "
 " VCS {{{ "
 nnoremap <silent> <leader>vs :Gstatus<CR>

@@ -39,11 +39,6 @@ endif
 Plug 'rhysd/vim-clang-format'                           " clang-format
 " }}} Other "
 " }}} Programming "
-" Snippets {{{ "
-" For working it is necessary to have python3 installed
-" On Windows you have to have the same architecture (32 or 64 bits) versions of vim and python
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'     " Snippets.
-" }}} Snippets "
 " Git {{{ "
 Plug 'tpope/vim-fugitive'                               " Git plugin
 Plug 'junegunn/gv.vim'                                  " Gitk for vim
