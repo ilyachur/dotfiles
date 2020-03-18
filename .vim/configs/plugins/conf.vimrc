@@ -14,6 +14,7 @@ let s:vim_configuration_files = [
 \ 'local_vimrc.vimrc',
 \ 'lsp.vimrc',
 \ 'markdown.vimrc',
+\ 'multiple_cursors.vimrc',
 \ 'nerdcommenter.vimrc',
 \ 'search.vimrc',
 \ 'startify.vimrc',
