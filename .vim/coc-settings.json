@@ -1,13 +1,6 @@
 {
     "suggest.triggerAfterInsertEnter": true,
     "suggest.timeout": 500,
-    "languageserver": {
-        "clangd": {
-            "command": "clangd",
-            "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-            "filetypes": ["c", "cpp", "objc", "objcpp"]
-        }
-    },
     "python.jediEnabled": false,
     "python.linting.pylintEnabled": true,
     "python.formatting.provider": "black"
