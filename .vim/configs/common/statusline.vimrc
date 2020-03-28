@@ -1,6 +1,21 @@
 " Common
 set laststatus=2        " Always show statusline
+let use_delimiters = 1
 
+
+" delimiters{{{ "
+if !g:use_delimiters
+    let left_sep = ""
+    let left_alt_sep = ""
+    let right_sep = ""
+    let right_alt_sep = ""
+else
+    let left_sep = "\ue0b0"
+    let left_alt_sep = "\ue0b1"
+    let right_sep = "\ue0b2"
+    let right_alt_sep = "\ue0b3"
+endif
+" }}} Delimiters "
 " Status line modes {{{ "
 let g:currentmode={
     \ 'n'  : 'N',
@@ -24,91 +39,88 @@ let g:currentmode={
     \ 't'  : 'Terminal',
 \}
 " }}} Status line modes "
-" Default active colors {{{ "
-let defaultAccentColor=161
-let colorsAndModes= {
-    \ 'n'           : 28,
-    \ 'i'           : 33,
-    \ 'v'           : 127,
-    \ 'V'           : 127,
-    \ ''          : 127,
-    \ 'R'           : 166,
-    \ 'statBgFg'    : 15,
-    \ 'statBgBg'    : 236,
-    \ 'statModifFg' : 160,
-\}
-let defaultAccentColorGui='#d7005f'
-let colorsAndModesGui= {
-    \ 'n'           : '#008700',
-    \ 'i'           : '#0087ff',
-    \ 'v'           : '#af00af',
-    \ 'V'           : '#af00af',
-    \ ''          : '#af00af',
-    \ 'R'           : '#d75f00',
-    \ 'statBgFg'    : '#ffffff',
-    \ 'statBgBg'    : '#303030',
-    \ 'statModifFg' : '#d70000',
-\}
-" }}} Default active colors "
-" Default inactive colors {{{ "
-let defaultInactiveAccentColor=89
-let inactiveColorsAndModes= {
-    \ 'n'           : 22,
-    \ 'i'           : 25,
-    \ 'v'           : 53,
-    \ 'V'           : 53,
-    \ ''          : 53,
-    \ 'R'           : 94,
-    \ 'statBgFg'    : 244,
-    \ 'statBgBg'    : 233,
-    \ 'statModifFg' : 88,
-\}
-let defaultInactiveAccentColorGui='#87005f'
-let inactiveColorsAndModesGui= {
-    \ 'n'           : '#005f00',
-    \ 'i'           : '#005faf',
-    \ 'v'           : '#5f005f',
-    \ 'V'           : '#5f005f',
-    \ ''          : '#5f005f',
-    \ 'R'           : '#875f00',
-    \ 'statBgFg'    : '#808080',
-    \ 'statBgBg'    : '#121212',
-    \ 'statModifFg' : '#870000',
-\}
-" }}} Default inactive colors "
+" Default colors {{{ "
+" Dark gruvbox
+if !(has('termguicolors') && &termguicolors) && !has('gui_running')
+    let colorType='cterm'
+    let colorsAndModes= {
+                \ 'n'           : 214,
+                \ 'i'           : 109,
+                \ 'v'           : 175,
+                \ 'V'           : 175,
+                \ ''          : 175,
+                \ 'R'           : 208,
+                \ 'statBgFg'    : 15,
+                \ 'statBgBg'    : 236,
+                \ 'statModifFg' : 160,
+                \ 'error'       : 161,
+                \}
+    let inactiveColorsAndModes= {
+                \ 'n'           : 172,
+                \ 'i'           : 66,
+                \ 'v'           : 132,
+                \ 'V'           : 132,
+                \ ''          : 132,
+                \ 'R'           : 166,
+                \ 'statBgFg'    : 244,
+                \ 'statBgBg'    : 234,
+                \ 'statModifFg' : 88,
+                \ 'error'       : 89,
+                \}
+else
+    let colorType='gui'
+    let colorsAndModes= {
+                \ 'n'           : '#fabd2f',
+                \ 'i'           : '#83a598',
+                \ 'v'           : '#d3869b',
+                \ 'V'           : '#d3869b',
+                \ ''          : '#d3869b',
+                \ 'R'           : '#fe8019',
+                \ 'statBgFg'    : '#ffffff',
+                \ 'statBgBg'    : '#32302f',
+                \ 'statModifFg' : '#d70000',
+                \ 'error'       : '#d7005f',
+                \}
+    let inactiveColorsAndModes= {
+                \ 'n'           : '#d79921',
+                \ 'i'           : '#458588',
+                \ 'v'           : '#b16286',
+                \ 'V'           : '#b16286',
+                \ ''          : '#b16286',
+                \ 'R'           : '#d65d0e',
+                \ 'statBgFg'    : '#808080',
+                \ 'statBgBg'    : '#1d2021',
+                \ 'statModifFg' : '#870000',
+                \ 'error'       : '#87005f',
+                \}
+endif
+" }}} Default colors "
 " Status line color function {{{ "
 function! ChangeAccentColor(active)
-    let accentColor=get(g:colorsAndModes, mode(), g:defaultAccentColor)
-    let accentColorGui=get(g:colorsAndModesGui, mode(), g:defaultAccentColorGui)
+    let accentColor=get(g:colorsAndModes, mode(), g:colorsAndModes['error'])
     let statBgFg = g:colorsAndModes['statBgFg']
-    let statBgFgGui = g:colorsAndModesGui['statBgFg']
     let statBgBg = g:colorsAndModes['statBgBg']
-    let statBgBgGui = g:colorsAndModesGui['statBgBg']
     let statModifFg = g:colorsAndModes['statModifFg']
-    let statModifFgGui = g:colorsAndModesGui['statModifFg']
 
     if !a:active
-        let accentColor=get(g:inactiveColorsAndModes, mode(), g:defaultInactiveAccentColor)
-        let accentColorGui=get(g:inactiveColorsAndModesGui, mode(), g:defaultInactiveAccentColorGui)
+        let accentColor=get(g:inactiveColorsAndModes, mode(), g:inactiveColorsAndModes['error'])
         let statBgFg = g:inactiveColorsAndModes['statBgFg']
-        let statBgFgGui = g:inactiveColorsAndModesGui['statBgFg']
         let statBgBg = g:inactiveColorsAndModes['statBgBg']
-        let statBgBgGui = g:inactiveColorsAndModesGui['statBgBg']
         let statModifFg = g:inactiveColorsAndModes['statModifFg']
-        let statModifFgGui = g:inactiveColorsAndModesGui['statModifFg']
     endif
     " Status line background
-    execute 'hi statusBackground ctermfg='.statBgFg.' guifg='.statBgFgGui.' ctermbg='.statBgBg.' guibg='.statBgBgGui
+    execute 'hi statusBackground '.g:colorType.'fg='.statBgFg.' '.g:colorType.'bg='.statBgBg
     " Modified color
-    execute 'hi statusModified ctermfg='.statModifFg.' guifg='.statModifFgGui.' ctermbg='.statBgBg.' guibg='.statBgBgGui
+    execute 'hi statusModified '.g:colorType.'fg='.statModifFg.' '.g:colorType.'bg='.statBgBg
     " Workaround for mode background
-    execute 'hi statusModeBackground ctermfg='.statBgFg.' ctermbg='.accentColor.' cterm=bold guifg='.statBgFgGui.' guibg='.accentColorGui.' gui=bold'
+    execute 'hi statusModeBackground '.g:colorType.'fg='.statBgFg.' '.g:colorType.'bg='.accentColor.' '.g:colorType.'=bold'
+    execute 'hi statusModeBackgroundReverse '.g:colorType.'fg='.accentColor.' '.g:colorType.'bg='.statBgBg.' '.g:colorType.'=bold'
 
-    execute 'hi TabLineSel ctermfg='.statBgFg.' cterm=bold ctermbg='.accentColor
-    execute 'hi TabLine ctermbg=0 ctermfg='.accentColor
-    execute 'hi CursorLineNr ctermfg='.accentColor.' guifg='.accentColorGui
-    execute 'hi StatusLine ctermfg='.statBgFg.' ctermbg='.accentColor.' cterm=bold guifg='.statBgFgGui.' guibg='.accentColorGui.' gui=bold'
-    execute 'hi StatusLineNC ctermfg='.statBgFg.' ctermbg='.accentColor.' cterm=NONE guifg='.statBgFgGui.' guibg='.accentColorGui.' gui=NONE'
+    execute 'hi TabLineSel '.g:colorType.'fg='.statBgFg.' '.g:colorType.'=bold '.g:colorType.'bg='.accentColor
+    execute 'hi TabLine '.g:colorType.'bg='.statBgBg.' '.g:colorType.'fg='.accentColor
+    execute 'hi CursorLineNr '.g:colorType.'fg='.accentColor
+    execute 'hi StatusLine '.g:colorType.'fg='.statBgFg.' '.g:colorType.'bg='.accentColor.' '.g:colorType.'=bold'
+    execute 'hi StatusLineNC '.g:colorType.'fg='.statBgFg.' '.g:colorType.'bg='.accentColor.' '.g:colorType.'=NONE'
     return ''
 endfunction
 " }}} Status line color function "
@@ -154,9 +166,6 @@ function! ReadOnly()
 endfunction
 
 function! GitInfo()
-    if !exists('*fugitive#head')
-        return ''
-    endif
     let git = fugitive#head()
     if git != ''
         if g:isWindows
@@ -169,11 +178,21 @@ function! GitInfo()
 endfunction
 
 function! CTagsInfo()
-    if !exists('gutentags#statusline()')
-        return ''
-    endif
     return  gutentags#statusline('[', ']')
 endfunction
+
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunctio
 " }}} Common functions "
 
 function! StatusLine(winnum)
@@ -188,6 +207,8 @@ function! StatusLine(winnum)
     if active
         let statLine .= "%{PasteMode()}"                                        " Show paste mode if enabled
     endif
+    let statLine .= "%#statusModeBackgroundReverse#"                            " Left separator
+    let statLine .= g:left_sep
     let statLine .= "%#statusBackground#"                                       " Switch to statusBackground hi group
     let statLine .= " "                                                         " Space
     let statLine .= "[%n]"                                                      " buffernr
@@ -231,15 +252,16 @@ function! StatusLine(winnum)
     endif
     let statLine .= "%(%{FileSize()}%)"                                         " File size
     let statLine .= " "                                                         " Space
-    let statLine .= "%#statusModeBackground#"                                   " Switch to statusModeBackground hi group
-    let statLine .= " "                                                         " Space
-    if !active
-        let statLine .= " "
-    else
+    if active
+        let statLine .= "%#statusModeBackgroundReverse#"                        " Right separator
+        let statLine .= g:right_sep
+        let statLine .= "%#statusModeBackground#"                               " Switch to statusModeBackground hi group
+        let statLine .= " "                                                     " Space
         let statLine .= "%3p%%"                                                 " Total (%)
         let statLine .= " "                                                     " Space
         let statLine .= "l: %2l/%L, c: %c"                                      " Line and column
         let statLine .= " "                                                     " Space
+        let statLine .= "%{LinterStatus()}"
     endif
     " }}} Right "
     return statLine
