@@ -50,10 +50,10 @@ if !(has('termguicolors') && &termguicolors) && !has('gui_running')
                 \ 'V'           : 175,
                 \ ''          : 175,
                 \ 'R'           : 208,
-                \ 'statBgFg'    : 15,
-                \ 'statBgBg'    : 236,
-                \ 'statModifFg' : 160,
-                \ 'error'       : 161,
+                \ 'statFg'      : 15,
+                \ 'bg0'         : 236,
+                \ 'bg1'         : 243,
+                \ 'red'         : 167,
                 \}
     let inactiveColorsAndModes= {
                 \ 'n'           : 172,
@@ -62,10 +62,10 @@ if !(has('termguicolors') && &termguicolors) && !has('gui_running')
                 \ 'V'           : 132,
                 \ ''          : 132,
                 \ 'R'           : 166,
-                \ 'statBgFg'    : 244,
-                \ 'statBgBg'    : 234,
-                \ 'statModifFg' : 88,
-                \ 'error'       : 89,
+                \ 'statFg'      : 244,
+                \ 'bg0'         : 234,
+                \ 'bg1'         : 237,
+                \ 'red'         : 124,
                 \}
 else
     let colorType='gui'
@@ -76,10 +76,10 @@ else
                 \ 'V'           : '#d3869b',
                 \ ''          : '#d3869b',
                 \ 'R'           : '#fe8019',
-                \ 'statBgFg'    : '#ffffff',
-                \ 'statBgBg'    : '#32302f',
-                \ 'statModifFg' : '#d70000',
-                \ 'error'       : '#d7005f',
+                \ 'statFg'      : '#ffffff',
+                \ 'bg0'         : '#32302f',
+                \ 'bg1'         : '#7c6f64',
+                \ 'red'         : '#fb4934',
                 \}
     let inactiveColorsAndModes= {
                 \ 'n'           : '#d79921',
@@ -88,39 +88,43 @@ else
                 \ 'V'           : '#b16286',
                 \ ''          : '#b16286',
                 \ 'R'           : '#d65d0e',
-                \ 'statBgFg'    : '#808080',
-                \ 'statBgBg'    : '#1d2021',
-                \ 'statModifFg' : '#870000',
-                \ 'error'       : '#87005f',
+                \ 'statFg'      : '#808080',
+                \ 'bg0'         : '#1d2021',
+                \ 'bg1'         : '#3c3836',
+                \ 'red'         : '#cc241d',
                 \}
 endif
 " }}} Default colors "
 " Status line color function {{{ "
 function! ChangeAccentColor(active)
-    let accentColor=get(g:colorsAndModes, mode(), g:colorsAndModes['error'])
-    let statBgFg = g:colorsAndModes['statBgFg']
-    let statBgBg = g:colorsAndModes['statBgBg']
-    let statModifFg = g:colorsAndModes['statModifFg']
+    let accentColor=get(g:colorsAndModes, mode(), g:colorsAndModes['red'])
+    let red = g:colorsAndModes['red']
+    let statFg = g:colorsAndModes['statFg']
+    let bg0 = g:colorsAndModes['bg0']
+    let bg1 = g:colorsAndModes['bg1']
 
     if !a:active
-        let accentColor=get(g:inactiveColorsAndModes, mode(), g:inactiveColorsAndModes['error'])
-        let statBgFg = g:inactiveColorsAndModes['statBgFg']
-        let statBgBg = g:inactiveColorsAndModes['statBgBg']
-        let statModifFg = g:inactiveColorsAndModes['statModifFg']
+        let accentColor=get(g:inactiveColorsAndModes, mode(), g:inactiveColorsAndModes['red'])
+        let red = g:inactiveColorsAndModes['red']
+        let statFg = g:inactiveColorsAndModes['statFg']
+        let bg0 = g:inactiveColorsAndModes['bg0']
+        let bg1 = g:inactiveColorsAndModes['bg1']
     endif
     " Status line background
-    execute 'hi statusBackground '.g:colorType.'fg='.statBgFg.' '.g:colorType.'bg='.statBgBg
     " Modified color
-    execute 'hi statusModified '.g:colorType.'fg='.statModifFg.' '.g:colorType.'bg='.statBgBg
+    execute 'hi statusModified '.g:colorType.'fg='.red.' '.g:colorType.'bg='.bg0
+    execute 'hi statusBackground '.g:colorType.'fg='.statFg.' '.g:colorType.'bg='.bg0
+    execute 'hi statusBackgroundBg1 '.g:colorType.'fg='.statFg.' '.g:colorType.'bg='.bg1
     " Workaround for mode background
-    execute 'hi statusModeBackground '.g:colorType.'fg='.statBgFg.' '.g:colorType.'bg='.accentColor.' '.g:colorType.'=bold'
-    execute 'hi statusModeBackgroundReverse '.g:colorType.'fg='.accentColor.' '.g:colorType.'bg='.statBgBg.' '.g:colorType.'=bold'
+    execute 'hi statusModeBackground '.g:colorType.'fg='.statFg.' '.g:colorType.'bg='.accentColor.' '.g:colorType.'=bold'
 
-    execute 'hi TabLineSel '.g:colorType.'fg='.statBgFg.' '.g:colorType.'=bold '.g:colorType.'bg='.accentColor
-    execute 'hi TabLine '.g:colorType.'bg='.statBgBg.' '.g:colorType.'fg='.accentColor
+    execute 'hi statusReverseAccentBg0 '.g:colorType.'fg='.accentColor.' '.g:colorType.'bg='.bg0.' '.g:colorType.'=bold'
+    execute 'hi statusReverseAccentBg1 '.g:colorType.'fg='.accentColor.' '.g:colorType.'bg='.bg1.' '.g:colorType.'=bold'
+    execute 'hi statusReverseBg1 '.g:colorType.'fg='.bg1.' '.g:colorType.'bg='.bg0.' '.g:colorType.'=bold'
+
+    execute 'hi TabLineSel '.g:colorType.'fg='.statFg.' '.g:colorType.'=bold '.g:colorType.'bg='.accentColor
+    execute 'hi TabLine '.g:colorType.'bg='.bg0.' '.g:colorType.'fg='.accentColor
     execute 'hi CursorLineNr '.g:colorType.'fg='.accentColor
-    execute 'hi StatusLine '.g:colorType.'fg='.statBgFg.' '.g:colorType.'bg='.accentColor.' '.g:colorType.'=bold'
-    execute 'hi StatusLineNC '.g:colorType.'fg='.statBgFg.' '.g:colorType.'bg='.accentColor.' '.g:colorType.'=NONE'
     return ''
 endfunction
 " }}} Status line color function "
@@ -195,31 +199,45 @@ function! LinterStatus() abort
 endfunctio
 " }}} Common functions "
 
-function! StatusLine(winnum)
-    let active = a:winnum == winnr()
-    let statLine  = ""
-    " Left {{{ "
-    let statLine .= "%{ChangeAccentColor(".active.")}"                          " Changing the statusline color
-    let statLine .= "%#statusModeBackground#"                                   " Switch to statusModeBackground hi group
+" Sections {{{ "
+function! Section1(active, size)
+    let statLine = "%#statusModeBackground#"                                    " Switch to statusModeBackground hi group
     let statLine .= " "                                                         " Space
     let statLine .= "%{toupper(g:currentmode[mode()])}"                         " Current mode
     let statLine .= " "                                                         " Space
-    if active
+    if a:active
         let statLine .= "%{PasteMode()}"                                        " Show paste mode if enabled
     endif
-    let statLine .= "%#statusModeBackgroundReverse#"                            " Left separator
+    if a:size > 80
+        let statLine .= "%#statusReverseAccentBg1#"                             " Left separator
+    else
+        let statLine .= "%#statusReverseAccentBg0#"                             " Left separator
+    endif
     let statLine .= g:left_sep
-    let statLine .= "%#statusBackground#"                                       " Switch to statusBackground hi group
-    let statLine .= " "                                                         " Space
-    let statLine .= "[%n]"                                                      " buffernr
-    let statLine .= " "                                                         " Space
-    if winwidth(a:winnum) > 80
-        let statLine .= "%<%{CTagsInfo()}"                                      " ctags type
+
+    return statLine
+endfunction
+
+function! Section2(active, size)
+    let statLine = ""                                                           " Switch to statusBackground hi group
+    if a:size > 80
+        let statLine .= "%#statusBackgroundBg1#"                                " Switch to statusBackground hi group
         let statLine .= " "                                                     " Space
         let statLine .= "%<%{GitInfo()}"                                        " Git Branch name
         let statLine .= " "                                                     " Space
+        let statLine .= "%#statusReverseBg1#"                                   " Left separator
+        let statLine .= g:left_sep
     endif
-    if !active
+
+    return statLine
+endfunction
+
+function! Section3(active, size)
+    let statLine = "%#statusBackground#"                                        " Switch to statusBackground hi group
+
+    let statLine .= "[%n]"                                                      " buffernr
+    let statLine .= " "                                                         " Space
+    if !a:active
         let statLine .= "%<%t"                                                  " File name (only name)
     else
         let statLine .= "%<%f"                                                  " File name
@@ -228,23 +246,22 @@ function! StatusLine(winnum)
     let statLine .= "%m"                                                        " modified
     let statLine .= "%#statusBackground#"                                       " Switch to statusBackground hi group
     let statLine .= "%{ReadOnly()}%w"                                           " Is it read only file and preview windows flag [Preview]
-    let statLine .= " "                                                         " Space
-    if active && winwidth(a:winnum) > 80
-        if exists('*SyntasticStatuslineFlag')
-            let statLine .= "%#warningmsg#"                                     " Switch to warning hi group
-            let statLine .= "%{SyntasticStatuslineFlag()}"                      " Syntastic errors
-        endif
-        let statLine .= "%#statusBackground#"                                   " Switch to statusBackground hi group
-        let statLine .= " "                                                     " Space
-    endif
-    " }}} Left "
     let statLine .= "%="                                                        " Long space
-    " Right {{{ "
-    if winwidth(a:winnum) > 60
+    return statLine
+endfunction
+
+function! Section4(active, size)
+    let statLine = "%#statusReverseBg1#"                                        " Right separator
+    let statLine .= g:right_sep
+    let statLine .= "%#statusBackgroundBg1#"                                    " Switch to statusBackground hi group
+
+    if a:size > 60
+        let statLine .= "%<%{CTagsInfo()}"                                      " ctags type
+        let statLine .= " "                                                     " Space
         let statLine .= "%y"                                                    " FileType
         let statLine .= " "                                                     " Space
     endif
-    if active && winwidth(a:winnum) > 80
+    if a:active && a:size > 80
         let statLine .= "%{(&fenc!=''?&fenc:&enc)}"                             " Encoding
         let statLine .= " "                                                     " Space
         let statLine .= "[%{&ff}]"                                              " File format
@@ -252,8 +269,13 @@ function! StatusLine(winnum)
     endif
     let statLine .= "%(%{FileSize()}%)"                                         " File size
     let statLine .= " "                                                         " Space
-    if active
-        let statLine .= "%#statusModeBackgroundReverse#"                        " Right separator
+    return statLine
+endfunction
+
+function! Section5(active, size)
+    let statLine = ""
+    if a:active
+        let statLine .= "%#statusReverseAccentBg1#"                                " Right separator
         let statLine .= g:right_sep
         let statLine .= "%#statusModeBackground#"                               " Switch to statusModeBackground hi group
         let statLine .= " "                                                     " Space
@@ -263,6 +285,22 @@ function! StatusLine(winnum)
         let statLine .= " "                                                     " Space
         let statLine .= "%{LinterStatus()}"
     endif
+    return statLine
+endfunction
+" }]} Sections "
+
+function! StatusLine(winnum)
+    let active = a:winnum == winnr()
+    let size = winwidth(a:winnum)
+    let statLine = "%{ChangeAccentColor(".active.")}"                           " Changing the statusline color
+    " Left {{{ "
+    let statLine .= Section1(active, size)
+    let statLine .= Section2(active, size)
+    " }}} Left "
+    let statLine .= Section3(active, size)
+    " Right {{{ "
+    let statLine .= Section4(active, size)
+    let statLine .= Section5(active, size)
     " }}} Right "
     return statLine
 endfunction
