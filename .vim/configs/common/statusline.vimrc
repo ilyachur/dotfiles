@@ -6,14 +6,10 @@ let use_delimiters = 1
 " delimiters{{{ "
 if !g:use_delimiters
     let left_sep = ""
-    let left_alt_sep = ""
     let right_sep = ""
-    let right_alt_sep = ""
 else
     let left_sep = "\ue0b0"
-    let left_alt_sep = "\ue0b1"
     let right_sep = "\ue0b2"
-    let right_alt_sep = "\ue0b3"
 endif
 " }}} Delimiters "
 " Status line modes {{{ "
