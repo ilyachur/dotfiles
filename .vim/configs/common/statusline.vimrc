@@ -1,10 +1,10 @@
 " Common
 set laststatus=2        " Always show statusline
-let use_delimiters = 1
+let g:use_delimiters = 1
 
 
 " delimiters{{{ "
-if !g:use_delimiters
+if !exists('g:use_delimiters') || !g:use_delimiters
     let left_sep = ""
     let right_sep = ""
 else
@@ -194,7 +194,6 @@ function! LinterStatus() abort
     \)
 endfunctio
 " }}} Common functions "
-
 " Sections {{{ "
 function! Section1(active, size)
     let statLine = "%#statusModeBackground#"                                    " Switch to statusModeBackground hi group
@@ -283,7 +282,7 @@ function! Section5(active, size)
     endif
     return statLine
 endfunction
-" }]} Sections "
+" }}} Sections "
 
 function! StatusLine(winnum)
     let active = a:winnum == winnr()
