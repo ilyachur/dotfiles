@@ -12,6 +12,30 @@ let g:gutentags_generate_on_write = 1
 let g:gutentags_generate_on_new = 1
 let g:gutentags_generate_on_empty_buffer = 0
 
+" Extra:  Specifies whether to include extra tag entries for certain kinds of information.
+"
+" q       Include an extra class-qualified tag entry for each tag which is a member of
+"         a class (for languages for which this information is extracted; currently
+"         C++, Eiffel, and Java). The actual form of the qualified tag depends upon
+"         the language from which the tag was derived (using a form that is most
+"         natural for how qualified calls are specified in the language). For C++, it
+"         is in the form "class::member"; for Eiffel and Java, it is in the form
+"         "class.member". This may allow easier location of a specific tags when
+"         multiple occurrences of a tag name occur in the tag file. Note, however,
+"         that this could potentially more than double the size of the tag file.
+"
+" f       Include an entry for the base file name of every source file (e.g.
+"         "example.c"), which addresses the first line of the file.
+"
+" Fields: Specifies the available extension fields which are to be included in
+"         the entries of the tag file
+"
+" a       Access (or export) of class members
+" i       Inheritance information
+" l       Language of source file containing tag
+" m       Implementation information
+" n       Line number of tag definition
+" S       Signature of routine (e.g. prototype or parameter list)
 let g:gutentags_ctags_extra_args = [
     \ '--tag-relative=yes',
     \ '--fields=+ailmnS',
@@ -39,13 +63,14 @@ function! SwithSource(splitType)
             for entry in taglist(altFile)
                 if index(kinds, entry.kind) > -1
                     if (a:splitType == "h")
-                        silent! execute ":split"
+                        silent! execute ":split ".entry.filename
                     elseif (a:splitType == "v")
-                        silent! execute ":vsplit"
+                        silent! execute ":vsplit ".entry.filename
                     elseif (a:splitType == "t")
-                        silent! execute ":tab split"
+                        silent! execute ":tabe ".entry.filename
+                    else
+                        silent! execute ":e ".entry.filename
                     endif
-                    silent! execute ":tag ".entry.name
                     return
                 endif
             endfor
