@@ -10,10 +10,6 @@ if executable('cmake')
     Plug 'ilyachur/cmake4vim'
 endif
 " }}}
-" Navigation {{{ "
-Plug 'LucHermitte/lh-vim-lib'
-Plug 'LucHermitte/alternate-lite'
-" }}} Navigation "
 " }}} C++ "
 " Debugging {{{ "
 if !g:isWindows && !g:isAndroid

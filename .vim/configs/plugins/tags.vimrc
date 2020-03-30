@@ -15,7 +15,52 @@ let g:gutentags_generate_on_empty_buffer = 0
 let g:gutentags_ctags_extra_args = [
     \ '--tag-relative=yes',
     \ '--fields=+ailmnS',
+    \ '--extra=+qf',
+    \ '--c++-kinds=+p',
     \ ]
+
+" Find alternate
+" Use --extra=+f for ctags
+function! SwithSource(splitType)
+    let extMap = {
+        \ 'cpp': ['hpp', 'h'],
+        \ 'cxx': ['hpp', 'h'],
+        \ 'c': ['hpp', 'h'],
+        \ 'hpp': ['cpp', 'cxx', 'c'],
+        \ 'h': ['cpp', 'cxx', 'c'],
+    \ }
+    let kinds = ['F']
+    let fileName = expand('%:t:r')
+    let ext = expand('%:e')
+
+    if has_key(extMap, ext)
+        for altExt in extMap[ext]
+            let altFile = fileName.".".altExt
+            for entry in taglist(altFile)
+                if index(kinds, entry.kind) > -1
+                    if (a:splitType == "h")
+                        silent! execute ":split"
+                    elseif (a:splitType == "v")
+                        silent! execute ":vsplit"
+                    elseif (a:splitType == "t")
+                        silent! execute ":tab split"
+                    endif
+                    silent! execute ":tag ".entry.name
+                    return
+                endif
+            endfor
+        endfor
+    endif
+    echohl ErrorMsg |
+                \ echomsg "Cannot find alternate file for: ".@% |
+                \ echohl None
+    return
+endfunction
+
+command! -nargs=0 A call SwithSource("")
+command! -nargs=0 AV call SwithSource("v")
+command! -nargs=0 AS call SwithSource("h")
+command! -nargs=0 AT call SwithSource("t")
 
 " let g:gutentags_ctags_exclude = [
 "     \ '*.git', '*.svn', '*.hg',
