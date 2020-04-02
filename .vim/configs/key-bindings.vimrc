@@ -115,6 +115,10 @@ endfunction
 " Use D for show documentation in preview window
 nnoremap <silent> <leader>D :call <SID>show_documentation()<CR>
 
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 nmap <Leader>rf <Plug>(coc-refactor)
@@ -141,6 +145,11 @@ nnoremap <silent> <leader>vp :Gpush<CR>
 nnoremap <silent> <leader>vpf :Gpush --force<CR>
 nnoremap <silent> <leader>vP :Gpull<CR>
 nnoremap <silent> <leader>vv :Gitv<CR>
+
+nnoremap <silent> <leader>vu :SignifyHunkUndo<cr>
+
+nmap <silent> ]c <plug>(signify-next-hunk)
+nmap <silent> [c <plug>(signify-prev-hunk)
 " }}} VCS "
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%' " Get directory of current file
 " }}} Development "
