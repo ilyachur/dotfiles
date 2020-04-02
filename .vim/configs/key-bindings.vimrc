@@ -150,6 +150,8 @@ nnoremap <silent> <leader>vu :SignifyHunkUndo<cr>
 
 nmap <silent> ]c <plug>(signify-next-hunk)
 nmap <silent> [c <plug>(signify-prev-hunk)
+nmap ]C 9999]c
+nmap [C 9999[c
 " }}} VCS "
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%' " Get directory of current file
 " }}} Development "
