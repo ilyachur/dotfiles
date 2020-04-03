@@ -55,22 +55,32 @@ function! SwithSource(splitType)
     \ }
     let kinds = ['F']
     let fileName = expand('%:t:r')
+    let fullFilePath = expand('%:p:r')
     let ext = expand('%:e')
 
+    let openCommand = ':e'
+    if (a:splitType == "h")
+        let openCommand = ':split'
+    elseif (a:splitType == "v")
+        let openCommand = ':vsplit'
+    elseif (a:splitType == "t")
+        let openCommand = ':tabe'
+    endif
+
     if has_key(extMap, ext)
+        " First of all check local files
+        for altExt in extMap[ext]
+            let altFile = fullFilePath.".".altExt
+            if filereadable(altFile)
+                silent! execute openCommand." ".altFile
+                return
+            endif
+        endfor
         for altExt in extMap[ext]
             let altFile = fileName.".".altExt
             for entry in taglist(altFile)
                 if index(kinds, entry.kind) > -1
-                    if (a:splitType == "h")
-                        silent! execute ":split ".entry.filename
-                    elseif (a:splitType == "v")
-                        silent! execute ":vsplit ".entry.filename
-                    elseif (a:splitType == "t")
-                        silent! execute ":tabe ".entry.filename
-                    else
-                        silent! execute ":e ".entry.filename
-                    endif
+                    silent! execute openCommand." ".entry.filename
                     return
                 endif
             endfor
