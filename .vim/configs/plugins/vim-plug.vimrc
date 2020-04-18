@@ -28,10 +28,6 @@ Plug 'scrooloose/nerdcommenter'                         " Enable commentaries
 if executable('ctags') || executable('cscope') || executable('gtags')
     Plug 'ludovicchabant/vim-gutentags'                 " Ctags support
 endif
-
-if executable('rdm') && !has("nvim")
-    Plug 'lyuts/vim-rtags'                              " Rtags support
-endif
 Plug 'rhysd/vim-clang-format'                           " clang-format
 " }}} Other "
 " }}} Programming "

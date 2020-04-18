@@ -1,9 +1,3 @@
-" Leader key mapping {{{ "
-" Map leader key to custom
-let mapleader=","
-" \ works instead of ,
-noremap \ ,
-" }}} Leader key mapping "
 " Filetype detection {{{ "
 filetype plugin indent on
 filetype plugin on

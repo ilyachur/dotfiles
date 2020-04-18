@@ -1,4 +1,10 @@
 " Common {{{ "
+" Leader key mapping {{{ "
+" Map leader key to custom
+let mapleader=","
+" \ works instead of ,
+noremap \ ,
+" }}} Leader key mapping "
 " History key mapping {{{ "
 " Trick from 'Practical VIM' filtering for history
 cnoremap <C-p> <Up>
