@@ -92,36 +92,8 @@ set exrc
 set secure
 " }}} Find another vimrc "
 " Backup and temporary files {{{ "
-" Create folder for swap
-set undofile                               " Save undo's after file closes"
-if !isdirectory($HOME."/.vim/undodir") && !g:isWindows
-    silent call mkdir($HOME."/.vim/undodir", 'p')
-endif
-set undodir^=$HOME/.vim/undodir//          " Directory for saving undo files
-
-" Protect changes between writes. Default values of updatecount (200 keystrokes) and updatetime
-" (4 seconds) are fine
-set swapfile
-if !isdirectory($HOME."/.vim/swap") && !g:isWindows
-    silent call mkdir($HOME."/.vim/swap", 'p')
-endif
-set directory^=$HOME/.vim/swap//
-
-" protect against crash-during-write
-set writebackup
-" but do not persist backup after successful write
-set nobackup
-" use rename-and-write-new method whenever safe
-set backupcopy=auto
-" patch required to honor double slash at end
-if has("patch-8.1.0251")
-    if !isdirectory($HOME."/.vim/backup") && !g:isWindows
-        silent call mkdir($HOME."/.vim/backup", 'p')
-    endif
-    " consolidate the writebackups -- not a big
-    " deal either way, since they usually get deleted
-    set backupdir^=$HOME/.vim/backup//
-end
+set nobackup                            " Don't create files with backup copy (filename.txt~)
+set noswapfile                          " Don't create swap files
 " }}} Backup and temporary files "
 " Command line options {{{ "
 set path+=**                            " Provides tab-completion for all file-related tasks
@@ -154,6 +126,12 @@ autocmd FileType diff setlocal nospell
 " Other {{{ "
 set backspace=2 " Fix backspace behavior on mac os
 set hidden      " Can open new buffer even if current buffer has unsaved changes
+set undofile    " Save undo's after file closes"
+if !g:isWindows
+    silent !mkdir ~/.vim/undodir > /dev/null 2>&1
+    set undodir=~/.vim/undodir     " Directory for saving undo files
+endif
+
 set re=1                " force the old regex engine on any version newer (it helped to resolve performance with syntax highlighting)
 set lazyredraw          " Don’t update screen during macro and script execution.
 " }}} Other "
