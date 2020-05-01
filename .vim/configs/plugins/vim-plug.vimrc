@@ -60,7 +60,7 @@ Plug 'vifm/vifm.vim'                                    " Integrate vifm to vim
 " }}} File Tree "
 " Text manipulation {{{ "
 Plug 'wellle/targets.vim'                               " Add various text objects to VIM
-Plug 'terryma/vim-multiple-cursors'                     " Plugin for multiple cursors
+Plug 'mg979/vim-visual-multi'                           " Plugin for multiple cursors
 Plug 'tmhedberg/matchit'                                " Extend behavior of %
 Plug 'mbbill/undotree'                                  " The ultimate undo history visualizer for VIM
 Plug 'cohama/lexima.vim'                                " Vim plugin, insert or delete brackets, parens, quotes in pair
