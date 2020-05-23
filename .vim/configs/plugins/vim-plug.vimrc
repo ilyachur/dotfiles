@@ -1,4 +1,4 @@
- call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plugged')
 
 " Programming {{{ "
 " C++ {{{ "
@@ -37,11 +37,12 @@ Plug 'junegunn/gv.vim'                                  " Gitk for vim
 Plug 'mhinz/vim-signify'                                " Extencion for git
 Plug 'rhysd/committia.vim'                              " extended commit message
 Plug 'idanarye/vim-merginal', { 'branch': 'develop' }   " a nice inteface for dealing with Git branches
+Plug 'junegunn/vim-github-dashboard'                    " GitHub integration
 " }}} Git "
 " Search {{{ "
 Plug 'osyo-manga/vim-over'                              " Replace highlighter
 Plug 'wincent/ferret'                                   " Fast search and replace
-Plug 'romainl/vim-qf', { 'for': 'qf' }                  " Tame the quickfix window
+" Plug 'romainl/vim-qf', { 'for': 'qf' }                  " Tame the quickfix window
 if !g:isWindows
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 else
