@@ -20,7 +20,7 @@ endif
 Plug 'iamcco/markdown-preview.vim'                      " Markdown preview plugin
 " }}}
 " {{{ Code Completion "
-Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " }}} Code Completion "
 " {{{ Other "
 Plug 'scrooloose/nerdcommenter'                         " Enable commentaries
