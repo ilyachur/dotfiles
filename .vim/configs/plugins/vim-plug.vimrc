@@ -38,6 +38,9 @@ Plug 'mhinz/vim-signify'                                " Extencion for git
 Plug 'rhysd/committia.vim'                              " extended commit message
 Plug 'idanarye/vim-merginal', { 'branch': 'develop' }   " a nice inteface for dealing with Git branches
 Plug 'junegunn/vim-github-dashboard'                    " GitHub integration
+if has("nvim") && exists("$GH_USER") && exists("$GH_PASS")
+    Plug 'AGhost-7/critiq.vim'                          " Code review
+endif
 " }}} Git "
 " Search {{{ "
 Plug 'osyo-manga/vim-over'                              " Replace highlighter
