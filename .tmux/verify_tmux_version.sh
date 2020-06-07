@@ -4,21 +4,17 @@ verify_tmux_version () {
     tmux_home=~/.tmux
     tmux_version="$(tmux -V | cut -c 6-)"
 
-    if [[ $(echo "$tmux_version >= 2.1" | bc) -eq 1 ]] ; then
+    # if [[ $(echo "$tmux_version >= 2.1" | bc) -eq 1 ]] ; then
         tmux source-file "$tmux_home/tmux_2.1_up.conf"
-    #elif [[ $(echo "$tmux_version >= 1.9" | bc) -eq 1 ]] ; then
-    #    tmux source-file "$tmux_home/tmux_1.9_to_2.1.conf"
-    #    exit
-    else
-    #    tmux source-file "$tmux_home/tmux_1.9_down.conf"
-        tmux source-file "$tmux_home/tmux_2.1_down.conf"
-    fi
+    # else
+    #     tmux source-file "$tmux_home/tmux_2.1_down.conf"
+    # fi
     # Select theme
-    if [[ $(echo "$tmux_version > 2.8" | bc) -eq 1 ]] ; then
+    # if [[ $(echo "$tmux_version > 2.8" | bc) -eq 1 ]] ; then
         tmux source-file "$tmux_home/colors/tmux-theme_2.9_up.conf"
-    else
-        tmux source-file "$tmux_home/colors/tmux-theme.conf"
-    fi
+    # else
+    #     tmux source-file "$tmux_home/colors/tmux-theme.conf"
+    # fi
 }
 
 verify_tmux_version
