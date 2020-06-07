@@ -45,7 +45,7 @@ set vimhelp
 set norunexec
 
 " Selected color scheme
-colorscheme molokai
+colorscheme gruvbox
 
 " Show list of matches on tab completion in command-line mode
 set wildmenu
