@@ -14,6 +14,7 @@ ln -s ${ROOT_DIR}/.zshrc ${HOME}/
 ln -s ${ROOT_DIR}/.zsh ${HOME}/
 
 mkdir -p ${HOME}/.config
+ln -s ${ROOT_DIR}/.config/alacritty ${HOME}/.config
 ln -s ${ROOT_DIR}/.config/nvim ${HOME}/.config
 ln -s ${ROOT_DIR}/.config/vifm ${HOME}/.config
 
