@@ -97,6 +97,7 @@ set statusline="%-35f%10E%20d%15A | Free space: %8a"
 
 " Columns format
 set viewcolumns=-60%{name},20%{size},{mtime}
+set sizefmt=units:iec,precision:2
 " }}} View settings "
 
 " Standard functional keys {{{ "
