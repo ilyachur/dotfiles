@@ -1,4 +1,3 @@
-[ -f $HOME/.bashrc.local ] && source $HOME/.bashrc.local
 if [[ ! -d ~/.zplug ]]; then
     git clone https://github.com/b4b4r07/zplug ~/.zplug
 fi
@@ -49,3 +48,4 @@ bindkey -v
 # Load FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+[ -f $HOME/.bashrc.local ] && source $HOME/.bashrc.local

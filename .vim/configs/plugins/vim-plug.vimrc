@@ -3,7 +3,7 @@ call plug#begin('~/.vim/plugged')
 " Programming {{{ "
 " C++ {{{ "
 " Syntax highlighting {{{ "
-Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 " }}} Syntax highlighting "
 " {{{ Build systems
 if executable('cmake')

@@ -1,4 +1,7 @@
 {
+    "clangd.enabled": true,
+    "clangd.semanticHighlighting": true,
+    "clangd.checkUpdates": true,
     "suggest.triggerAfterInsertEnter": true,
     "suggest.timeout": 500,
     "python.jediEnabled": false,

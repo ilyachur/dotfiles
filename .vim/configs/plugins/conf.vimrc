@@ -20,7 +20,6 @@ let s:vim_configuration_files = [
 \ 'syntastic.vimrc',
 \ 'tags.vimrc',
 \ 'translate.vimrc',
-\ 'vim-cpp-enhanced-highlight.vimrc',
 \ 'wintabs.vimrc',
 \]
 
