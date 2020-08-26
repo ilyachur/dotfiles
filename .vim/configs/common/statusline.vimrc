@@ -178,6 +178,9 @@ function! GitInfo()
 endfunction
 
 function! CTagsInfo()
+    if (!exists('g:loaded_gutentags'))
+        return ''
+    endif
     return  gutentags#statusline('[', ']')
 endfunction
 

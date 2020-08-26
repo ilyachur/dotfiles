@@ -1,3 +1,22 @@
+function! SwithHeader(splitType)
+    if (a:splitType == "h")
+        silen! execute ":split"
+    elseif (a:splitType == "v")
+        silen! execute ":vsplit"
+    elseif (a:splitType == "t")
+        silen! execute ":tabe"
+    endif
+
+    silen! execute ":CocCommand clangd.switchSourceHeader"
+endfunction
+command! -nargs=0 A  call SwithHeader("")
+command! -nargs=0 AV call SwithHeader("v")
+command! -nargs=0 AS call SwithHeader("h")
+command! -nargs=0 AT call SwithHeader("t")
+
+if (!exists('g:loaded_gutentags'))
+    finish
+endif
 let g:gutentags_project_root = ['.git', '.local_vimrc', '.hg', '.svn']
 let g:gutentags_add_default_project_roots  = 1
 let g:gutentags_add_ctrlp_root_markers = 0
@@ -42,95 +61,3 @@ let g:gutentags_ctags_extra_args = [
     \ '--extra=+qf',
     \ '--c++-kinds=+p',
     \ ]
-
-" Find alternate
-" Use --extra=+f for ctags
-" function! SwithSource(splitType)
-"     let extMap = {
-"         \ 'cpp': ['hpp', 'h'],
-"         \ 'cxx': ['hpp', 'h'],
-"         \ 'c': ['hpp', 'h'],
-"         \ 'hpp': ['cpp', 'cxx', 'c'],
-"         \ 'h': ['cpp', 'cxx', 'c'],
-"     \ }
-"     let kinds = ['F']
-"     let fileName = expand('%:t:r')
-"     let fullFilePath = expand('%:p:r')
-"     let ext = expand('%:e')
-"
-"     let openCommand = ':e'
-"     if (a:splitType == "h")
-"         let openCommand = ':split'
-"     elseif (a:splitType == "v")
-"         let openCommand = ':vsplit'
-"     elseif (a:splitType == "t")
-"         let openCommand = ':tabe'
-"     endif
-"
-"     if has_key(extMap, ext)
-"         " First of all check local files
-"         for altExt in extMap[ext]
-"             let altFile = fullFilePath.".".altExt
-"             if filereadable(altFile)
-"                 silent! execute openCommand." ".altFile
-"                 return
-"             endif
-"         endfor
-"         for altExt in extMap[ext]
-"             let altFile = fileName.".".altExt
-"             for entry in taglist(altFile)
-"                 if index(kinds, entry.kind) > -1
-"                     silent! execute openCommand." ".entry.filename
-"                     return
-"                 endif
-"             endfor
-"         endfor
-"     endif
-"     echohl ErrorMsg |
-"                 \ echomsg "Cannot find alternate file for: ".@% |
-"                 \ echohl None
-"     return
-" endfunction
-"
-" command! -nargs=0 A call SwithSource("")
-" command! -nargs=0 AV call SwithSource("v")
-" command! -nargs=0 AS call SwithSource("h")
-" command! -nargs=0 AT call SwithSource("t")
-
-function! SwithHeader(splitType)
-    if (a:splitType == "h")
-        silen! execute ":split"
-    elseif (a:splitType == "v")
-        silen! execute ":vsplit"
-    elseif (a:splitType == "t")
-        silen! execute ":tabe"
-    endif
-
-    silen! execute ":CocCommand clangd.switchSourceHeader"
-endfunction
-command! -nargs=0 A  call SwithHeader("")
-command! -nargs=0 AV call SwithHeader("v")
-command! -nargs=0 AS call SwithHeader("h")
-command! -nargs=0 AT call SwithHeader("t")
-
-" let g:gutentags_ctags_exclude = [
-"     \ '*.git', '*.svn', '*.hg',
-"     \ 'build',
-"     \ 'bin',
-"     \ 'temp'
-"     \ 'docs',
-"     \ '*.md',
-"     \ '*.json', '*.xml', '*.bin',
-"     \ '*.pyc', '*.class',
-"     \ '*.pdb',
-"     \ 'tags*',
-"     \ 'cscope*',
-"     \ '*.exe', '*.dll',
-"     \ '*.mp3', '*.ogg', '*.flac',
-"     \ '*.bmp', '*.jpg', '*.gif', '*.png', '*.ico',
-"     \ '*.so', '*.a',
-"     \ '*.tar', '*.tar.gz', '*.tar.xz', '*.tar.bz2', '*.rar', '*.zip',
-"     \ '*.pdf', '*.doc', '*.docx', '*.ppt', '*.pptx',
-"     \ ]
-"
-" let g:gutentags_modules = ['ctags', 'gtags_cscope']
