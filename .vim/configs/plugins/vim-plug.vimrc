@@ -33,7 +33,7 @@ Plug 'rhysd/vim-clang-format'                           " clang-format
 " }}} Programming "
 " Git {{{ "
 Plug 'tpope/vim-fugitive'                               " Git plugin
-Plug 'junegunn/gv.vim'                                  " Gitk for vim
+Plug 'rbong/vim-flog'                                   " Gitk for vim
 Plug 'mhinz/vim-signify'                                " Extencion for git
 Plug 'rhysd/committia.vim'                              " extended commit message
 Plug 'idanarye/vim-merginal', { 'branch': 'develop' }   " a nice inteface for dealing with Git branches

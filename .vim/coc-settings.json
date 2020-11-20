@@ -1,5 +1,6 @@
 {
     "clangd.enabled": true,
+    "clangd.arguments": ["--suggest-missing-includes", "--background-index", "--clang-tidy", "--clang-tidy-checks=modernize-*,performance-*,-modernize-use-trailing-return-type,-modernize-concat-nested-namespaces","-j=2"],
     "clangd.semanticHighlighting": true,
     "clangd.checkUpdates": true,
     "suggest.triggerAfterInsertEnter": true,
