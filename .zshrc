@@ -40,12 +40,20 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 bindkey -v
 
 # Load theme
-[ -f $HOME/.zsh/colors/theme.zsh ] && source $HOME/.zsh/colors/theme.zsh
+if [ -f $HOME/.zsh/colors/theme.zsh ]; then
+    source $HOME/.zsh/colors/theme.zsh
+fi
 
 # Load configuration
-[ -f $HOME/.bashrc.global ] && source $HOME/.bashrc.global
+if [ -f $HOME/.bashrc.global ]; then
+    source $HOME/.bashrc.global
+fi
 
 # Load FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ -f ~/.fzf.zsh ]; then
+    source ~/.fzf.zsh
+fi
 
-[ -f $HOME/.bashrc.local ] && source $HOME/.bashrc.local
+if [ -f $HOME/.bashrc.local ]; then
+    source $HOME/.bashrc.local
+fi
