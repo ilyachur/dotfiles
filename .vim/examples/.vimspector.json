@@ -30,11 +30,11 @@
             }
         },
         "Python: Launch": {
-            "adapter": "vscode-python",
+            "adapter": "debugpy",
             "configuration": {
                 "name": "Python: Launch",
                 "type": "python",
-                "pythonPath": "python3",
+                "python": "python3",
                 "request": "launch",
                 "cwd": "${workspaceRoot}",
                 "stopOnEntry": true,
