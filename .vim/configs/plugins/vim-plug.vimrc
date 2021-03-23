@@ -93,6 +93,7 @@ Plug 'vim-scripts/DoxygenToolkit.vim'                   " Enable doxygen support
 Plug 'okcompute/vim-ctrlp-session'                      " Vim sessions
 Plug 'bogado/file-line'                                 " For open file:line
 Plug 'lervag/vimtex'                                    " Latex support
+Plug 'liuchengxu/graphviz.vim'                          " Graphiz support
 
 if !g:isWindows
     Plug 'echuraev/translate-shell.vim', { 'do': 'wget -O ~/.vim/trans git.io/trans && chmod +x ~/.vim/trans'  }
