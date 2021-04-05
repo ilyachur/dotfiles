@@ -39,9 +39,7 @@ Plug 'rhysd/committia.vim'                              " extended commit messag
 Plug 'idanarye/vim-merginal', { 'branch': 'develop' }   " a nice inteface for dealing with Git branches
 " }}} Git "
 " Search {{{ "
-Plug 'osyo-manga/vim-over'                              " Replace highlighter
 Plug 'wincent/ferret'                                   " Fast search and replace
-" Plug 'romainl/vim-qf', { 'for': 'qf' }                  " Tame the quickfix window
 if !g:isWindows
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 else
@@ -59,9 +57,7 @@ Plug 'tpope/vim-vinegar'                                " vinegar.vim enhances n
 Plug 'vifm/vifm.vim'                                    " Integrate vifm to vim
 " }}} File Tree "
 " Text manipulation {{{ "
-Plug 'wellle/targets.vim'                               " Add various text objects to VIM
 Plug 'mg979/vim-visual-multi'                           " Plugin for multiple cursors
-Plug 'tmhedberg/matchit'                                " Extend behavior of %
 Plug 'mbbill/undotree'                                  " The ultimate undo history visualizer for VIM
 Plug 'cohama/lexima.vim'                                " Vim plugin, insert or delete brackets, parens, quotes in pair
 " }}} Text manipulation "
@@ -76,7 +72,6 @@ Plug 'majutsushi/tagbar'                                " Tagbar
 Plug 'zefei/vim-wintabs'                                " Separate tabs for windows
 Plug 'farmergreg/vim-lastplace'                         " Intelligently reopen files at your last edit position
 Plug 'vim-scripts/netrw.vim'                            " Remote file editing
-Plug 'AndrewRadev/undoquit.vim'                         " Save closed buffers/windows
 " }}} Common "
 " View {{{ "
 Plug 'vim-scripts/LargeFile'                            " Enable big files support for vim
@@ -87,21 +82,14 @@ Plug 'morhetz/gruvbox'
 " }}} Color schemes "
 " }}} View "
 " Other {{{ "
-Plug 'itchyny/calendar.vim'                             " Calendar in VIM
 Plug 'chiphogg/vim-prototxt'                            " Enable prototxt support
 Plug 'vim-scripts/DoxygenToolkit.vim'                   " Enable doxygen support
-Plug 'okcompute/vim-ctrlp-session'                      " Vim sessions
 Plug 'bogado/file-line'                                 " For open file:line
 Plug 'lervag/vimtex'                                    " Latex support
 Plug 'liuchengxu/graphviz.vim'                          " Graphiz support
 
 if !g:isWindows
     Plug 'echuraev/translate-shell.vim', { 'do': 'wget -O ~/.vim/trans git.io/trans && chmod +x ~/.vim/trans'  }
-endif
-
-Plug 'ianding1/leetcode.vim'                            " Plugin for leetcode
-if executable('unfog')
-    Plug 'unfog-io/unfog-vim'                           " Time manager
 endif
 " }}} Other "
 
