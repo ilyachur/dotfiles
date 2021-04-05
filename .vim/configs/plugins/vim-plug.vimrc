@@ -84,6 +84,7 @@ Plug 'morhetz/gruvbox'
 " Other {{{ "
 Plug 'chiphogg/vim-prototxt'                            " Enable prototxt support
 Plug 'vim-scripts/DoxygenToolkit.vim'                   " Enable doxygen support
+Plug 'okcompute/vim-ctrlp-session'                      " Vim sessions
 Plug 'bogado/file-line'                                 " For open file:line
 Plug 'lervag/vimtex'                                    " Latex support
 Plug 'liuchengxu/graphviz.vim'                          " Graphiz support

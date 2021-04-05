@@ -165,24 +165,4 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%' " Get director
 " Reload vim configuration {{{ "
 nnoremap <leader>rs :source ~/.vimrc<CR>
 " }}} Reload vim configuration "
-" CalendarToggle function {{{ "
-let s:calendarToggle = 0
-let s:calendarBuf = -1
-function! CalendarToggle()
-    if s:calendarBuf > -1 && bufwinnr(s:calendarBuf) == -1
-        let s:calendarToggle = 0
-    endif
-    if s:calendarToggle
-        silent execute 'bd' s:calendarBuf
-        let s:calendarToggle = 0
-    else
-        :Calendar -view=year -split=vertical -width=27
-        let s:calendarToggle = 1
-        let s:calendarBuf = bufnr("%")
-    endif
-endfunction
-
-command! CalendarToggle execute 'call CalendarToggle()'
-noremap <leader>c :CalendarToggle<CR>
-" }}} CalendarToggle function "
 " }}} Other "
