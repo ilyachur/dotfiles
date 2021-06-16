@@ -4,7 +4,7 @@ let g:coc_global_extensions = [
     \ 'coc-dictionary',
     \ 'coc-json',
     \ 'coc-lists',
-    \ 'coc-python',
+    \ 'coc-pyright',
     \ 'coc-snippets',
     \ 'coc-tag',
     \ 'coc-vimtex',
