@@ -85,7 +85,7 @@ map <leader>fm :EditVifm<CR>
 " Development {{{ "
 " Compile key mapping {{{ "
 nnoremap <silent> <leader>r :CMakeResetAndReload<CR>
-nnoremap <F5> :Make<CR>
+nnoremap <F5> :CMakeBuild<CR>
 " }}} Compile key mapping "
 " Debugger {{{ "
 nnoremap <silent> <leader>ds   :call vimspector#Launch()<CR>
