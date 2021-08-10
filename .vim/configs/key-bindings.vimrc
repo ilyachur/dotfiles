@@ -100,10 +100,6 @@ nnoremap <silent> <F7>         :call vimspector#StepInto()<CR>
 nnoremap <silent> <F6>         :call vimspector#StepOut()<CR>
 " }}} Debugger "
 " LSP {{{ "
-" Use `[c` and `]c` for navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-
 " Remap keys for gotos
 nmap <silent> <leader>g <Plug>(coc-definition)
 nmap <silent> <leader>gd <Plug>(coc-type-definition)

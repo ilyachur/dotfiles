@@ -183,19 +183,6 @@ function! CTagsInfo()
     endif
     return  gutentags#statusline('[', ']')
 endfunction
-
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-
-    return l:counts.total == 0 ? 'OK' : printf(
-    \   '%dW %dE',
-    \   all_non_errors,
-    \   all_errors
-    \)
-endfunctio
 " }}} Common functions "
 " Sections {{{ "
 function! Section1(active, size)
@@ -280,8 +267,6 @@ function! Section5(active, size)
         let statLine .= "%3p%%"                                                 " Total (%)
         let statLine .= " "                                                     " Space
         let statLine .= "l: %2l/%L, c: %c"                                      " Line and column
-        let statLine .= " "                                                     " Space
-        let statLine .= "%{LinterStatus()}"
     endif
     return statLine
 endfunction

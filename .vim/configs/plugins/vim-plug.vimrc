@@ -66,7 +66,6 @@ if v:version > 704 || (v:version == 704 && has('patch248'))     " systemlist fun
     Plug 'chrisbra/vim-diff-enhanced' " Diff viewer
 endif
 Plug 'mhinz/vim-startify'                               " Nice start screen
-Plug 'w0rp/ale'                                         " Syntax checking plugin
 Plug 'will133/vim-dirdiff'                              " Dir diff viewer
 Plug 'majutsushi/tagbar'                                " Tagbar
 Plug 'zefei/vim-wintabs'                                " Separate tabs for windows
