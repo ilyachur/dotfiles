@@ -1,3 +1,3 @@
 " VIFM {{{ "
-let g:vifm_exec_args = '-c ":only"'
+" let g:vifm_exec_args = '-c ":only"'
 " }}} VIFM "

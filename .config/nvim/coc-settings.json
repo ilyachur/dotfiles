@@ -1,14 +1,14 @@
 {
+    "clangd.enabled": true,
+    "clangd.arguments": ["--background-index=false", "--header-insertion=iwyu", "--clang-tidy","-j=2"],
+    "clangd.semanticHighlighting": true,
+    "clangd.checkUpdates": true,
+    "coc.preferences.semanticTokensHighlights": false,
     "suggest.triggerAfterInsertEnter": true,
     "suggest.timeout": 500,
-    "languageserver": {
-        "clangd": {
-            "command": "clangd",
-            "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-            "filetypes": ["c", "cpp", "objc", "objcpp"]
-        }
+    "snippets.extends": {
+        "cpp": ["c"]
     },
-    "python.jediEnabled": false,
-    "python.linting.pylintEnabled": true,
-    "python.formatting.provider": "black"
+    "python.pythonPath": "python3",
+    "snippets.loadFromExtensions": false
 }
