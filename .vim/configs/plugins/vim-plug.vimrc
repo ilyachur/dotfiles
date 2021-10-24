@@ -2,9 +2,6 @@ call plug#begin('~/.vim/plugged')
 
 " Programming {{{ "
 " C++ {{{ "
-" Syntax highlighting {{{ "
-Plug 'jackguo380/vim-lsp-cxx-highlight'
-" }}} Syntax highlighting "
 " {{{ Build systems
 if executable('cmake')
     Plug 'ilyachur/cmake4vim'
@@ -30,6 +27,10 @@ if executable('ctags') || executable('cscope') || executable('gtags')
 endif
 Plug 'rhysd/vim-clang-format'                           " clang-format
 " }}} Other "
+" Syntax highlighting {{{ "
+" Plug 'jackguo380/vim-lsp-cxx-highlight' " Doesn't support clangd 13
+Plug 'octol/vim-cpp-enhanced-highlight'
+" }}} Syntax highlighting "
 " }}} Programming "
 " Git {{{ "
 Plug 'tpope/vim-fugitive'                               " Git plugin
