@@ -102,20 +102,9 @@ nnoremap <silent> <F6>         :call vimspector#StepOut()<CR>
 " LSP {{{ "
 " Remap keys for gotos
 nmap <silent> <leader>g <Plug>(coc-definition)
-nmap <silent> <leader>gd <Plug>(coc-type-definition)
+nmap <silent> <leader>gt <Plug>(coc-type-definition)
 nmap <silent> <leader>gi <Plug>(coc-implementation)
 nmap <silent> <leader>gr <Plug>(coc-references)
-
-function! s:show_documentation()
-  if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Use D for show documentation in preview window
-nnoremap <silent> <leader>D :call <SID>show_documentation()<CR>
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
