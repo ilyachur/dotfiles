@@ -10,5 +10,6 @@
         "cpp": ["c"]
     },
     "python.pythonPath": "python3",
+    "cmake.lsp.enable": true,
     "snippets.loadFromExtensions": false
 }

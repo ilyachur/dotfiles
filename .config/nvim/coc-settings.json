@@ -10,5 +10,8 @@
         "cpp": ["c"]
     },
     "python.pythonPath": "python3",
+    "cmake.lsp.enable": true,
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextCurrentLineOnly": false,
     "snippets.loadFromExtensions": false
 }
