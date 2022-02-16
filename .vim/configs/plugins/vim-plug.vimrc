@@ -10,7 +10,7 @@ endif
 " }}} C++ "
 " Debugging {{{ "
 if !g:isWindows && !g:isAndroid
-    Plug 'puremourning/vimspector', { 'do': './install_gadget.py --all --disable-tcl' }
+    Plug 'puremourning/vimspector', { 'do': './install_gadget.py --all --disable-tcl --disable-go' }
 endif
 " }}} Debugging "
 " {{{ Markdown
