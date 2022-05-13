@@ -28,8 +28,9 @@ endif
 Plug 'rhysd/vim-clang-format'                           " clang-format
 " }}} Other "
 " Syntax highlighting {{{ "
+" Use highlight from CoC "semanticTokens.filetypes": ["*"]
 " Plug 'jackguo380/vim-lsp-cxx-highlight' " Doesn't support clangd 13
-Plug 'octol/vim-cpp-enhanced-highlight'
+" Plug 'octol/vim-cpp-enhanced-highlight'
 " }}} Syntax highlighting "
 " }}} Programming "
 " Git {{{ "

@@ -3,7 +3,6 @@
     "clangd.arguments": ["--background-index=false", "--header-insertion=iwyu", "--clang-tidy","-j=2"],
     "clangd.semanticHighlighting": true,
     "clangd.checkUpdates": true,
-    "coc.preferences.semanticTokensHighlights": false,
     "suggest.triggerAfterInsertEnter": true,
     "suggest.timeout": 500,
     "snippets.extends": {
@@ -11,5 +10,6 @@
     },
     "python.pythonPath": "python3",
     "cmake.lsp.enable": true,
+    "semanticTokens.filetypes": ["*"],
     "snippets.loadFromExtensions": false
 }
