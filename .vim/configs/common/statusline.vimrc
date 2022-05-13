@@ -166,12 +166,12 @@ function! ReadOnly()
 endfunction
 
 function! GitInfo()
-    let git = fugitive#head()
+    let git = FugitiveHead()
     if git != ''
         if g:isWindows
-            return 'git:'.fugitive#head()
+            return 'git:'.FugitiveHead()
         endif
-        return ' '.fugitive#head()
+        return ' '.FugitiveHead()
     else
         return ''
     endif
