@@ -31,6 +31,10 @@ I use riprep for search, it is really nice! For more information see [here](http
 
 The next nice tool that I use is [FZF](https://github.com/junegunn/fzf). It helped me to use fuzzy finder in the terminal.
 
+### Install cmake-language-server
+
+For cmake lsp I use [cmake-language-server](https://github.com/regen100/cmake-language-server).
+
 
 ## Mac Installation
 

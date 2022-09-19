@@ -166,6 +166,9 @@ function! ReadOnly()
 endfunction
 
 function! GitInfo()
+    if !exists('g:loaded_fugitive')
+        return ''
+    endif
     let git = FugitiveHead()
     if git != ''
         if g:isWindows
