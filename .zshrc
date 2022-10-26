@@ -7,6 +7,14 @@ if [ -f ~/.zplug/log/job.lock ]; then
     rm -f ~/.zplug/log/job.lock
 fi
 
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
 source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2          # Syntax highlighting for commands

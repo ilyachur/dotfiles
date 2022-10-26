@@ -61,7 +61,6 @@ Plug 'vifm/vifm.vim'                                    " Integrate vifm to vim
 " Text manipulation {{{ "
 Plug 'mg979/vim-visual-multi'                           " Plugin for multiple cursors
 Plug 'mbbill/undotree'                                  " The ultimate undo history visualizer for VIM
-Plug 'cohama/lexima.vim'                                " Vim plugin, insert or delete brackets, parens, quotes in pair
 " }}} Text manipulation "
 " Common {{{ "
 if v:version > 704 || (v:version == 704 && has('patch248'))     " systemlist function was added in patch 248
