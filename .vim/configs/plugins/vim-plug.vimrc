@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 if executable('cmake')
     Plug 'ilyachur/cmake4vim'
 endif
+Plug 'ilyachur/gtest-vim'
 " }}}
 " }}} C++ "
 " Debugging {{{ "
