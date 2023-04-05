@@ -84,7 +84,7 @@ map <leader>fm :EditVifm<CR>
 " }}} Files navigation "
 " Development {{{ "
 " Compile key mapping {{{ "
-nnoremap <silent> <leader>r :CMakeResetAndReload<CR>
+nnoremap <silent> <leader>r :CMake<CR>
 nnoremap <F5> :CMakeBuild<CR>
 " }}} Compile key mapping "
 " Debugger {{{ "
