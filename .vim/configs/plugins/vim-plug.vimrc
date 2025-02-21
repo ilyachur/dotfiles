@@ -18,7 +18,10 @@ endif
 Plug 'iamcco/markdown-preview.vim'                      " Markdown preview plugin
 " }}}
 " {{{ Code Completion "
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 " }}} Code Completion "
 " {{{ Other "
 Plug 'scrooloose/nerdcommenter'                         " Enable commentaries

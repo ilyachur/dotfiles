@@ -101,31 +101,19 @@ nnoremap <silent> <F6>         :call vimspector#StepOut()<CR>
 " }}} Debugger "
 " LSP {{{ "
 " Remap keys for gotos
-nmap <silent> <leader>g <Plug>(coc-definition)
-nmap <silent> <leader>gt <Plug>(coc-type-definition)
-nmap <silent> <leader>gi <Plug>(coc-implementation)
-nmap <silent> <leader>gr <Plug>(coc-references)
+nmap <silent> <leader>g <Plug>(lsp-definition)
+nmap <silent> <leader>gt <Plug>(lsp-type-definition)
+nmap <silent> <leader>gi <Plug>(lsp-implementation)
+nmap <silent> <leader>gr <Plug>(lsp-references)
 
 " Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> [g <Plug>(lsp-previous-diagnostic)
+nmap <silent> ]g <Plug>(lsp-next-diagnostic)
 
 " Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-nmap <Leader>rf <Plug>(coc-refactor)
+nmap <leader>rn <Plug>(lsp-rename)
+nmap <silent> <leader>qf <Plug>(lsp-code-action-float)
 
-" Remap for format selected region
-vmap <leader>cf  <Plug>(coc-format-selected)
-nmap <leader>cf  <Plug>(coc-format-selected)
-
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-vmap <leader>cas  <Plug>(coc-codeaction-selected)
-nmap <leader>cas  <Plug>(coc-codeaction-selected)
-
-" Remap for do codeAction of current line
-nmap <leader>ca  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
 " }}} LSP "
 " VCS {{{ "
 nnoremap <silent> <leader>vs :Gstatus<CR>

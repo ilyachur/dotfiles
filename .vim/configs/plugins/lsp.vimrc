@@ -1,36 +1,28 @@
-let g:coc_global_extensions = [
-    \ 'coc-clangd',
-    \ 'coc-cmake',
-    \ 'coc-dictionary',
-    \ 'coc-json',
-    \ 'coc-lists',
-    \ 'coc-pyright',
-    \ 'coc-snippets',
-    \ 'coc-tag',
-    \ 'coc-vimtex',
-    \ 'coc-yaml',
-    \ 'coc-yank',
-    \]
-
-if exists('g:did_coc_loaded')
-    " Highlight symbol under cursor on CursorHold
-    autocmd CursorHold * silent call CocActionAsync('highlight')
-
-    " Use K to show documentation in preview window.
-    nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-    function! s:show_documentation()
-        if (index(['vim','help'], &filetype) >= 0)
-            execute 'h '.expand('<cword>')
-        elseif (coc#rpc#ready())
-            call CocActionAsync('doHover')
-        else
-            execute '!' . &keywordprg . " " . expand('<cword>')
-        endif
-    endfunction
-
-    " Use `:Format` for format current buffer
-    command! -nargs=0 Format :call CocAction('format')
-    " Use `:Fold` for fold current buffer
-    command! -nargs=? Fold :call CocAction('fold', <f-args>)
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd', '--background-index', '--header-insertion=iwyu', '--clang-tidy']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
 endif
+
+setlocal omnifunc=lsp#complete
+setlocal signcolumn=yes
+if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+
+let g:lsp_insert_text_enabled = 1
+let g:lsp_use_lua = has('nvim-0.4.0') || (has('lua') && has('patch-8.2.0775'))
+let g:lsp_semantic_enabled = 1
+
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_virtual_text_enabled = 1
+let g:lsp_diagnostics_virtual_text_prefix = " ‣ "
+let g:lsp_diagnostics_virtual_text_align = "after"
+let g:lsp_diagnostics_float_cursor = 1
+let g:lsp_diagnostics_signs_error = {'text': '✗'}
+let g:lsp_diagnostics_signs_warning = {'text': '‼'}
+let g:lsp_diagnostics_signs_hint = {'text': '!'}
+let g:lsp_document_code_action_signs_hint = {'text': '‼'}
+let g:lsp_show_workspace_edits = 1
+
+autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
