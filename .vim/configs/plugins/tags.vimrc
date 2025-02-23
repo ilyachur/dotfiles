@@ -1,18 +1,56 @@
-function! SwithHeader(splitType)
+" Find alternate
+" Use --extra=+f for ctags
+function! SwithSource(splitType)
+    let extMap = {
+        \ 'cpp': ['hpp', 'h'],
+        \ 'cxx': ['hpp', 'h'],
+        \ 'c': ['hpp', 'h'],
+        \ 'hpp': ['cpp', 'cxx', 'c'],
+        \ 'h': ['cpp', 'cxx', 'c'],
+    \ }
+    let kinds = ['F']
+    let fileName = expand('%:t:r')
+    let fullFilePath = expand('%:p:r')
+    let ext = expand('%:e')
+
+    let openCommand = ':e'
     if (a:splitType == "h")
-        silen! execute ":split"
+        let openCommand = ':split'
     elseif (a:splitType == "v")
-        silen! execute ":vsplit"
+        let openCommand = ':vsplit'
     elseif (a:splitType == "t")
-        silen! execute ":tabe"
+        let openCommand = ':tabe'
     endif
 
-    silen! execute ":CocCommand clangd.switchSourceHeader"
+    if has_key(extMap, ext)
+        " First of all check local files
+        for altExt in extMap[ext]
+            let altFile = fullFilePath.".".altExt
+            if filereadable(altFile)
+                silent! execute openCommand." ".altFile
+                return
+            endif
+        endfor
+        for altExt in extMap[ext]
+            let altFile = fileName.".".altExt
+            for entry in taglist(altFile)
+                if index(kinds, entry.kind) > -1
+                    silent! execute openCommand." ".entry.filename
+                    return
+                endif
+            endfor
+        endfor
+    endif
+    echohl ErrorMsg |
+                \ echomsg "Cannot find alternate file for: ".@% |
+                \ echohl None
+    return
 endfunction
-command! -nargs=0 A  call SwithHeader("")
-command! -nargs=0 AV call SwithHeader("v")
-command! -nargs=0 AS call SwithHeader("h")
-command! -nargs=0 AT call SwithHeader("t")
+
+command! -nargs=0 A call SwithSource("")
+command! -nargs=0 AV call SwithSource("v")
+command! -nargs=0 AS call SwithSource("h")
+command! -nargs=0 AT call SwithSource("t")
 
 if (!exists('g:loaded_gutentags'))
     finish
